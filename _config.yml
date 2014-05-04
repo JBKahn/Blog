@@ -13,11 +13,11 @@ owner:
   avatar:         bio-photo.jpg
   email:          josephbkahn@gmail
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        https://twitter.com/JosephBKahn
-  facebook:       https://www.facebook.com/josephkahn
-  github:         github.com/JBKahn
+  twitter:        JosephBKahn
+  facebook:       josephkahn
+  github:         JBKahn
   stackexchange:  
-  linkedin:       https://ca.linkedin.com/in/jbkahn/
+  linkedin:       jbkahn
   instagram:      
   flickr:         
   tumblr:         
