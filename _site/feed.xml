@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">A Byte Of The Apple</title>
+<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="http://jbkahn.github.io/Blog/feed.xml" />
+<link rel="alternate" type="text/html" href="http://jbkahn.github.io/Blog/" />
+<updated>2014-05-04T00:11:06-04:00</updated>
+<id>http://jbkahn.github.io/Blog/</id>
+<author>
+  <name>Joseph Kahn</name>
+  <uri>http://jbkahn.github.io/Blog/</uri>
+  <email>josephbkahn@gmail</email>
+</author>
+
+
+<entry>
+  <title type="html"><![CDATA[My First Post]]></title>
+  <link rel="alternate" type="text/html" href="http://jbkahn.github.io/Blog/articles/starting-the-blog/"/>
+  <id>http://jbkahn.github.io/Blog/articles/starting-the-blog</id>
+  <updated>2014-05-03T00:00:00-00:00</updated>
+  <published>2014-05-03T00:00:00-04:00</published>
+  
+  <author>
+    <name>Joseph Kahn</name>
+    <uri>http://jbkahn.github.io/Blog</uri>
+    <email>josephbkahn@gmail</email>
+  </author>
+  <content type="html">&lt;h3 id=&quot;starting-out&quot;&gt;Starting Out&lt;/h3&gt;
+
+&lt;p&gt;As much as I’d like to put out my first post today, It’s been a long day and I’m currently working on my new website to go with this blog. More content to follow.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://jbkahn.github.io/Blog/articles/starting-the-blog/&quot;&gt;My First Post&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://jbkahn.github.io/Blog&quot;&gt;A Byte Of The Apple&lt;/a&gt; on May 03, 2014.&lt;/p&gt;</content>
+</entry>
+
+</feed>
