@@ -38,7 +38,7 @@ links:
   - title: Articles
     url: /articles/
   - title: My Website
-    url: https://jbkahn.github.io
+    url: http://jbkahn.github.io
     external: true
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
