@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://jbkahn.github.io/Blog</loc>
+        <loc>http://blog.josephkahn.io</loc>
     </url>
     
     
     <url>
-        <loc>http://jbkahn.github.io/Blog/index.html</loc>
+        <loc>http://blog.josephkahn.io/404.html</loc>
     </url>
     
     <url>
-        <loc>http://jbkahn.github.io/Blog/tags/</loc>
+        <loc>http://blog.josephkahn.io/about/</loc>
     </url>
     
     <url>
-        <loc>http://jbkahn.github.io/Blog/sitemap.xml</loc>
+        <loc>http://blog.josephkahn.io/articles/</loc>
     </url>
     
     <url>
-        <loc>http://jbkahn.github.io/Blog/about/</loc>
+        <loc>http://blog.josephkahn.io/feed.xml</loc>
     </url>
     
     <url>
-        <loc>http://jbkahn.github.io/Blog/404.html</loc>
+        <loc>http://blog.josephkahn.io/index.html</loc>
     </url>
     
     <url>
-        <loc>http://jbkahn.github.io/Blog/search.json</loc>
+        <loc>http://blog.josephkahn.io/search.json</loc>
     </url>
     
     <url>
-        <loc>http://jbkahn.github.io/Blog/articles/</loc>
+        <loc>http://blog.josephkahn.io/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>http://jbkahn.github.io/Blog/feed.xml</loc>
+        <loc>http://blog.josephkahn.io/tags/</loc>
     </url>
     
 
     
     <url>
-        <loc>http://jbkahn.github.io/Blog/articles/starting-the-blog/</loc>
+        <loc>http://blog.josephkahn.io/articles/starting-the-blog/</loc>
     </url>
     
 </urlset>
