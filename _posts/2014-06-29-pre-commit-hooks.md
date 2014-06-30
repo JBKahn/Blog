@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Pre-commit Hooks: The Good, The Bad & The Ugly"
+title: "Pre-commit Hooks: The Good, The Bad &amp; The Ugly"
 description: "My thoughts of using and creating a good pre-commit hook"
 modified: 2014-06-29
 category: articles
