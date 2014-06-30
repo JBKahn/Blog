@@ -7,7 +7,7 @@ modified: 2014-05-03
 ---
 
 <div style="text-align: center;">
-    <img src="/Blog/images/bio-photo.jpg">
+    <img src="blog.josephkahn.io/images/bio-photo.jpg">
 </div>
 
 I'm a software developer currently working a 16 months as a co-op at [Wave](https://waveapps.com) through the PEY program at the University of Toronto. I'm working towards developing my skills in several areas and will use this blog to document my journey into the world of software development.
