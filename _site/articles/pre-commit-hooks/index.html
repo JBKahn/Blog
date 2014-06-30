@@ -1,3 +1,289 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Pre-commit Hooks: The Good, The Bad & The Ugly &#8211; A Byte Of The Apple</title>
+<meta name="description" content="My thoughts of using and creating a good pre-commit hook">
+<meta name="keywords" content="post">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.josephkahn.io/images/">
+<meta name="twitter:title" content="Pre-commit Hooks: The Good, The Bad & The Ugly">
+<meta name="twitter:description" content="My thoughts of using and creating a good pre-commit hook">
+<meta name="twitter:creator" content="@JosephBKahn">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pre-commit Hooks: The Good, The Bad & The Ugly">
+<meta property="og:description" content="My thoughts of using and creating a good pre-commit hook">
+<meta property="og:url" content="http://blog.josephkahn.io/articles/pre-commit-hooks/">
+<meta property="og:site_name" content="A Byte Of The Apple">
+
+
+
+
+
+<link rel="canonical" href="http://blog.josephkahn.io/articles/pre-commit-hooks/">
+<link href="http://blog.josephkahn.io/feed.xml" type="application/atom+xml" rel="alternate" title="A Byte Of The Apple Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://blog.josephkahn.io/assets/css/main.min.css">
+<!-- Webfonts -->
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://blog.josephkahn.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://blog.josephkahn.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://blog.josephkahn.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://blog.josephkahn.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://blog.josephkahn.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://blog.josephkahn.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://blog.josephkahn.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://blog.josephkahn.io/about/">About</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://blog.josephkahn.io/articles/">Articles</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://jbkahn.github.io">My Website</a>
+				 
+			</li>
+	        
+	        <li><a href="http://blog.josephkahn.io/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead">
+	<div class="wrap">
+        
+        <h1 class="site-title animated fadeIn"><a href="http://blog.josephkahn.io/">A Byte Of The Apple</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">Becoming A Better Developer One Mistake At A Time</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://blog.josephkahn.io/tags/#post" title="Pages tagged post">post</a></span>
+        
+          <h1 class="entry-title">Pre-commit Hooks: The Good, The Bad & The Ugly</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://blog.josephkahn.io/images/bio-photo.jpg" alt="Joseph Kahn photo" class="author-photo">
+        <span class="author vcard">By <span class="fn"><a href="http://blog.josephkahn.io/about/" title="About Joseph Kahn">Joseph Kahn</a></span></span>
+        <span class="entry-date date published"><time datetime="2014-06-29T00:00:00-04:00"><i class="icon-calendar-empty"></i> June 29, 2014</time></span>
+        <span class="entry-date date modified"><time datetime="2014-06-29"><i class="icon-pencil"></i> June 29, 2014</time></span>
+        <span class="entry-comments"><i class="icon-comment-alt"></i> <a href="#disqus_thread">Comment</a></span>
+        <span><a href="http://blog.josephkahn.io/articles/pre-commit-hooks/" rel="bookmark" title="Pre-commit Hooks: The Good, The Bad & The Ugly"><i class="icon-link"></i> Permalink</a></span>
+        
+        <span class="social-share-facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.josephkahn.io/articles/pre-commit-hooks/" title="Share on Facebook" itemprop="Facebook"><i class="icon-facebook-sign"></i> Like</a></span>
+        <span class="social-share-twitter">
+            <a href="https://twitter.com/intent/tweet?hashtags=articles&text=Pre-commit Hooks: The Good, The Bad & The Ugly&url=http://blog.josephkahn.io/articles/pre-commit-hooks/&via=JosephBKahn" title="Share on Twitter" itemprop="Twitter"><i class="icon-twitter-sign"></i> Tweet</a></span>
+        <span class="social-share-googleplus">
+            <a href="https://plus.google.com/share?url=http://blog.josephkahn.io/articles/pre-commit-hooks/" title="Share on Google Plus" itemprop="GooglePlus"><i class="icon-google-plus-sign"></i> +1</a></span>
+            <!-- /.social-share -->
+      </footer>
+      <div class="entry-content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>I know it has been a while since I put the page up but I’ve been busy. I’ve been preparing for a big interview, working full time at Wave and taking a class at night twice a week. So I decided to take an hour and write up a quick post about something I’ve been working on recently (hopefully it isn’t too badly written). Since I’ve been working on my pre-commit hook at work, I’ll write a bit about my thoughts on them. I hope by taking the time to write this, I can get in the groove of writing more often.</p>
+
+<h1 id="the-good">The Good</h1>
+
+<p>The good thing about pre-commit hooks is that you can “stop” yourself, and team members, from pushing code that doesn’t pass through various checks. You can’t really stop this because they can force push or not use the hook, but you can discourage it. A lot of these checks tend to be running the changed files through a linter and a handful of custom scripts. I’ve worked quite a bit with Django so I’ll be using some examples from my experiences within the post but these could apply to any language.</p>
+
+<p>A simple example of a custom script I plan to write, for working with Django, is to search for any url in any git added html files. Any local links or assets that use direct linking should be caught by the hook. This is bad practice and can lead to a headache later on if the static directory changes name or the URL of a page changes. I’ve run into this in the past, where I wanted to make the URLs of a website more friendly and uniform. The old templates had direct links to pages throughout and as a result, I had to fix them by hand. I named each url and used Django’s url tag instead. This way if we decide to change the url of one of our pages we could simply change the one line in the urls.py file. After doing that, each link to that page will be generated on the fly using the tag. I would also like to add another check that looks at any file name that does not end in ‘thirdparty.html’ and not allow any direct links at all. The rest could be stored in a context processor so that there is one place for all outside links that don’t belong to third party code.</p>
+
+<h1 id="the-bad">The Bad</h1>
+
+<p>So far I’ve only touched on what I like about pre-commit hooks but there is also a bad side. It’s easy to fall into a trap where developers ignore pre-commit hook results or treated them as ‘good to merge’ test. The former tends to happen when using pre-commit hooks with legacy code which does not meet the requirements of new hooks. In that situation the team has to make an active decision to fix anything found by the script in order for it to be effective. This means making legacy code match the new standards every time you alter an older file. This can be annoying when a one line change nets fixing hundreds of linting, indentation and whitespace errors. This can lead to skipping the pre-commit hook or ignoring its output if not agreed upon by the team. The opposing effect is that a developer may view pre-commit hook results as being much more valuable than it really is. It’s possible for there to be holes or missing checks in the hook. This is especially true for code design standards that are not community standards. The take away in this case should be to treat it as one step in a checklist before merging code, not the checklist itself.</p>
+
+<h1 id="the-ugly">The Ugly</h1>
+
+<p>Now to get down to an actual example. I’ll be including a part of the pre-commit hook I use at work, with anything Wave specific removed:
+<script src="https://gist.github.com/JBKahn/34362b12152f3c79555c.js"></script></p>
+
+<p>The above hook can be broken down into several sections:</p>
+
+<ol>
+  <li>Check for duplicate south migration files. This is used to avoid merging branches into master with the same migration number as an existing migration. This would make it harder to rollback code and can happen to long running branches.</li>
+  <li>Run python files through flake8 for style and simple linting checks (i,e. unnecessary imports) as well as print statement and debug statement checkers.</li>
+  <li>Run coffee script and javascript files through jshint and coffee-jshint linters.</li>
+  <li>Run JSON files through jsonlint, good for node, grunt and bower.</li>
+</ol>
+
+<p>This is a work in progress as I hope to continuously improve this script as I find more things to lint and improvements for this script.</p>
+
+<p>Things I’d like to do:</p>
+
+<ul>
+  <li>Use the cached version of the files added that git diff can output. I would pass these to the linters instead so that I can lint only the copies staged for commit and not the local copy in the folder.</li>
+  <li>Work on a ‘jshintrc’ file so that the js linter will not use the default settings and will only do the checks I want it to do.</li>
+  <li>CSS/LESS linting; I’m uncertain it’s of huge value but there are a few things I might add custom scripts to check for.</li>
+  <li>The URLs and the direct links in the html files of Django projects.</li>
+</ul>
+
+        <div id="disqus_thread"></div><!-- /#disqus_thread -->
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://blog.josephkahn.io/articles/starting-the-blog/" class="btn" title="My First Post">Previous article</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2014 Joseph Kahn. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="http://twitter.com/JosephBKahn" title="Joseph Kahn on Twitter" target="_blank"><i class="icon-twitter icon-2x"></i></a>
+	<a href="http://facebook.com/josephkahn" title="Joseph Kahn on Facebook" target="_blank"><i class="icon-facebook icon-2x"></i></a>
+	
+	<a href="http://linkedin.com/in/jbkahn" title="Joseph Kahn on LinkedIn" target="_blank"><i class="icon-linkedin icon-2x"></i></a>
+	
+	
+	
+	<a href="http://github.com/JBKahn" title="Joseph Kahn on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://blog.josephkahn.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://blog.josephkahn.io/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://blog.josephkahn.io/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-49300323-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'abyteoftheapplejbkahn'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 <html><!--<![endif]--><head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="x-dns-prefetch-control" content="off">
@@ -365,3 +651,6 @@ width: 140px;">@JosephBKahn</span>
 
 
 </follow></html>
+
+</body>
+</html>

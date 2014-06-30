@@ -16,6 +16,6 @@ I'm a software developer currently working a 16 months as a co-op at [Wave](http
 
 * Tech books I'm reading.
 * Projects I'm working on at work, that I'm allowed to discuss.
-* Projects I'm working on outside of work. 
+* Projects I'm working on outside of work.
 * Things I learn during development.
 * Anything else I do relating to the world of tech.
