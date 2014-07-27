@@ -4,13 +4,110 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://blog.josephkahn.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/" />
-<updated>2014-06-29T22:23:49-04:00</updated>
+<updated>2014-07-27T12:38:58-04:00</updated>
 <id>http://blog.josephkahn.io/</id>
 <author>
   <name>Joseph Kahn</name>
   <uri>http://blog.josephkahn.io/</uri>
   <email>josephbkahn@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It]]></title>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/ansible/"/>
+  <id>http://blog.josephkahn.io/articles/ansible</id>
+  <updated>2014-07-27T00:00:00-00:00</updated>
+  <published>2014-07-27T00:00:00-04:00</published>
+  
+  <author>
+    <name>Joseph Kahn</name>
+    <uri>http://blog.josephkahn.io</uri>
+    <email>josephbkahn@gmail.com</email>
+  </author>
+  <content type="html">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;I know it has been a while since I put up my last post, but school was kept me busy. I wrote this one in a hurry and ask that you excuse any spelling and grammar mistakes. In particular, I’ve been taking &lt;a href=&quot;http://www.cs.utoronto.ca/~lalla/csc373/index.html&quot;&gt;CSC 373 - Algorithm Design, Analysis, and Complexity&lt;/a&gt; and have had several assignments to work on. In my free time, I’ve been working on my own Ansible script. &lt;a href=&quot;http://www.ansible.com/home&quot;&gt;Ansible&lt;/a&gt; is a tool used to deploy and update applications in an easy to use language, using SSH, with no agents to install on remote systems. The specifications for Ansible are all written in YAML, making them well structured and generally easy to follow. Back at Wave, Nathan wrote &lt;a href=&quot;http://engineering.waveapps.io/post/80595462671/an-ansible-primer&quot;&gt;An Ansible primer&lt;/a&gt; blog post on the &lt;a href=&quot;http://engineering.waveapps.io/&quot;&gt;Wave Engineering blog&lt;/a&gt;. Here, I’ll be taking you through my Ansible script as a practical example of what you could use Ansible for, outside of setting up remote servers.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, having recently had a hard drive failure on my laptop. I had to manually setup my machine just the way I like it. Realizing the colossal waste of time it was to lookup the ppa’s I needed, the Sager specific driver I’d installed for my keyboard backlight and trying to recall what I used most. This time I’d done the smart thing and simply documented all my steps. There were a few missing things there involving using dconf, gconftool-2 and gsettings and a couple of steps I’d not yet written down. We’d been using Ansible at Wave and my last attempt to learn it met with confusion, ten VMs running in the background and an episode of The Sopranos. I had tried to follow Nathan’s example (simplifying it along the way) as well as a bunch of other tutorials relating to Django. They all met with failure to get a successfully provisioned VM. I’d been making small contributions at work to our Ansible scripts in hopes to get the practice I needed for when I decided to try again. That’s when &lt;a href=&quot;https://twitter.com/_AlexTucker&quot;&gt;Alex Tucker&lt;/a&gt; suggested I take my setup instructions and give it another go at Ansible. Now that you know how I got started, I’ll get into the project.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-file-structure--content&quot;&gt;The File Structure &amp;amp; Content&lt;/h1&gt;
+
+&lt;p&gt;This is mostly self explanatory, I’ll go into more detail about each section.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/JBKahn/4cf7668346a2903337a7.js&quot;&gt;&lt;/script&gt;
+
+&lt;h1 id=&quot;the-hosts-file&quot;&gt;The HOSTS file&lt;/h1&gt;
+
+&lt;p&gt;This file lets Ansible know where the machines are located, in this case all we’ll need is localhost.
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/HOSTS&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;the-requirements-file&quot;&gt;The Requirements File&lt;/h1&gt;
+
+&lt;p&gt;Some on the Ansible modules have requirements, the Ansible docs provide them on each modules page.
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/requirements.txt&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;the-master-playbook&quot;&gt;The Master Playbook&lt;/h1&gt;
+
+&lt;p&gt;This is also pretty simple. Here we can define what we run where, here I’m just telling it to run the scripts, in my common role, on the local machine.
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/setup.yml&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;common-roles-variables-mainyml&quot;&gt;Common Roles: Variables main.yml&lt;/h1&gt;
+
+&lt;p&gt;Here we can define variables which we can use with {{ variable name ]} syntax. I use some of them to conditionally run tasks, to do them for a particular user and for downloading applications which are not available via ppa.
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/vars/main.yml&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;common-roles-files&quot;&gt;Common Roles: Files&lt;/h1&gt;
+
+&lt;p&gt;For example, I place the autostart files in there so that I can copy them into the correct directory so applications will launch on boot. I also have configuration files for applications and my terminal.
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/files/variety.desktop&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;common-tasks&quot;&gt;Common Tasks&lt;/h1&gt;
+
+&lt;p&gt;Here’s where most of the coding is and I’ll provide three examples, the rest you can checkout in the repository.&lt;/p&gt;
+
+&lt;p&gt;1) main.yml
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/main.yml&quot;&gt;&lt;/script&gt;
+‘mail.yml’ is the file that the setup.yml common role calls, I just use it to conditionally call the other task files I use.&lt;/p&gt;
+
+&lt;p&gt;2) base16.yml
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/base16.yml&quot;&gt;&lt;/script&gt;
+Here I make use of the git, file and command modules to checkout the amazing &lt;a href=&quot;https://github.com/chriskempson/base16&quot;&gt;base-16&lt;/a&gt; color scheme for my terminal, set it as the default and set the font (which I already setup in another task).&lt;/p&gt;
+
+&lt;p&gt;3) vim.yml
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/vim.yml&quot;&gt;&lt;/script&gt;
+Another part of my setup is to put Vim and all of the important packages on my machine. Unfortunately, when I had tried to install the packages it seemed that missing my color scheme file prevented me from downloading it through Vundle. Using Ansible’s copy module I’m taking the current version (rather than doing a git pull for a more up to date one) to temporarily place the file there and have it replaced by running the setup.&lt;/p&gt;
+
+&lt;p&gt;4) work.yml
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/work.yml&quot;&gt;&lt;/script&gt;
+There’s a fair amount of overlap between things I use for my personal projects and those which I need for work. In here I’ve put the more development focused requirements making use of some of its wide variety of modules for installing packages through pip, .deb files and apt.&lt;/p&gt;
+
+&lt;p&gt;5) laptop.yml
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/work.yml&quot;&gt;&lt;/script&gt;
+One of the disadvantages of using linux can be that some things are hard to make work, although Ubuntu helps with a lot of it. For a long time I was unable to dim my backlight and my keyboard backlight was always on and always blue. Through the use of a small settings tweak, a custom driver and a custom script I wrote for changing the keyboard backlight, I’m not able to do all of these things. The task will only run contingent on the sager_laptop variable being true. One of the truly great modules in called ‘lineinfile’ and it does is ensure that a line exists in a file. That sounds pretty simple but it offers the ability to use a regular expression to identify the line (so that if it does not exist but it is meant to replace another line, it will) and the ability to create the file if it does not exist (configurable).&lt;/p&gt;
+
+&lt;h1 id=&quot;the-script&quot;&gt;The script&lt;/h1&gt;
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/run.sh&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;By using: &lt;code&gt;bash wget -qO- https://github.com/JBKahn/provisioning-local/raw/master/run.sh | sudo bash&lt;/code&gt;
+you can have this script download and run and have the machine setup in no time. It handles the requirements, and starts up three of the applications after the provisioning is completed.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-output&quot;&gt;The Output&lt;/h1&gt;
+&lt;script src=&quot;https://gist.github.com/JBKahn/2c74224e6b03ed3a255e.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Here after I run it, it will tell me how many of them at ran (changed) or did not require any more work (ok). There are some tasks (i.e. commands) which will always be ‘changed’ unless they are conditionally executed or a module is written to explain to Ansible how to check and see if something has changed.&lt;/p&gt;
+
+&lt;h1 id=&quot;thats-it&quot;&gt;That’s It&lt;/h1&gt;
+
+&lt;p&gt;That’s all you need to get this up and running and provisioning your own machine. I hope to be able to write a blog post about using it with Vagrant and what the differences are. For now, I’ll leave you with a few relevant links:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/JBKahn/provisioning-local&quot;&gt;The Repository&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://docs.ansible.com/list_of_all_modules.html&quot;&gt;Ansible Modules&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://blog.josephkahn.io/articles/ansible/&quot;&gt;Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://blog.josephkahn.io&quot;&gt;A Byte Of The Apple&lt;/a&gt; on July 27, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
