@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://blog.josephkahn.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/" />
-<updated>2014-07-27T12:44:09-04:00</updated>
+<updated>2014-07-31T09:53:35-04:00</updated>
 <id>http://blog.josephkahn.io/</id>
 <author>
   <name>Joseph Kahn</name>
@@ -64,11 +64,11 @@
 
 &lt;h1 id=&quot;common-tasks&quot;&gt;Common Tasks&lt;/h1&gt;
 
-&lt;p&gt;Here’s where most of the coding is and I’ll provide three examples, the rest you can checkout in the repository.&lt;/p&gt;
+&lt;p&gt;Here’s where most of the coding is and I’ll provide five examples, the rest you can checkout in the repository.&lt;/p&gt;
 
 &lt;p&gt;1) main.yml
 &lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/main.yml&quot;&gt;&lt;/script&gt;
-‘mail.yml’ is the file that the setup.yml common role calls, I just use it to conditionally call the other task files I use.&lt;/p&gt;
+‘main.yml’ is the file that the setup.yml common role calls, I just use it to conditionally call the other task files I use.&lt;/p&gt;
 
 &lt;p&gt;2) base16.yml
 &lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/base16.yml&quot;&gt;&lt;/script&gt;
@@ -83,7 +83,7 @@ Another part of my setup is to put Vim and all of the important packages on my m
 There’s a fair amount of overlap between things I use for my personal projects and those which I need for work. In here I’ve put the more development focused requirements making use of some of its wide variety of modules for installing packages through pip, .deb files and apt.&lt;/p&gt;
 
 &lt;p&gt;5) laptop.yml
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/work.yml&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/laptop.yml&quot;&gt;&lt;/script&gt;
 One of the disadvantages of using linux can be that some things are hard to make work, although Ubuntu helps with a lot of it. For a long time I was unable to dim my backlight and my keyboard backlight was always on and always blue. Through the use of a small settings tweak, a custom driver and a custom script I wrote for changing the keyboard backlight, I’m not able to do all of these things. The task will only run contingent on the sager_laptop variable being true. One of the truly great modules in called ‘lineinfile’ and it does is ensure that a line exists in a file. That sounds pretty simple but it offers the ability to use a regular expression to identify the line (so that if it does not exist but it is meant to replace another line, it will) and the ability to create the file if it does not exist (configurable).&lt;/p&gt;
 
 &lt;h1 id=&quot;the-script&quot;&gt;The script&lt;/h1&gt;
