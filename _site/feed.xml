@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://blog.josephkahn.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/" />
-<updated>2014-08-17T02:22:43-04:00</updated>
+<updated>2014-08-17T02:29:23-04:00</updated>
 <id>http://blog.josephkahn.io/</id>
 <author>
   <name>Joseph Kahn</name>
@@ -98,7 +98,7 @@
     &lt;span class=&quot;sd&quot;&gt;&amp;#39;&amp;#39;&amp;#39; Return value of setting, under `key`, from gconftool-2&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run_command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;gconftool-2 --get {}&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;The &lt;code&gt;module&lt;/code&gt; set in the above code block contains some circuital functions, one of which is &lt;code&gt;run_command&lt;/code&gt;. This wraps the native python system library for running commands. It has very good error handling and provides a plethora or input options. Most of those aren’t needed for simple tasks like running &lt;code&gt;gconftool-2&lt;/code&gt;. All I’m doing in the code block is building the command that I’d previously supplied to the Command Module. I’ve already shown how to define the arguments, but now I’ll show how to access them.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;module&lt;/code&gt; set in the above code block contains some crucial functions, one of which is &lt;code&gt;run_command&lt;/code&gt;. This wraps the native python system library for running commands. It has very good error handling and provides a plethora of input options. Most of those aren’t needed for simple tasks like running &lt;code&gt;gconftool-2&lt;/code&gt;. All I’m doing in the code block is building the command that I’d previously supplied to the Command Module. I’ve already shown how to define the arguments, but now I’ll show how to access them.&lt;/p&gt;
 
 &lt;h1 id=&quot;argument-accessing&quot;&gt;Argument Accessing&lt;/h1&gt;
 

@@ -212,7 +212,7 @@
     <span class="sd">&#39;&#39;&#39; Return value of setting, under `key`, from gconftool-2&#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s">&#39;gconftool-2 --get {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></code></pre></div>
 
-<p>The <code>module</code> set in the above code block contains some circuital functions, one of which is <code>run_command</code>. This wraps the native python system library for running commands. It has very good error handling and provides a plethora or input options. Most of those aren’t needed for simple tasks like running <code>gconftool-2</code>. All I’m doing in the code block is building the command that I’d previously supplied to the Command Module. I’ve already shown how to define the arguments, but now I’ll show how to access them.</p>
+<p>The <code>module</code> set in the above code block contains some crucial functions, one of which is <code>run_command</code>. This wraps the native python system library for running commands. It has very good error handling and provides a plethora of input options. Most of those aren’t needed for simple tasks like running <code>gconftool-2</code>. All I’m doing in the code block is building the command that I’d previously supplied to the Command Module. I’ve already shown how to define the arguments, but now I’ll show how to access them.</p>
 
 <h1 id="argument-accessing">Argument Accessing</h1>
 
