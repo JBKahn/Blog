@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://blog.josephkahn.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/" />
-<updated>2014-08-17T02:29:23-04:00</updated>
+<updated>2014-08-17T02:32:17-04:00</updated>
 <id>http://blog.josephkahn.io/</id>
 <author>
   <name>Joseph Kahn</name>
@@ -174,7 +174,7 @@
 
 &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;As you can see, there isn’t much more to do. That conditional is how I support check mode. All I’m doing here is calling my getter and setter and then using Ansible’s &lt;code&gt;module.exit_json()&lt;/code&gt; to handle to integration with Ansible. It requires the &lt;code&gt;changed&lt;/code&gt; argument and the rest is custom and allows me to decide what gets printed on the screen when things change. It’s also important to note that at the bottom of the file I’m calling the &lt;code&gt;main&lt;/code&gt; function, which is required to run the module. The only other section of the file, which I’ve done solely to that I may contribute to Ansible, is the documentation at the top of the time.&lt;/p&gt;
+&lt;p&gt;As you can see, there isn’t much more to do. That conditional is how I support check mode. All I’m doing here is calling my getter and setter and then using Ansible’s &lt;code&gt;module.exit_json()&lt;/code&gt; to handle to integration with Ansible. It requires the &lt;code&gt;changed&lt;/code&gt; argument and the rest is custom and allows me to decide what gets printed on the screen when things change. It’s also important to note that at the bottom of the file I’m calling the &lt;code&gt;main&lt;/code&gt; function, which is required to run the module. The only other section of the file, which I’ve done so that I may contribute to Ansible, is the documentation at the top of the file.&lt;/p&gt;
 
 &lt;h1 id=&quot;documentation&quot;&gt;Documentation&lt;/h1&gt;
 

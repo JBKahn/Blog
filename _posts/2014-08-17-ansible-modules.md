@@ -170,7 +170,7 @@ def main():
 main()
 {% endhighlight %}
 
-As you can see, there isn't much more to do. That conditional is how I support check mode. All I'm doing here is calling my getter and setter and then using Ansible's `module.exit_json()` to handle to integration with Ansible. It requires the `changed` argument and the rest is custom and allows me to decide what gets printed on the screen when things change. It's also important to note that at the bottom of the file I'm calling the `main` function, which is required to run the module. The only other section of the file, which I've done solely to that I may contribute to Ansible, is the documentation at the top of the time.
+As you can see, there isn't much more to do. That conditional is how I support check mode. All I'm doing here is calling my getter and setter and then using Ansible's `module.exit_json()` to handle to integration with Ansible. It requires the `changed` argument and the rest is custom and allows me to decide what gets printed on the screen when things change. It's also important to note that at the bottom of the file I'm calling the `main` function, which is required to run the module. The only other section of the file, which I've done so that I may contribute to Ansible, is the documentation at the top of the file.
 
 # Documentation
 
