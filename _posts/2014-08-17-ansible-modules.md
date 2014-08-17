@@ -88,7 +88,7 @@ def _get_value(module, key):
     return module.run_command('gconftool-2 --get {}'.format(key))[1].strip()
 {% endhighlight %}
 
-The `module` set in the above code block contains some crucial functions, one of which is `run_command`. This wraps the native python system library for running commands. It has very good error handling and provides a plethora or input options. Most of those aren't needed for simple tasks like running `gconftool-2`. All I'm doing in the code block is building the command that I'd previously supplied to the Command Module. I've already shown how to define the arguments, but now I'll show how to access them.
+The `module` set in the above code block contains some crucial functions, one of which is `run_command`. This wraps the native python system library for running commands. It has very good error handling and provides a plethora of input options. Most of those aren't needed for simple tasks like running `gconftool-2`. All I'm doing in the code block is building the command that I'd previously supplied to the Command Module. I've already shown how to define the arguments, but now I'll show how to access them.
 
 # Argument Accessing
 
