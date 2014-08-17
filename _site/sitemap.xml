@@ -6,27 +6,11 @@
     
     
     <url>
-        <loc>http://blog.josephkahn.io/index.html</loc>
-    </url>
-    
-    <url>
-        <loc>http://blog.josephkahn.io/tags/</loc>
-    </url>
-    
-    <url>
-        <loc>http://blog.josephkahn.io/sitemap.xml</loc>
-    </url>
-    
-    <url>
-        <loc>http://blog.josephkahn.io/about/</loc>
-    </url>
-    
-    <url>
         <loc>http://blog.josephkahn.io/404.html</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/search.json</loc>
+        <loc>http://blog.josephkahn.io/about/</loc>
     </url>
     
     <url>
@@ -37,7 +21,27 @@
         <loc>http://blog.josephkahn.io/feed.xml</loc>
     </url>
     
+    <url>
+        <loc>http://blog.josephkahn.io/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://blog.josephkahn.io/search.json</loc>
+    </url>
+    
+    <url>
+        <loc>http://blog.josephkahn.io/sitemap.xml</loc>
+    </url>
+    
+    <url>
+        <loc>http://blog.josephkahn.io/tags/</loc>
+    </url>
+    
 
+    
+    <url>
+        <loc>http://blog.josephkahn.io/articles/ansible-modules/</loc>
+    </url>
     
     <url>
         <loc>http://blog.josephkahn.io/articles/ansible/</loc>

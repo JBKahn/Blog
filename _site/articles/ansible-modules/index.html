@@ -5,30 +5,30 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It &#8211; A Byte Of The Apple</title>
-<meta name="description" content="How I got started using Ansible and created a script to replace my post reformat setup">
+<title>For a Few Ansible Modules More &#8211; A Byte Of The Apple</title>
+<meta name="description" content="Writing my own ansible modules to make the most of the tool">
 <meta name="keywords" content="post">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://blog.josephkahn.io/images/">
-<meta name="twitter:title" content="Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It">
-<meta name="twitter:description" content="How I got started using Ansible and created a script to replace my post reformat setup">
+<meta name="twitter:title" content="For a Few Ansible Modules More">
+<meta name="twitter:description" content="Writing my own ansible modules to make the most of the tool">
 <meta name="twitter:creator" content="@JosephBKahn">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It">
-<meta property="og:description" content="How I got started using Ansible and created a script to replace my post reformat setup">
-<meta property="og:url" content="http://blog.josephkahn.io/articles/ansible/">
+<meta property="og:title" content="For a Few Ansible Modules More">
+<meta property="og:description" content="Writing my own ansible modules to make the most of the tool">
+<meta property="og:url" content="http://blog.josephkahn.io/articles/ansible-modules/">
 <meta property="og:site_name" content="A Byte Of The Apple">
 
 
 
 
 
-<link rel="canonical" href="http://blog.josephkahn.io/articles/ansible/">
+<link rel="canonical" href="http://blog.josephkahn.io/articles/ansible-modules/">
 <link href="http://blog.josephkahn.io/feed.xml" type="application/atom+xml" rel="alternate" title="A Byte Of The Apple Feed">
 
 
@@ -119,104 +119,243 @@
       <header class="entry-header">
         <span class="entry-tags"><a href="http://blog.josephkahn.io/tags/#post" title="Pages tagged post">post</a></span>
         
-          <h1 class="entry-title">Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It</h1>
+          <h1 class="entry-title">For a Few Ansible Modules More</h1>
         
       </header>
       <footer class="entry-meta">
         <img src="http://blog.josephkahn.io/images/bio-photo.jpg" alt="Joseph Kahn photo" class="author-photo">
         <span class="author vcard">By <span class="fn"><a href="http://blog.josephkahn.io/about/" title="About Joseph Kahn">Joseph Kahn</a></span></span>
-        <span class="entry-date date published"><time datetime="2014-07-27T00:00:00-04:00"><i class="icon-calendar-empty"></i> July 27, 2014</time></span>
-        <span class="entry-date date modified"><time datetime="2014-07-27"><i class="icon-pencil"></i> July 27, 2014</time></span>
+        <span class="entry-date date published"><time datetime="2014-08-17T00:00:00-04:00"><i class="icon-calendar-empty"></i> August 17, 2014</time></span>
+        <span class="entry-date date modified"><time datetime="2014-08-17"><i class="icon-pencil"></i> August 17, 2014</time></span>
         <span class="entry-comments"><i class="icon-comment-alt"></i> <a href="#disqus_thread">Comment</a></span>
-        <span><a href="http://blog.josephkahn.io/articles/ansible/" rel="bookmark" title="Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It"><i class="icon-link"></i> Permalink</a></span>
+        <span><a href="http://blog.josephkahn.io/articles/ansible-modules/" rel="bookmark" title="For a Few Ansible Modules More"><i class="icon-link"></i> Permalink</a></span>
         
         <span class="social-share-facebook">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.josephkahn.io/articles/ansible/" title="Share on Facebook" itemprop="Facebook"><i class="icon-facebook-sign"></i> Like</a></span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.josephkahn.io/articles/ansible-modules/" title="Share on Facebook" itemprop="Facebook"><i class="icon-facebook-sign"></i> Like</a></span>
         <span class="social-share-twitter">
-            <a href="https://twitter.com/intent/tweet?hashtags=articles&text=Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It&url=http://blog.josephkahn.io/articles/ansible/&via=JosephBKahn" title="Share on Twitter" itemprop="Twitter"><i class="icon-twitter-sign"></i> Tweet</a></span>
+            <a href="https://twitter.com/intent/tweet?hashtags=articles&text=For a Few Ansible Modules More&url=http://blog.josephkahn.io/articles/ansible-modules/&via=JosephBKahn" title="Share on Twitter" itemprop="Twitter"><i class="icon-twitter-sign"></i> Tweet</a></span>
         <span class="social-share-googleplus">
-            <a href="https://plus.google.com/share?url=http://blog.josephkahn.io/articles/ansible/" title="Share on Google Plus" itemprop="GooglePlus"><i class="icon-google-plus-sign"></i> +1</a></span>
+            <a href="https://plus.google.com/share?url=http://blog.josephkahn.io/articles/ansible-modules/" title="Share on Google Plus" itemprop="GooglePlus"><i class="icon-google-plus-sign"></i> +1</a></span>
             <!-- /.social-share -->
       </footer>
       <div class="entry-content">
         <h1 id="introduction">Introduction</h1>
 
-<p>I know it has been a while since I put up my last post, but school was kept me busy. I wrote this one in a hurry and ask that you excuse any spelling and grammar mistakes. In particular, I’ve been taking <a href="http://www.cs.utoronto.ca/~lalla/csc373/index.html">CSC 373 - Algorithm Design, Analysis, and Complexity</a> and have had several assignments to work on. In my free time, I’ve been working on my own Ansible script. <a href="http://www.ansible.com/home">Ansible</a> is a tool used to deploy and update applications in an easy to use language, using SSH, with no agents to install on remote systems. The specifications for Ansible are all written in YAML, making them well structured and generally easy to follow. Back at Wave, Nathan wrote <a href="http://engineering.waveapps.io/post/80595462671/an-ansible-primer">An Ansible primer</a> blog post on the <a href="http://engineering.waveapps.io/">Wave Engineering blog</a>. Here, I’ll be taking you through my Ansible script as a practical example of what you could use Ansible for, outside of setting up remote servers.</p>
+<p>Once again, school has kept me busy. I’ve since finished taking <a href="http://www.cs.utoronto.ca/~lalla/csc373/index.html">CSC 373 - Algorithm Design, Analysis, and Complexity</a>, completing a final assignment and subsequent exam. I’ve just gotten back to working on the Ansible script that I started a month ago. In case you missed my post from last time, <a href="http://www.ansible.com/home">Ansible</a> is a tool used to deploy and update applications in an easy to use language, using SSH, with no agents to install on remote systems. The specifications for Ansible are all written in YAML, making them well structured and generally easy to follow. Back at Wave, Nathan wrote <a href="http://engineering.waveapps.io/post/80595462671/an-ansible-primer">An Ansible primer</a> blog post on the <a href="http://engineering.waveapps.io/">Wave Engineering blog</a>. A few weeks ago, I wrote a post about using ansible to setup my local machine: <a href="/articles/ansible/">Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It</a>. Here, I’ll be taking you through the creation of custom modules, starting with the why.</p>
 
-<p>Unfortunately, having recently had a hard drive failure on my laptop. I had to manually setup my machine just the way I like it. When setting up, I realized the colossal waste of time it was to lookup the ppa’s I needed, the Sager specific driver I’d installed for my keyboard backlight and trying to recall what I used most. This time I’d done the smart thing and simply documented all my steps. There were a few missing things there involving using dconf, gconftool-2 and gsettings and a couple of steps I’d not yet written down. We’d been using Ansible at Wave and my last attempt to learn it met with confusion, ten VMs running in the background and an episode of The Sopranos. I had tried to follow Nathan’s example (simplifying it along the way) as well as a bunch of other tutorials relating to Django. They all met with failure to get a successfully provisioned VM. I’d been making small contributions at work to our Ansible scripts in hopes to get the practice I needed for when I decided to try again. That’s when <a href="https://twitter.com/_AlexTucker">Alex Tucker</a> suggested I take my setup instructions and give it another go at Ansible. Now that you know how I got started, I’ll get into the project.</p>
+<p>While writing the YAML for my task files, I found there were a few common tasks I wanted to do that did not have a module wrapper. The easy way to deal with those tasks is to use the <a href="http://docs.ansible.com/command_module.html">Command module</a>. That way I can tell Ansible to execute an arbitrary command on the machine. There are some downsides to doing this, which depend on the specific commands in question. One thing I  like about the output of Ansible is that it can tell me how many commands Ansible executed, previously executed and caused errors  (if I allow them). But yet, arbitrary commands are always run because Ansible has no way to know if they have been executed.</p>
 
-<h1 id="the-file-structure--content">The File Structure &amp; Content</h1>
+<p>There are two options that I saw to address this, as I wanted to lower the number of changed tasks on repeated runs. I also wanted to prevent some commands from running multiple times. The first is to add another task and use conditional execution. I did that for two of the tasks, however it still had to register a changed task in order to do the check. This led me to look into writing my own modules and I wasn’t able to find many great examples. I should have started with looking at the modules in the Ansible library, but that did not occur to me. In the end I wrote the modules with the help of the docs, the ansible IRC channel and ansible library modules. Below I’ll outline writing my own module as well as conditional execution.</p>
 
-<p>This is mostly self explanatory, I’ll go into more detail about each section.</p>
+<h1 id="conditional-execution">Conditional Execution</h1>
 
-<script src="https://gist.github.com/JBKahn/4cf7668346a2903337a7.js"></script>
+<p>There isn’t a whole lot to write here, the code is  self explanatory. I wrote this to fix a screen dimming issue on my sager laptop. This particular set of tasks is also conditionally executed, covered by my last blog post.</p>
 
-<h1 id="the-hosts-file">The HOSTS file</h1>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">screen dimming - alter grub file</span>
+  <span class="l-Scalar-Plain">lineinfile</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dest=/etc/default/grub regexp=^GRUB_CMDLINE_LINUX_DEFAULT= line=&#39;GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash video.use_native_backlight=1&quot;&#39;</span>
+  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+  <span class="l-Scalar-Plain">register</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">grubfile</span>
 
-<p>This file lets Ansible know where the machines are located, in this case all we’ll need is localhost.
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/HOSTS"></script></p>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">screen dimming - update grub</span>
+  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo update-grub</span>
+  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">grubfile|changed</span></code></pre></div>
 
-<h1 id="the-requirements-file">The Requirements File</h1>
+<h1 id="module-writing">Module Writing</h1>
 
-<p>Some on the Ansible modules have requirements, the Ansible docs provide them on each modules page.
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/requirements.txt"></script></p>
+<p>The first thing to work out for a new module is what arguments it will take and how to leverage Ansible to do most of the heavily lifting around it. Here’s the start of my Ansible module for gconftool-2:</p>
 
-<h1 id="the-master-playbook">The Master Playbook</h1>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">ansible.constants</span> <span class="kn">import</span> <span class="n">mk_boolean</span>
+<span class="kn">from</span> <span class="nn">ansible.module_utils.basic</span> <span class="kn">import</span> <span class="o">*</span>
 
-<p>This is also pretty simple. Here we can define what we run where, here I’m just telling it to run the scripts, in my common role, on the local machine.
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/setup.yml"></script></p>
 
-<h1 id="common-roles-variables-mainyml">Common Roles: Variables main.yml</h1>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 
-<p>Here we can define variables which we can use with {{ variable name ]} syntax. I use some of them to conditionally run tasks, to do them for a particular user and for downloading applications which are not available via ppa.
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/vars/main.yml"></script></p>
+    <span class="n">module</span> <span class="o">=</span> <span class="n">AnsibleModule</span><span class="p">(</span>
+        <span class="n">argument_spec</span><span class="o">=</span><span class="p">{</span>
+            <span class="s">&#39;key&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;required&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+            <span class="s">&#39;bool&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;bool&#39;</span><span class="p">},</span>
+            <span class="s">&#39;int&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;int&#39;</span><span class="p">},</span>
+            <span class="s">&#39;string&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;str&#39;</span><span class="p">},</span>
+            <span class="s">&#39;float&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;float&#39;</span><span class="p">},</span>
+            <span class="s">&#39;list&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;list&#39;</span><span class="p">},</span>
+            <span class="s">&#39;pair&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;list&#39;</span><span class="p">},</span>
+            <span class="s">&#39;pair-cdr-type&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;choices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">]},</span>
+            <span class="s">&#39;pair-car-type&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;choices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">]},</span>
+            <span class="s">&#39;list-type&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;choices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">]}</span>
+        <span class="p">},</span>
+        <span class="n">mutually_exclusive</span><span class="o">=</span><span class="p">[</span>
+            <span class="p">[</span><span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="s">&#39;list&#39;</span><span class="p">,</span> <span class="s">&#39;pair&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="s">&#39;list-type&#39;</span><span class="p">,</span> <span class="s">&#39;pair&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="s">&#39;list&#39;</span><span class="p">,</span> <span class="s">&#39;pair-car-type&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="s">&#39;list&#39;</span><span class="p">,</span> <span class="s">&#39;pair-cdr-type&#39;</span><span class="p">]</span>
+        <span class="p">],</span>
+        <span class="n">required_one_of</span><span class="o">=</span><span class="p">[[</span><span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="s">&#39;list&#39;</span><span class="p">,</span> <span class="s">&#39;pair&#39;</span><span class="p">]],</span>
+        <span class="n">required_together</span><span class="o">=</span><span class="p">[</span>
+            <span class="p">[</span><span class="s">&#39;pair&#39;</span><span class="p">,</span> <span class="s">&#39;pair-car-type&#39;</span><span class="p">,</span> <span class="s">&#39;pair-cdr-type&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s">&#39;list&#39;</span><span class="p">,</span> <span class="s">&#39;list-type&#39;</span><span class="p">]</span>
+        <span class="p">],</span>
+        <span class="n">supports_check_mode</span><span class="o">=</span><span class="bp">True</span>
+    <span class="p">)</span></code></pre></div>
 
-<h1 id="common-roles-files">Common Roles: Files</h1>
+<p>Most of that is pretty easy to follow and it shows a few of the options Ansible handles.  It handles mutual exclusions, requiring one of a set items as well as items which are required together. Additionally, in the <code>argument_spec</code> you can also define defaults (and more, although this was all that I needed). The <code>supports_check_mode</code> is a boolean which represents that the module supports dry runs. Now that I’ve defined my argument structure, it’s time to get onto the next piece of code.</p>
 
-<p>For example, I place the autostart files in there so that I can copy them into the correct directory so applications will launch on boot. I also have configuration files for applications and my terminal.
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/files/variety.desktop"></script></p>
+<h1 id="the-getter-and-setter">The Getter and Setter</h1>
 
-<h1 id="common-tasks">Common Tasks</h1>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_set_value</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">argument_type</span><span class="p">,</span> <span class="n">additional_args</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Set value of setting, under `key`, using gconftool-2 to `value` of type `argument_type`&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&#39;/usr/bin/gconftool-2 --set --type {} {} &quot;{}&quot; {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">argument_type</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">additional_args</span><span class="p">)]))</span>
 
-<p>Here’s where most of the coding is and I’ll provide five examples, the rest you can checkout in the repository.</p>
 
-<p>1) main.yml
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/main.yml"></script>
-‘main.yml’ is the file that the setup.yml common role calls, I just use it to conditionally call the other task files I use.</p>
+<span class="k">def</span> <span class="nf">_get_value</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Return value of setting, under `key`, from gconftool-2&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s">&#39;gconftool-2 --get {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></code></pre></div>
 
-<p>2) base16.yml
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/base16.yml"></script>
-Here I make use of the git, file and command modules to checkout the amazing <a href="https://github.com/chriskempson/base16">base-16</a> color scheme for my terminal, set it as the default and set the font (which I already setup in another task).</p>
+<p>The <code>module</code> set in the above code block contains some circuital functions, one of which is <code>run_command</code>. This wraps the native python system library for running commands. It has very good error handling and provides a plethora or input options. Most of those aren’t needed for simple tasks like running <code>gconftool-2</code>. All I’m doing in the code block is building the command that I’d previously supplied to the Command Module. I’ve already shown how to define the arguments, but now I’ll show how to access them.</p>
 
-<p>3) vim.yml
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/vim.yml"></script>
-Another part of my setup is to put Vim and all of the important packages on my machine. Unfortunately, when I had tried to install the packages it seemed that missing my color scheme file prevented me from downloading it through Vundle. Using Ansible’s copy module I’m taking the current version (rather than doing a git pull for a more up to date one) to temporarily place the file there and have it replaced by running the setup.</p>
+<h1 id="argument-accessing">Argument Accessing</h1>
 
-<p>4) work.yml
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/work.yml"></script>
-There’s a fair amount of overlap between things I use for my personal projects and those which I need for work. In here I’ve put the more development focused requirements making use of some of its wide variety of modules for installing packages through pip, .deb files and apt.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">key</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;key&#39;</span><span class="p">]</span>
+<span class="n">boolean_value</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;bool&#39;</span><span class="p">]</span>
+<span class="n">string_value</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;string&#39;</span><span class="p">]</span>
+<span class="n">integer_value</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;int&#39;</span><span class="p">]</span>
+<span class="n">float_value</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;float&#39;</span><span class="p">]</span>
+<span class="n">list_value</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;list&#39;</span><span class="p">]</span>
+<span class="n">pair_value</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;pair&#39;</span><span class="p">]</span></code></pre></div>
 
-<p>5) laptop.yml
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/laptop.yml"></script>
-One of the disadvantages of using linux can be that some things are hard to make work, although Ubuntu helps with a lot of it. For a long time I was unable to dim my backlight and my keyboard backlight was always on and always blue. Through the use of a small settings tweak, a custom driver and a custom script I wrote for changing the keyboard backlight, I’m not able to do all of these things. The task will only run contingent on the sager_laptop variable being true. One of the truly great modules in called ‘lineinfile’ and it does is ensure that a line exists in a file. That sounds pretty simple but it offers the ability to use a regular expression to identify the line (so that if it does not exist but it is meant to replace another line, it will) and the ability to create the file if it does not exist (configurable).</p>
+<p>Ansible makes arguments extremly easy to access. Now I’ll show you a sample of how I worked with the input.</p>
 
-<h1 id="the-script">The script</h1>
-<script src="http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/run.sh"></script>
+<h1 id="argument-parsing">Argument Parsing</h1>
 
-<p>By using: <code>bash wget -qO- https://github.com/JBKahn/provisioning-local/raw/master/run.sh | sudo bash</code>
-you can have this script download and run and have the machine setup in no time. It handles the requirements, and starts up three of the applications after the provisioning is completed.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">additional_args</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="n">instance_type_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;int&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s">&#39;float&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s">&#39;bool&#39;</span><span class="p">:</span> <span class="n">mk_boolean</span><span class="p">}</span>
+<span class="k">if</span> <span class="n">boolean_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">argument_type</span> <span class="o">=</span> <span class="s">&#39;bool&#39;</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">mk_boolean</span><span class="p">(</span><span class="n">boolean_value</span><span class="p">))</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">old_value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">mk_boolean</span><span class="p">(</span><span class="n">old_value</span><span class="p">))</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="k">elif</span> <span class="n">float_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">argument_type</span> <span class="o">=</span> <span class="s">&#39;float&#39;</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">float_value</span>
+<span class="o">...</span>
+<span class="k">elif</span> <span class="n">pair_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pair_value</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">module</span><span class="o">.</span><span class="n">fail_json</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s">&#39;A pair must be a list of length 2, {} items found.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pair_value</span><span class="p">)))</span>
+    <span class="n">argument_type</span> <span class="o">=</span> <span class="s">&#39;pair&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">car_value</span> <span class="o">=</span> <span class="n">pair_value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">car_type</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;pair-car-type&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">car_type</span> <span class="o">==</span> <span class="s">&#39;bool&#39;</span><span class="p">:</span>
+            <span class="n">module</span><span class="o">.</span><span class="n">boolean</span><span class="p">(</span><span class="n">car_value</span><span class="p">)</span>
+            <span class="n">car_value</span> <span class="o">=</span> <span class="n">mk_boolean</span><span class="p">(</span><span class="n">car_value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">str</span><span class="p">(</span><span class="n">instance_type_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">car_type</span><span class="p">)(</span><span class="n">car_value</span><span class="p">))</span> <span class="o">==</span> <span class="n">car_value</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
 
-<h1 id="the-output">The Output</h1>
-<script src="https://gist.github.com/JBKahn/2c74224e6b03ed3a255e.js"></script>
+        <span class="n">cdr_value</span> <span class="o">=</span> <span class="n">pair_value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">cdr_type</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;pair-cdr-type&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">cdr_type</span> <span class="o">==</span> <span class="s">&#39;bool&#39;</span><span class="p">:</span>
+            <span class="n">module</span><span class="o">.</span><span class="n">boolean</span><span class="p">(</span><span class="n">cdr_value</span><span class="p">)</span>
+            <span class="n">cdr_value</span> <span class="o">=</span> <span class="n">mk_boolean</span><span class="p">(</span><span class="n">cdr_value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">str</span><span class="p">(</span><span class="n">instance_type_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cdr_type</span><span class="p">)(</span><span class="n">cdr_value</span><span class="p">))</span> <span class="o">==</span> <span class="n">cdr_value</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">module</span><span class="o">.</span><span class="n">fail_json</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s">&#39;pair type `{}` or `{}` does not match the type of the contents.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;pair-car-type&#39;</span><span class="p">],</span> <span class="n">module</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;pair-cdr-type&#39;</span><span class="p">]))</span>
+    <span class="n">additional_args</span> <span class="o">=</span> <span class="s">&#39;--car-type={} --cdr-type={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">car_type</span><span class="p">,</span> <span class="n">cdr_type</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="s">&#39;({},{})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">car_value</span><span class="p">,</span> <span class="n">cdr_value</span><span class="p">)</span></code></pre></div>
 
-<p>Here after I run it, it will tell me how many of them at ran (changed) or did not require any more work (ok). There are some tasks (i.e. commands) which will always be ‘changed’ unless they are conditionally executed or a module is written to explain to Ansible how to check and see if something has changed.</p>
+<p>There are a few interesting things to note in this code block. The type specifications works for individual items but there is no equivalent for lists. When I set <code>pair</code> to type <code>list</code> it does not support type checking of particular elements or the length of the list. As such, I have to do my own error checking. Fortunately, Ansible provides a <code>module.fail_json(msg='blah')</code> to use for error reporting back to the console. There is a lot more you can provide than just a message but for my purposes that was perfect. Otherwise I’m just formatting the code to send off to my getter and setter. Now I’ll provide you with the skeleton for the rest of the module.</p>
+
+<h1 id="the-skeleton">The Skeleton</h1>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c">#  module specification</span>
+    <span class="n">old_value</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    <span class="c"># argument parsing</span>
+
+    <span class="n">changed</span> <span class="o">=</span> <span class="n">old_value</span> <span class="o">!=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">changed</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">module</span><span class="o">.</span><span class="n">check_mode</span><span class="p">:</span>
+        <span class="n">_set_value</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">argument_type</span><span class="p">,</span> <span class="n">additional_args</span><span class="p">)</span>
+
+    <span class="n">module</span><span class="o">.</span><span class="n">exit_json</span><span class="p">(</span>
+        <span class="n">changed</span><span class="o">=</span><span class="n">changed</span><span class="p">,</span>
+        <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">argument_type</span><span class="p">,</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
+        <span class="n">old_value</span><span class="o">=</span><span class="n">old_value</span>
+    <span class="p">)</span>
+
+<span class="n">main</span><span class="p">()</span></code></pre></div>
+
+<p>As you can see, there isn’t much more to do. That conditional is how I support check mode. All I’m doing here is calling my getter and setter and then using Ansible’s <code>module.exit_json()</code> to handle to integration with Ansible. It requires the <code>changed</code> argument and the rest is custom and allows me to decide what gets printed on the screen when things change. It’s also important to note that at the bottom of the file I’m calling the <code>main</code> function, which is required to run the module. The only other section of the file, which I’ve done solely to that I may contribute to Ansible, is the documentation at the top of the time.</p>
+
+<h1 id="documentation">Documentation</h1>
+
+<p>The documentation includes ussage information as well as examples, here is an exerpt from the file:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">DOCUMENTATION</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
+<span class="s">---</span>
+<span class="s">module: gconftool-2</span>
+<span class="s">version_added: &quot;post 1.7.1&quot;</span>
+<span class="s">author: Joseph Kahn</span>
+<span class="s">short_description: alter gconftool-2 controlled settings.</span>
+<span class="s">description:</span>
+<span class="s">   - Set the value of a gconftool-2 controlled setting using a key and a string, an integer, a boolean, a pair or a list.</span>
+<span class="s">options:</span>
+<span class="s">  key:</span>
+<span class="s">    description:</span>
+<span class="s">      - The key of the gconftool-2 setting to change.</span>
+<span class="s">    required: true</span>
+<span class="s">  bool:</span>
+<span class="s">    description:</span>
+<span class="s">      - The boolean value to set the key to.</span>
+<span class="s">    required: false</span>
+<span class="s">...</span>
+<span class="s">&#39;&#39;&#39;</span>
+
+<span class="n">EXAMPLES</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
+<span class="s"># Set string value</span>
+<span class="s">- gconftool-2: key=/apps/gnome-terminal/global/default_profile string=base-16-monokai-dark</span>
+
+<span class="s"># Set bool value</span>
+<span class="s">- gconftool-2: key=/apps/gnome-terminal/profiles/base-16-monokai-dark/use_system_font bool=false</span>
+
+<span class="s"># Set pair value</span>
+<span class="s">- gconftool-2: key=/path/to/something pair-car-type=int pair-cdr-type=string pair=1,&#39;Joseph Kahn&#39;</span>
+<span class="s">&#39;&#39;&#39;</span></code></pre></div>
+
+<h1 id="usage">Usage</h1>
+
+<p>Using your custom modules is easy to do. Once you create a <code>custom_modules</code> directory, you can use them within Ansible. All you need to do is provide the <code>module-path</code> argument like so <code>--module-path custom_modules</code>.</p>
+
+<p>Once you’ve done that, you can use it like any other Ansible module in your task files. i.e.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base16 - set default terminal profile</span>
+  <span class="l-Scalar-Plain">gconftool-2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">key=/apps/gnome-terminal/global/default_profile string=base-16-monokai-dark</span></code></pre></div>
+
+<h1 id="testing">Testing</h1>
+
+<p>The Ansible repo provides an executable that allows for easy module testing from the command line. It can be invoked with a command like:</p>
+
+<p><code>~/ansible/hacking/test-module -m ./gconftool-2 -a "key=/path/to/stuff pair-car-type=int pair-cdr-type=string pair=1,'Joseph Kahn'"</code></p>
+
+<p>You can also use breakpoints if you provide the debugger used, i.e.</p>
+
+<p><code>~/ansible/hacking/test-module -m ./gconftool-2 -a "key=2 list=1,1,true,1 list-type=bool" -D ipdb</code></p>
+
+<p>Running the testing module provides to full generated source file, as well as the standard output information. The output file can be run manually without the use of additional arguments.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Writing a simple Ansible module wasn’t very difficult and requires little code to get the basics up and running. Even with all the error handling and verification done above, the module code is only 117 lines. While I did this for convenience, it’s easy to see how making modules simple to write can help make great provisioning scripts. These modules are relatively easy to follow and integrate seamlessly with the rest of the modules.</p>
 
 <h1 id="thats-it">That’s It</h1>
 
-<p>That’s all you need to get this up and running and provisioning your own machine. I hope to be able to write a blog post about using it with Vagrant and what the differences are. For now, I’ll leave you with a few relevant links:</p>
+<p>That’s all you need to get a custom module up and running and reporting changes. I’ll leave you with a few relevant links:</p>
 
 <ul>
-  <li><a href="https://github.com/JBKahn/provisioning-local">The Repository</a>.</li>
+  <li><a href="https://github.com/JBKahn/provisioning-local">The Repository</a> (The custom modules are in the <code>ansible modules</code> folder).</li>
   <li><a href="http://docs.ansible.com/list_of_all_modules.html">Ansible Modules</a>.</li>
 </ul>
 
@@ -225,10 +364,8 @@ you can have this script download and run and have the machine setup in no time.
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://blog.josephkahn.io/articles/pre-commit-hooks/" class="btn" title="Pre-commit Hooks: The Good, The Bad &amp; The Ugly">Previous article</a>
+        <a href="http://blog.josephkahn.io/articles/ansible/" class="btn" title="Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It">Previous article</a>
       
-      
-        <a href="http://blog.josephkahn.io/articles/ansible-modules/" class="btn" title="For a Few Ansible Modules More">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
