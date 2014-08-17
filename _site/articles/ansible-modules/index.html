@@ -6,21 +6,21 @@
 <head>
 <meta charset="utf-8">
 <title>For a Few Ansible Modules More &#8211; A Byte Of The Apple</title>
-<meta name="description" content="Writing my own ansible modules to make the most of the tool">
+<meta name="description" content="Writing my own Ansible modules to make the most of the tool">
 <meta name="keywords" content="post">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://blog.josephkahn.io/images/">
 <meta name="twitter:title" content="For a Few Ansible Modules More">
-<meta name="twitter:description" content="Writing my own ansible modules to make the most of the tool">
+<meta name="twitter:description" content="Writing my own Ansible modules to make the most of the tool">
 <meta name="twitter:creator" content="@JosephBKahn">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="For a Few Ansible Modules More">
-<meta property="og:description" content="Writing my own ansible modules to make the most of the tool">
+<meta property="og:description" content="Writing my own Ansible modules to make the most of the tool">
 <meta property="og:url" content="http://blog.josephkahn.io/articles/ansible-modules/">
 <meta property="og:site_name" content="A Byte Of The Apple">
 
@@ -141,11 +141,13 @@
       <div class="entry-content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Once again, school has kept me busy. I’ve since finished taking <a href="http://www.cs.utoronto.ca/~lalla/csc373/index.html">CSC 373 - Algorithm Design, Analysis, and Complexity</a>, completing a final assignment and subsequent exam. I’ve just gotten back to working on the Ansible script that I started a month ago. In case you missed my post from last time, <a href="http://www.ansible.com/home">Ansible</a> is a tool used to deploy and update applications in an easy to use language, using SSH, with no agents to install on remote systems. The specifications for Ansible are all written in YAML, making them well structured and generally easy to follow. Back at Wave, Nathan wrote <a href="http://engineering.waveapps.io/post/80595462671/an-ansible-primer">An Ansible primer</a> blog post on the <a href="http://engineering.waveapps.io/">Wave Engineering blog</a>. A few weeks ago, I wrote a post about using ansible to setup my local machine: <a href="/articles/ansible/">Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It</a>. Here, I’ll be taking you through the creation of custom modules, starting with the why.</p>
+<p>Before I get into the article, I’d like to thank <a href="http://mattjaynes.com/">Matt Jaynes</a> for featuring my last article in <a href="https://devopsu.com/newsletters/ansible-weekly/43.html">issue 43 of Anisble Weekly</a>. That was a great surprise and hopefully got me a few more readers. Now back to the post.</p>
+
+<p>Once again, school has kept me busy. I’ve since finished taking <a href="http://www.cs.utoronto.ca/~lalla/csc373/index.html">CSC 373 - Algorithm Design, Analysis, and Complexity</a>, completing a final assignment and subsequent exam. I’ve just gotten back to working on the Ansible script that I started a month ago. In case you missed my post from last time, <a href="http://www.ansible.com/home">Ansible</a> is a tool used to deploy and update applications in an easy to use language, using SSH, with no agents to install on remote systems. The specifications for Ansible are all written in YAML, making them well structured and generally easy to follow. Back at Wave, Nathan wrote <a href="http://engineering.waveapps.io/post/80595462671/an-ansible-primer">An Ansible primer</a> blog post on the <a href="http://engineering.waveapps.io/">Wave Engineering blog</a>. A few weeks ago, I wrote a post about using Ansible to setup my local machine: <a href="/articles/ansible/">Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It</a>. Here, I’ll be taking you through the creation of custom modules, starting with the why.</p>
 
 <p>While writing the YAML for my task files, I found there were a few common tasks I wanted to do that did not have a module wrapper. The easy way to deal with those tasks is to use the <a href="http://docs.ansible.com/command_module.html">Command module</a>. That way I can tell Ansible to execute an arbitrary command on the machine. There are some downsides to doing this, which depend on the specific commands in question. One thing I  like about the output of Ansible is that it can tell me how many commands Ansible executed, previously executed and caused errors  (if I allow them). But yet, arbitrary commands are always run because Ansible has no way to know if they have been executed.</p>
 
-<p>There are two options that I saw to address this, as I wanted to lower the number of changed tasks on repeated runs. I also wanted to prevent some commands from running multiple times. The first is to add another task and use conditional execution. I did that for two of the tasks, however it still had to register a changed task in order to do the check. This led me to look into writing my own modules and I wasn’t able to find many great examples. I should have started with looking at the modules in the Ansible library, but that did not occur to me. In the end I wrote the modules with the help of the docs, the ansible IRC channel and ansible library modules. Below I’ll outline writing my own module as well as conditional execution.</p>
+<p>There are two options that I saw to address this, as I wanted to lower the number of changed tasks on repeated runs. I also wanted to prevent some commands from running multiple times. The first is to add another task and use conditional execution. I did that for two of the tasks, however it still had to register a changed task in order to do the check. This led me to look into writing my own modules and I wasn’t able to find many great examples. I should have started with looking at the modules in the Ansible library, but that did not occur to me. In the end I wrote the modules with the help of the docs, the Ansible IRC channel and Ansible library modules. Below I’ll outline writing my own module as well as conditional execution. Note, I’ll be providing specific examples, but there’s a lot more Ansible can do so please check out the docs if you’re interested in using Ansible.</p>
 
 <h1 id="conditional-execution">Conditional Execution</h1>
 
@@ -160,7 +162,19 @@
 <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">screen dimming - update grub</span>
   <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo update-grub</span>
   <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">grubfile|changed</span></code></pre></div>
+  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">grubfile|changed</span>
+
+<span class="c1"># or</span>
+
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - link clevo-wmi to kernel check</span>
+  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">cat /etc/modules</span>
+  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+  <span class="l-Scalar-Plain">register</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">running_modules</span>
+
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - link clevo-wmi to kernel</span>
+  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo insmod /home//setup/clevo-wmi-code/clevo_wmi.ko</span>
+  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">running_modules.stdout.find(&#39;clevo_wmi&#39;) == -1</span></code></pre></div>
 
 <h1 id="module-writing">Module Writing</h1>
 

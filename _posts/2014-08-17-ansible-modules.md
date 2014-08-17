@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "For a Few Ansible Modules More"
-description: "Writing my own ansible modules to make the most of the tool"
+description: "Writing my own Ansible modules to make the most of the tool"
 modified: 2014-08-17
 category: articles
 tags: [post]
@@ -11,11 +11,13 @@ share: true
 
 # Introduction
 
-Once again, school has kept me busy. I've since finished taking [CSC 373 - Algorithm Design, Analysis, and Complexity](http://www.cs.utoronto.ca/~lalla/csc373/index.html), completing a final assignment and subsequent exam. I've just gotten back to working on the Ansible script that I started a month ago. In case you missed my post from last time, [Ansible](http://www.ansible.com/home) is a tool used to deploy and update applications in an easy to use language, using SSH, with no agents to install on remote systems. The specifications for Ansible are all written in YAML, making them well structured and generally easy to follow. Back at Wave, Nathan wrote [An Ansible primer](http://engineering.waveapps.io/post/80595462671/an-ansible-primer) blog post on the [Wave Engineering blog](http://engineering.waveapps.io/). A few weeks ago, I wrote a post about using ansible to setup my local machine: [Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It]({% post_url 2014-07-27-ansible %}). Here, I'll be taking you through the creation of custom modules, starting with the why.
+Before I get into the article, I'd like to thank [Matt Jaynes](http://mattjaynes.com/) for featuring my last article in [issue 43 of Anisble Weekly](https://devopsu.com/newsletters/ansible-weekly/43.html). That was a great surprise and hopefully got me a few more readers. Now back to the post.
+
+Once again, school has kept me busy. I've since finished taking [CSC 373 - Algorithm Design, Analysis, and Complexity](http://www.cs.utoronto.ca/~lalla/csc373/index.html), completing a final assignment and subsequent exam. I've just gotten back to working on the Ansible script that I started a month ago. In case you missed my post from last time, [Ansible](http://www.ansible.com/home) is a tool used to deploy and update applications in an easy to use language, using SSH, with no agents to install on remote systems. The specifications for Ansible are all written in YAML, making them well structured and generally easy to follow. Back at Wave, Nathan wrote [An Ansible primer](http://engineering.waveapps.io/post/80595462671/an-ansible-primer) blog post on the [Wave Engineering blog](http://engineering.waveapps.io/). A few weeks ago, I wrote a post about using Ansible to setup my local machine: [Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It]({% post_url 2014-07-27-ansible %}). Here, I'll be taking you through the creation of custom modules, starting with the why.
 
 While writing the YAML for my task files, I found there were a few common tasks I wanted to do that did not have a module wrapper. The easy way to deal with those tasks is to use the [Command module](http://docs.ansible.com/command_module.html). That way I can tell Ansible to execute an arbitrary command on the machine. There are some downsides to doing this, which depend on the specific commands in question. One thing I  like about the output of Ansible is that it can tell me how many commands Ansible executed, previously executed and caused errors  (if I allow them). But yet, arbitrary commands are always run because Ansible has no way to know if they have been executed.
 
-There are two options that I saw to address this, as I wanted to lower the number of changed tasks on repeated runs. I also wanted to prevent some commands from running multiple times. The first is to add another task and use conditional execution. I did that for two of the tasks, however it still had to register a changed task in order to do the check. This led me to look into writing my own modules and I wasn't able to find many great examples. I should have started with looking at the modules in the Ansible library, but that did not occur to me. In the end I wrote the modules with the help of the docs, the ansible IRC channel and ansible library modules. Below I'll outline writing my own module as well as conditional execution.
+There are two options that I saw to address this, as I wanted to lower the number of changed tasks on repeated runs. I also wanted to prevent some commands from running multiple times. The first is to add another task and use conditional execution. I did that for two of the tasks, however it still had to register a changed task in order to do the check. This led me to look into writing my own modules and I wasn't able to find many great examples. I should have started with looking at the modules in the Ansible library, but that did not occur to me. In the end I wrote the modules with the help of the docs, the Ansible IRC channel and Ansible library modules. Below I'll outline writing my own module as well as conditional execution. Note, I'll be providing specific examples, but there's a lot more Ansible can do so please check out the docs if you're interested in using Ansible.
 
 # Conditional Execution
 
@@ -32,6 +34,18 @@ There isn't a whole lot to write here, the code is  self explanatory. I wrote th
   command: sudo update-grub
   sudo: yes
   when: grubfile|changed
+
+# or
+
+- name: keyboard colors - link clevo-wmi to kernel check
+  command: cat /etc/modules
+  sudo: yes
+  register: running_modules
+
+- name: keyboard colors - link clevo-wmi to kernel
+  command: sudo insmod /home/{{ username }}/setup/clevo-wmi-code/clevo_wmi.ko
+  sudo: yes
+  when: running_modules.stdout.find('clevo_wmi') == -1
 {% endhighlight %}
 
 # Module Writing
