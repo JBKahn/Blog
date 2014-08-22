@@ -23,7 +23,7 @@ There are two options that I saw to address this, as I wanted to lower the numbe
 
 There isn't a whole lot to write here, the code is  self explanatory. I wrote this to fix a screen dimming issue on my sager laptop. This particular set of tasks is also conditionally executed, covered by my last blog post.
 
-{% highlight YAML %}
+{% highlight YAML linenos=table %}
 ---
 - name: screen dimming - alter grub file
   lineinfile: dest=/etc/default/grub regexp=^GRUB_CMDLINE_LINUX_DEFAULT= line='GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video.use_native_backlight=1"'
@@ -52,7 +52,7 @@ There isn't a whole lot to write here, the code is  self explanatory. I wrote th
 
 The first thing to work out for a new module is what arguments it will take and how to leverage Ansible to do most of the heavily lifting around it. Here's the start of my Ansible module for gconftool-2:
 
-{% highlight python %}
+{% highlight python linenos=table %}
 from ansible.constants import mk_boolean
 from ansible.module_utils.basic import *
 
@@ -91,7 +91,7 @@ Most of that is pretty easy to follow and it shows a few of the options Ansible 
 
 # The Getter and Setter
 
-{% highlight python %}
+{% highlight python linenos=table %}
 def _set_value(module, key, value, argument_type, additional_args):
     ''' Set value of setting, under `key`, using gconftool-2 to `value` of type `argument_type`'''
     return module.run_command(" ".join(['/usr/bin/gconftool-2 --set --type {} {} "{}" {}'.format(argument_type, key, value, additional_args)]))
@@ -106,7 +106,7 @@ The `module` set in the above code block contains some crucial functions, one of
 
 # Argument Accessing
 
-{% highlight python %}
+{% highlight python linenos=table %}
 key = module.params['key']
 boolean_value = module.params['bool']
 string_value = module.params['string']
@@ -120,7 +120,7 @@ Ansible makes arguments extremly easy to access. Now I'll show you a sample of h
 
 # Argument Parsing
 
-{% highlight python%}
+{% highlight python linenos=table %}
 additional_args = ''
 instance_type_mapping = {'int': int, 'string': str, 'float': float, 'bool': mk_boolean}
 if boolean_value is not None:
@@ -162,7 +162,7 @@ There are a few interesting things to note in this code block. The type specific
 
 # The Skeleton
 
-{% highlight python %}
+{% highlight python linenos=table %}
 def main():
     #  module specification
     old_value = _get_value(module, key)
@@ -190,7 +190,7 @@ As you can see, there isn't much more to do. That conditional is how I support c
 
 The documentation includes ussage information as well as examples, here is an exerpt from the file:
 
-{% highlight python %}
+{% highlight python linenos=table %}
 
 DOCUMENTATION = '''
 ---
@@ -229,7 +229,7 @@ EXAMPLES = '''
 Using your custom modules is easy to do. Once you create a `custom_modules` directory, you can use them within Ansible. All you need to do is provide the `module-path` argument like so `--module-path custom_modules`.
 
 Once you've done that, you can use it like any other Ansible module in your task files. i.e.
-{% highlight YAML %}
+{% highlight YAML linenos=table %}
 - name: base16 - set default terminal profile
   gconftool-2: key=/apps/gnome-terminal/global/default_profile string=base-16-monokai-dark
 {% endhighlight %}

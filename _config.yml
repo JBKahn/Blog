@@ -1,5 +1,6 @@
 title:            A Byte Of The Apple
 description:      Becoming A Better Developer One Mistake At A Time
+locale: en_US
 # logo:             site-logo.png
 disqus_shortname: abyteoftheapplejbkahn
 search:           true
@@ -22,7 +23,16 @@ owner:
   flickr:
   tumblr:
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:
+  disqus-shortname: abyteoftheapplejbkahn
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+
+
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   UA-49300323-1
@@ -44,9 +54,8 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/Toronto
 future:      true
-highlighter:    true
+highlighter:    pygments
 markdown:    kramdown
-pygments: true
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title/
@@ -66,4 +75,4 @@ kramdown:
     coderay_css: class
 
 include: [".htaccess"]
-exclude: ["lib", "config.rb", "Gemfile", "Capfile", "Gemfile.lock", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor"]

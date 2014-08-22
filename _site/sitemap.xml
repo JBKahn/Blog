@@ -26,6 +26,18 @@
     </url>
     
     <url>
+        <loc>http://blog.josephkahn.io/blog/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://blog.josephkahn.io/tags/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://blog.josephkahn.io/assets/css/main.css</loc>
+    </url>
+    
+    <url>
         <loc>http://blog.josephkahn.io/search.json</loc>
     </url>
     

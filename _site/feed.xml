@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">A Byte Of The Apple</title>
-<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
+<generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://blog.josephkahn.io/feed.xml" />
-<link rel="alternate" type="text/html" href="http://blog.josephkahn.io/" />
-<updated>2014-08-17T02:52:19-04:00</updated>
+<link rel="alternate" type="text/html" href="http://blog.josephkahn.io" />
+<updated>2014-08-22T01:09:54-04:00</updated>
 <id>http://blog.josephkahn.io/</id>
 <author>
   <name>Joseph Kahn</name>
@@ -13,9 +13,11 @@
 </author>
 
 
+  
+
 <entry>
   <title type="html"><![CDATA[For a Few Ansible Modules More]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/ansible-modules/"/>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/ansible-modules/" />
   <id>http://blog.josephkahn.io/articles/ansible-modules</id>
   <updated>2014-08-17T00:00:00-00:00</updated>
   <published>2014-08-17T00:00:00-04:00</published>
@@ -39,7 +41,28 @@
 
 &lt;p&gt;There isn’t a whole lot to write here, the code is  self explanatory. I wrote this to fix a screen dimming issue on my sager laptop. This particular set of tasks is also conditionally executed, covered by my last blog post.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
 &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;screen dimming - alter grub file&lt;/span&gt;
   &lt;span class=&quot;l-Scalar-Plain&quot;&gt;lineinfile&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;dest=/etc/default/grub regexp=^GRUB_CMDLINE_LINUX_DEFAULT= line=&amp;#39;GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;quiet splash video.use_native_backlight=1&amp;quot;&amp;#39;&lt;/span&gt;
   &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
@@ -60,13 +83,46 @@
 &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - link clevo-wmi to kernel&lt;/span&gt;
   &lt;span class=&quot;l-Scalar-Plain&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo insmod /home//setup/clevo-wmi-code/clevo_wmi.ko&lt;/span&gt;
   &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;running_modules.stdout.find(&amp;#39;clevo_wmi&amp;#39;) == -1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;running_modules.stdout.find(&amp;#39;clevo_wmi&amp;#39;) == -1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id=&quot;module-writing&quot;&gt;Module Writing&lt;/h1&gt;
 
 &lt;p&gt;The first thing to work out for a new module is what arguments it will take and how to leverage Ansible to do most of the heavily lifting around it. Here’s the start of my Ansible module for gconftool-2:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ansible.constants&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mk_boolean&lt;/span&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ansible.constants&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mk_boolean&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ansible.module_utils.basic&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
 
 
@@ -97,38 +153,91 @@
             &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;list&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;list-type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;supports_check_mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Most of that is pretty easy to follow and it shows a few of the options Ansible handles.  It handles mutual exclusions, requiring one of a set items as well as items which are required together. Additionally, in the &lt;code&gt;argument_spec&lt;/code&gt; you can also define defaults (and more, although this was all that I needed). The &lt;code&gt;supports_check_mode&lt;/code&gt; is a boolean which represents that the module supports dry runs. Now that I’ve defined my argument structure, it’s time to get onto the next piece of code.&lt;/p&gt;
 
 &lt;h1 id=&quot;the-getter-and-setter&quot;&gt;The Getter and Setter&lt;/h1&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_set_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argument_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;additional_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_set_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argument_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;additional_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;sd&quot;&gt;&amp;#39;&amp;#39;&amp;#39; Set value of setting, under `key`, using gconftool-2 to `value` of type `argument_type`&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run_command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;/usr/bin/gconftool-2 --set --type {} {} &amp;quot;{}&amp;quot; {}&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argument_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;additional_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]))&lt;/span&gt;
 
 
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_get_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;sd&quot;&gt;&amp;#39;&amp;#39;&amp;#39; Return value of setting, under `key`, from gconftool-2&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run_command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;gconftool-2 --get {}&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run_command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;gconftool-2 --get {}&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;The &lt;code&gt;module&lt;/code&gt; set in the above code block contains some crucial functions, one of which is &lt;code&gt;run_command&lt;/code&gt;. This wraps the native python system library for running commands. It has very good error handling and provides a plethora of input options. Most of those aren’t needed for simple tasks like running &lt;code&gt;gconftool-2&lt;/code&gt;. All I’m doing in the code block is building the command that I’d previously supplied to the Command Module. I’ve already shown how to define the arguments, but now I’ll show how to access them.&lt;/p&gt;
 
 &lt;h1 id=&quot;argument-accessing&quot;&gt;Argument Accessing&lt;/h1&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;key&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;key&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;boolean_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;bool&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;string_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;string&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;integer_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;int&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;float_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;float&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;list_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;list&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;pair_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;pair&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;n&quot;&gt;pair_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;pair&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Ansible makes arguments extremly easy to access. Now I’ll show you a sample of how I worked with the input.&lt;/p&gt;
 
 &lt;h1 id=&quot;argument-parsing&quot;&gt;Argument Parsing&lt;/h1&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;additional_args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;additional_args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;instance_type_mapping&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;int&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;string&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;float&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;bool&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mk_boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boolean_value&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;argument_type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;bool&amp;#39;&lt;/span&gt;
@@ -162,13 +271,33 @@
     &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;ValueError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fail_json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;pair type `{}` or `{}` does not match the type of the contents.&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;pair-car-type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;pair-cdr-type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;additional_args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;--car-type={} --cdr-type={}&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;car_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdr_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;({},{})&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;car_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdr_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;({},{})&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;car_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdr_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;There are a few interesting things to note in this code block. The type specifications works for individual items but there is no equivalent for lists. When I set &lt;code&gt;pair&lt;/code&gt; to type &lt;code&gt;list&lt;/code&gt; it does not support type checking of particular elements or the length of the list. As such, I have to do my own error checking. Fortunately, Ansible provides a &lt;code&gt;module.fail_json(msg=&#39;blah&#39;)&lt;/code&gt; to use for error reporting back to the console. There is a lot more you can provide than just a message but for my purposes that was perfect. Otherwise I’m just formatting the code to send off to my getter and setter. Now I’ll provide you with the skeleton for the rest of the module.&lt;/p&gt;
 
 &lt;h1 id=&quot;the-skeleton&quot;&gt;The Skeleton&lt;/h1&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
     &lt;span class=&quot;c&quot;&gt;#  module specification&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;old_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_get_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;c&quot;&gt;# argument parsing&lt;/span&gt;
@@ -186,7 +315,9 @@
         &lt;span class=&quot;n&quot;&gt;old_value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old_value&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;As you can see, there isn’t much more to do. That conditional is how I support check mode. All I’m doing here is calling my getter and setter and then using Ansible’s &lt;code&gt;module.exit_json()&lt;/code&gt; to handle to integration with Ansible. It requires the &lt;code&gt;changed&lt;/code&gt; argument and the rest is custom and allows me to decide what gets printed on the screen when things change. It’s also important to note that at the bottom of the file I’m calling the &lt;code&gt;main&lt;/code&gt; function, which is required to run the module. The only other section of the file, which I’ve done so that I may contribute to Ansible, is the documentation at the top of the file.&lt;/p&gt;
 
@@ -194,7 +325,36 @@
 
 &lt;p&gt;The documentation includes ussage information as well as examples, here is an exerpt from the file:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;DOCUMENTATION&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;DOCUMENTATION&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;---&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;module: gconftool-2&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;version_added: &amp;quot;post 1.7.1&amp;quot;&lt;/span&gt;
@@ -223,7 +383,9 @@
 
 &lt;span class=&quot;s&quot;&gt;# Set pair value&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;- gconftool-2: key=/path/to/something pair-car-type=int pair-cdr-type=string pair=1,&amp;#39;Joseph Kahn&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
 
@@ -231,8 +393,11 @@
 
 &lt;p&gt;Once you’ve done that, you can use it like any other Ansible module in your task files. i.e.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;base16 - set default terminal profile&lt;/span&gt;
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;gconftool-2&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;key=/apps/gnome-terminal/global/default_profile string=base-16-monokai-dark&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;1
+2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;base16 - set default terminal profile&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;gconftool-2&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;key=/apps/gnome-terminal/global/default_profile string=base-16-monokai-dark&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id=&quot;testing&quot;&gt;Testing&lt;/h1&gt;
 
@@ -263,9 +428,11 @@
 </entry>
 
 
+  
+
 <entry>
   <title type="html"><![CDATA[Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/ansible/"/>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/ansible/" />
   <id>http://blog.josephkahn.io/articles/ansible</id>
   <updated>2014-07-27T00:00:00-00:00</updated>
   <published>2014-07-27T00:00:00-04:00</published>
@@ -285,65 +452,662 @@
 
 &lt;p&gt;This is mostly self explanatory, I’ll go into more detail about each section.&lt;/p&gt;
 
-&lt;script src=&quot;https://gist.github.com/JBKahn/4cf7668346a2903337a7.js&quot;&gt;&lt;/script&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;setup.yml                 # master playbook
+HOSTS                     # HOSTS file which defines where the script will run. This points to localhost.
+requirements.txt          # the requierments for running this playbook, including ansible
+run.sh                    # one command script for install requirements, cloning the repo and provisioning.
+
+roles/
+    common/               # this hierarchy represents a &amp;quot;role&amp;quot;
+        tasks/            #
+            *.yml         #  &amp;lt;-- tasks files i&amp;#39;ll talk about later
+        files/            #
+            *.*           #  &amp;lt;-- files for use with the copy resource
+        vars/             #
+            main.yml      #  &amp;lt;-- variables associated with this role
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id=&quot;the-hosts-file&quot;&gt;The HOSTS file&lt;/h1&gt;
 
-&lt;p&gt;This file lets Ansible know where the machines are located, in this case all we’ll need is localhost.
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/HOSTS&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;This file lets Ansible know where the machines are located, in this case all we’ll need is localhost.&lt;/p&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1
+2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;[local]
+127.0.0.1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id=&quot;the-requirements-file&quot;&gt;The Requirements File&lt;/h1&gt;
 
-&lt;p&gt;Some on the Ansible modules have requirements, the Ansible docs provide them on each modules page.
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/requirements.txt&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;Some on the Ansible modules have requirements, the Ansible docs provide them on each modules page.&lt;/p&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1
+2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;python-apt==0.9.3.5
+ansible==1.7.1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id=&quot;the-master-playbook&quot;&gt;The Master Playbook&lt;/h1&gt;
 
-&lt;p&gt;This is also pretty simple. Here we can define what we run where, here I’m just telling it to run the scripts, in my common role, on the local machine.
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/setup.yml&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;This is also pretty simple. Here we can define what we run where, here I’m just telling it to run the scripts, in my common role, on the local machine.&lt;/p&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;1
+2
+3
+4
+5&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;a playbook to setup my local machine with my basic customizations&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;hosts&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;local&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;local&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;roles&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;common&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id=&quot;common-roles-variables-mainyml&quot;&gt;Common Roles: Variables main.yml&lt;/h1&gt;
 
-&lt;p&gt;Here we can define variables which we can use with {{ variable name ]} syntax. I use some of them to conditionally run tasks, to do them for a particular user and for downloading applications which are not available via ppa.
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/vars/main.yml&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;Here we can define variables which we can use with {{ variable name ]} syntax. I use some of them to conditionally run tasks, to do them for a particular user and for downloading applications which are not available via ppa.&lt;/p&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;joseph&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;sager_laptop&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;vagrant_url&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3_x86_64.deb&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;virtualbox_url&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;http://download.virtualbox.org/virtualbox/4.3.14/virtualbox-4.3_4.3.14-95030~Ubuntu~raring_amd64.deb&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;github_username&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;JBKahn&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;bumblebee&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;uname_r&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;3.13.0-32-generic&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id=&quot;common-roles-files&quot;&gt;Common Roles: Files&lt;/h1&gt;
 
-&lt;p&gt;For example, I place the autostart files in there so that I can copy them into the correct directory so applications will launch on boot. I also have configuration files for applications and my terminal.
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/files/variety.desktop&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;For example, I place the autostart files in there so that I can copy them into the correct directory so applications will launch on boot. I also have configuration files for applications and my terminal.&lt;/p&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;[Desktop Entry]
+Name=Variety
+Comment=Variety Wallpaper Changer
+Icon=/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg
+Exec=/opt/extras.ubuntu.com/variety/bin/variety
+Terminal=false
+Type=Application
+X-GNOME-Autostart-Delay=20
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id=&quot;common-tasks&quot;&gt;Common Tasks&lt;/h1&gt;
 
 &lt;p&gt;Here’s where most of the coding is and I’ll provide five examples, the rest you can checkout in the repository.&lt;/p&gt;
 
-&lt;p&gt;1) main.yml
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/main.yml&quot;&gt;&lt;/script&gt;
-‘main.yml’ is the file that the setup.yml common role calls, I just use it to conditionally call the other task files I use.&lt;/p&gt;
+&lt;p&gt;1) main.yml&lt;/p&gt;
 
-&lt;p&gt;2) base16.yml
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/base16.yml&quot;&gt;&lt;/script&gt;
-Here I make use of the git, file and command modules to checkout the amazing &lt;a href=&quot;https://github.com/chriskempson/base16&quot;&gt;base-16&lt;/a&gt; color scheme for my terminal, set it as the default and set the font (which I already setup in another task).&lt;/p&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;pre.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sublime.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;chrome.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;numix.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;plank.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keepass2.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;laptop.yml&lt;/span&gt;
+    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sager_laptop == true&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;variety.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;font.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;base16.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;work.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;scm_breeze.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;vim.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;other_requirements.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;dropbox.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;bash_customizations.yml&lt;/span&gt;
+  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;bumblebee.yml&lt;/span&gt;
+    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;bumblebee == true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;p&gt;3) vim.yml
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/vim.yml&quot;&gt;&lt;/script&gt;
-Another part of my setup is to put Vim and all of the important packages on my machine. Unfortunately, when I had tried to install the packages it seemed that missing my color scheme file prevented me from downloading it through Vundle. Using Ansible’s copy module I’m taking the current version (rather than doing a git pull for a more up to date one) to temporarily place the file there and have it replaced by running the setup.&lt;/p&gt;
+&lt;p&gt;‘main.yml’ is the file that the setup.yml common role calls, I just use it to conditionally call the other task files I use.&lt;/p&gt;
 
-&lt;p&gt;4) work.yml
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/work.yml&quot;&gt;&lt;/script&gt;
-There’s a fair amount of overlap between things I use for my personal projects and those which I need for work. In here I’ve put the more development focused requirements making use of some of its wide variety of modules for installing packages through pip, .deb files and apt.&lt;/p&gt;
+&lt;p&gt;2) base16.yml&lt;/p&gt;
 
-&lt;p&gt;5) laptop.yml
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/roles/common/tasks/laptop.yml&quot;&gt;&lt;/script&gt;
-One of the disadvantages of using linux can be that some things are hard to make work, although Ubuntu helps with a lot of it. For a long time I was unable to dim my backlight and my keyboard backlight was always on and always blue. Through the use of a small settings tweak, a custom driver and a custom script I wrote for changing the keyboard backlight, I’m not able to do all of these things. The task will only run contingent on the sager_laptop variable being true. One of the truly great modules in called ‘lineinfile’ and it does is ensure that a line exists in a file. That sounds pretty simple but it offers the ability to use a regular expression to identify the line (so that if it does not exist but it is meant to replace another line, it will) and the ability to create the file if it does not exist (configurable).&lt;/p&gt;
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;base16 - checkout repo&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;repo=https://github.com/chriskempson/base16-gnome-terminal.git&lt;/span&gt;
+       &lt;span class=&quot;l-Scalar-Plain&quot;&gt;dest=/home//setup/base16-gnome&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;base16 - copy monokai-dark&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;src=/home//setup/base16-gnome/base16-monokai.dark.sh dest=/home//base16-monokai.dark.sh mode=0755&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;base16 - install monokai dark&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;/home//base16-monokai.dark.sh&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;base16 - set system font to source code pro&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;gconftool-2&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;key=/apps/gnome-terminal/profiles/base-16-monokai-dark/font string=&amp;quot;Source Code Pro Semi-Bold 12&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;base16 - dont use default system font in terminal&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;gconftool-2&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;key=/apps/gnome-terminal/profiles/base-16-monokai-dark/use_system_font bool=false&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;base16 - set default terminal profile&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;gconftool-2&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;key=/apps/gnome-terminal/global/default_profile string=base-16-monokai-dark&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Here I make use of the git, file and command modules to checkout the amazing &lt;a href=&quot;https://github.com/chriskempson/base16&quot;&gt;base-16&lt;/a&gt; color scheme for my terminal, set it as the default and set the font (which I already setup in another task).&lt;/p&gt;
+
+&lt;p&gt;3) vim.yml&lt;/p&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - download vim&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name=vim update_cache=yes&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - make sure bundle directory exists&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;path=/home//.vim/bundle state=directory mode=777&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - checkout vundle repo&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;repo=https://github.com/gmarik/vundle.vim.git&lt;/span&gt;
+       &lt;span class=&quot;l-Scalar-Plain&quot;&gt;dest=/home//.vim/bundle/vundle&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - checkout repo&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;repo=https://github.com/JBKahn/horse.vim.git&lt;/span&gt;
+       &lt;span class=&quot;l-Scalar-Plain&quot;&gt;dest=/home//horse.vim&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - copy .vimrc file&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;src=/home//horse.vim/.vimrc dest=/home//.vimrc mode=0755 state=link&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - copy .vimrc.bundles file&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;src=/home//horse.vim/.vimrc.bundles dest=/home//.vimrc.bundles mode=0755 state=link&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - make sure vim colors directory exists&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;path=/home//.vim/colors state=directory mode=777&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - copy color to config to avoid error&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;src=base16-monokai.vim dest=/home//.vim/colors/base16-monokai.vim mode=0755&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - run bundle install&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;vim +BundleInstall +qall&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - add NeoVim ppa&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;apt_repository&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;repo=&amp;#39;ppa:rudenko/neovim&amp;#39; state=present update_cache=yes&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - install neovim&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name=neovim update_cache=yes&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - symlink nvimrc&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;src=/home//horse.vim/.vimrc dest=/home//.nvimrc mode=0755 state=link&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;horse vim - symlink nvim&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;src=/home//.vim dest=/home//.nvim mode=0755 state=link&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Another part of my setup is to put Vim and all of the important packages on my machine. Unfortunately, when I had tried to install the packages it seemed that missing my color scheme file prevented me from downloading it through Vundle. Using Ansible’s copy module I’m taking the current version (rather than doing a git pull for a more up to date one) to temporarily place the file there and have it replaced by running the setup.&lt;/p&gt;
+
+&lt;p&gt;4) work.yml&lt;/p&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;download vagrant .deb package&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;get_url&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;url= dest=/home//setup/vagrant.deb mode=0755&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;install vagrant&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;deb=/home//setup/vagrant.deb&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;download virtualbox .deb package&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;get_url&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;url= dest=/home//setup/virtualbox.deb mode=0755&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;install virtualbox&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;deb=/home//setup/virtualbox.deb&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;install wave dependencies&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name=&amp;quot;&amp;quot; state=installed update_cache=yes&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;with_items&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;python-pip&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;curl&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;nodejs&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;nfs-kernel-server&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;nfs-common&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;rpcbind&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;tmux&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;npm&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;install global nodejs packages&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;npm&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;present&lt;/span&gt;
+    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;with_items&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;bower&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;coffee-script&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;grunt-cli&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;less&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;jshint&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;coffee-jshint&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;install tmuxp&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;pip&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name=tmuxp&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;copy tmuxp config&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;src=.tmux.conf dest=/home//.tmux.conf mode=0755&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;There’s a fair amount of overlap between things I use for my personal projects and those which I need for work. In here I’ve put the more development focused requirements making use of some of its wide variety of modules for installing packages through pip, .deb files and apt.&lt;/p&gt;
+
+&lt;p&gt;5) laptop.yml&lt;/p&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;screen dimming - alter grub file&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;lineinfile&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;dest=/etc/default/grub regexp=^GRUB_CMDLINE_LINUX_DEFAULT= line=&amp;#39;GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;quiet splash video.use_native_backlight=1&amp;quot;&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;grubfile&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;screen dimming - update grub&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo update-grub&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;grubfile|changed&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - requirements&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;pkg= state=installed&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;with_items&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;build-essential&lt;/span&gt;
+    &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;linux-source&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - Make sure setup directory exists&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;file path=/home//setup state=directory&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - checkout clevo-wmi-code&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;repo=git://git.code.sf.net/p/clevo-wmi/code&lt;/span&gt;
+       &lt;span class=&quot;l-Scalar-Plain&quot;&gt;dest=/home//setup/clevo-wmi-code&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - build clevo-wmi&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;make&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;chdir&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;/home//setup/clevo-wmi-code&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - link clevo-wmi to kernel check&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;cat /etc/modules&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;running_modules&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - link clevo-wmi to kernel&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo insmod /home//setup/clevo-wmi-code/clevo_wmi.ko&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;running_modules.stdout.find(&amp;#39;clevo_wmi&amp;#39;) == -1&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - copy to kernel drivers&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;src=/home//setup/clevo-wmi-code/clevo_wmi.ko dest=/lib/modules//kernel/drivers/platform/x86/&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - handle dependencies&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo depmod -a&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors- add to etc/modules&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;lineinfile&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;dest=/etc/modules line=clevo_wmi&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+
+&lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;keyboard colors - copy kbbl script&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;src=keyboard-color.sh dest=/home//keyboard-color.sh mode=0755&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;One of the disadvantages of using linux can be that some things are hard to make work, although Ubuntu helps with a lot of it. For a long time I was unable to dim my backlight and my keyboard backlight was always on and always blue. Through the use of a small settings tweak, a custom driver and a custom script I wrote for changing the keyboard backlight, I’m not able to do all of these things. The task will only run contingent on the sager_laptop variable being true. One of the truly great modules in called ‘lineinfile’ and it does is ensure that a line exists in a file. That sounds pretty simple but it offers the ability to use a regular expression to identify the line (so that if it does not exist but it is meant to replace another line, it will) and the ability to create the file if it does not exist (configurable).&lt;/p&gt;
 
 &lt;h1 id=&quot;the-script&quot;&gt;The script&lt;/h1&gt;
-&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/JBKahn/provisioning-local/blob/master/run.sh&quot;&gt;&lt;/script&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;sudo apt-get install python-setuptools
+
+sudo easy_install pip
+
+sudo apt-get install aptitude
+sudo apt-get install git
+sudo apt-get install python-dev libxml2-dev libxslt-dev
+
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~
+mkdir -p setup
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;setup
+git clone https://github.com/JBKahn/provisioning-local.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;provisioning-local
+
+sudo pip install -r requirements.txt
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;please enter your username, followed by [ENTER]&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;PROVISIONING_USER
+sudo sed -i &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/^username: .*/username: $PROVISIONING_USER/&amp;quot;&lt;/span&gt; roles/common/vars/main.yml
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;please enter your github username, followed by [ENTER]&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;PROVISIONING_GITHUB_USERNAME
+sudo sed -i &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/^github_username: .*/github_username: $PROVISIONING_GITHUB_USERNAME/&amp;quot;&lt;/span&gt; roles/common/vars/main.yml
+
+sudo sed -i &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/^uname_r: .*/uname_r: `uname -r`/&amp;quot;&lt;/span&gt; roles/common/vars/main.yml
+
+ansible-playbook setup.yml -i HOSTS --ask-sudo-pass  --module-path ./ansible_modules
+
+&lt;span class=&quot;c&quot;&gt;# currently unable to use ansible due to EULA that I can&amp;#39;t seem to stub using debconf&lt;/span&gt;
+sudo apt-get install steam
+
+dropbox start -i &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt;
+/opt/extras.ubuntu.com/variety/bin/variety &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;
+plank &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.bashrc
+&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;By using: &lt;code&gt;bash wget -qO- https://github.com/JBKahn/provisioning-local/raw/master/run.sh | sudo bash&lt;/code&gt;
 you can have this script download and run and have the machine setup in no time. It handles the requirements, and starts up three of the applications after the provisioning is completed.&lt;/p&gt;
 
 &lt;h1 id=&quot;the-output&quot;&gt;The Output&lt;/h1&gt;
-&lt;script src=&quot;https://gist.github.com/JBKahn/2c74224e6b03ed3a255e.js&quot;&gt;&lt;/script&gt;
+
+&lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;joseph@Batcave-Ubuntu:~/dev/provisioning-local$ sudo rm -fr ../../setup/base16-gnome/
+[sudo] password for joseph:
+joseph@Batcave-Ubuntu:~/dev/provisioning-local$ ansible-playbook setup.yml -i HOSTS --ask-sudo-pass
+sudo password:
+
+PLAY [a playbook to setup my local machine with my basic customizations] ******
+
+GATHERING FACTS ***************************************************************
+ok: [127.0.0.1]
+
+TASK: [common | base16 - checkout repo] ***************************************
+changed: [127.0.0.1]
+
+TASK: [common | set file permissions] *****************************************
+changed: [127.0.0.1]
+
+TASK: [common | base16 - install monokai dark] ********************************
+changed: [127.0.0.1]
+
+TASK: [common | base16 - set system font to source code pro] ******************
+changed: [127.0.0.1]
+
+TASK: [common | base16 - dont use default system font in terminal] ************
+changed: [127.0.0.1]
+
+TASK: [common | base16 - set default terminal profile] ************************
+changed: [127.0.0.1]
+
+PLAY RECAP ********************************************************************
+127.0.0.1                  : ok=7    changed=6    unreachable=0    failed=0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Here after I run it, it will tell me how many of them at ran (changed) or did not require any more work (ok). There are some tasks (i.e. commands) which will always be ‘changed’ unless they are conditionally executed or a module is written to explain to Ansible how to check and see if something has changed.&lt;/p&gt;
 
@@ -360,9 +1124,11 @@ you can have this script download and run and have the machine setup in no time.
 </entry>
 
 
+  
+
 <entry>
   <title type="html"><![CDATA[Pre-commit Hooks: The Good, The Bad &amp; The Ugly]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/pre-commit-hooks/"/>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/pre-commit-hooks/" />
   <id>http://blog.josephkahn.io/articles/pre-commit-hooks</id>
   <updated>2014-06-29T00:00:00-00:00</updated>
   <published>2014-06-29T00:00:00-04:00</published>
@@ -415,9 +1181,11 @@ you can have this script download and run and have the machine setup in no time.
 </entry>
 
 
+  
+
 <entry>
   <title type="html"><![CDATA[My First Post]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/starting-the-blog/"/>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/starting-the-blog/" />
   <id>http://blog.josephkahn.io/articles/starting-the-blog</id>
   <updated>2014-05-03T00:00:00-00:00</updated>
   <published>2014-05-03T00:00:00-04:00</published>
