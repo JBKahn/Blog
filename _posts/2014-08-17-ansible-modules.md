@@ -26,14 +26,19 @@ There isn't a whole lot to write here, the code is  self explanatory. I wrote th
 {% highlight YAML linenos=table %}
 ---
 - name: screen dimming - alter grub file
-  lineinfile: dest=/etc/default/grub regexp=^GRUB_CMDLINE_LINUX_DEFAULT= line='GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video.use_native_backlight=1"'
+  lineinfile:
+    dest: /etc/default/grub
+    regexp: "^GRUB_CMDLINE_LINUX_DEFAULT="
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video.use_native_backlight=1"'
   sudo: yes
   register: grubfile
+  tags: sager
 
 - name: screen dimming - update grub
   command: sudo update-grub
   sudo: yes
   when: grubfile|changed
+  tags: sager
 
 # or
 
@@ -41,11 +46,13 @@ There isn't a whole lot to write here, the code is  self explanatory. I wrote th
   command: cat /etc/modules
   sudo: yes
   register: running_modules
+  tags: sager
 
 - name: keyboard colors - link clevo-wmi to kernel
-  command: sudo insmod /home/{{ username }}/setup/clevo-wmi-code/clevo_wmi.ko
+  command: "sudo insmod /home/{{ username }}/setup/clevo-wmi-code/clevo_wmi.ko"
   sudo: yes
   when: running_modules.stdout.find('clevo_wmi') == -1
+  tags: sager
 {% endhighlight %}
 
 # Module Writing
@@ -94,7 +101,8 @@ Most of that is pretty easy to follow and it shows a few of the options Ansible 
 {% highlight python linenos=table %}
 def _set_value(module, key, value, argument_type, additional_args):
     ''' Set value of setting, under `key`, using gconftool-2 to `value` of type `argument_type`'''
-    return module.run_command(" ".join(['/usr/bin/gconftool-2 --set --type {} {} "{}" {}'.format(argument_type, key, value, additional_args)]))
+    cmd = '/usr/bin/gconftool-2 --set --type {} {} "{}" {}'
+    return module.run_command(" ".join([cmd.format(argument_type, key, value, additional_args)]))
 
 
 def _get_value(module, key):
@@ -153,7 +161,8 @@ elif pair_value is not None:
         elif not str(instance_type_mapping.get(cdr_type)(cdr_value)) == cdr_value:
             raise ValueError
     except ValueError:
-        module.fail_json(msg='pair type `{}` or `{}` does not match the type of the contents.'.format(module.params['pair-car-type'], module.params['pair-cdr-type']))
+        error_msg = 'pair type `{}` or `{}` does not match the type of the contents.'
+        module.fail_json(msg=error_msg.format(module.params['pair-car-type'], module.params['pair-cdr-type']))
     additional_args = '--car-type={} --cdr-type={}'.format(car_type, cdr_type)
     value = '({},{})'.format(car_value, cdr_value)
 {% endhighlight %}
@@ -199,7 +208,8 @@ version_added: "post 1.7.1"
 author: Joseph Kahn
 short_description: alter gconftool-2 controlled settings.
 description:
-   - Set the value of a gconftool-2 controlled setting using a key and a string, an integer, a boolean, a pair or a list.
+   - Set the value of a gconftool-2 controlled setting using a key and a
+     string, an integer, a boolean, a pair or a list.
 options:
   key:
     description:

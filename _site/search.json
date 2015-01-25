@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Vagrant Plugin: Back 2 Tha Hood",
+		  "category"   : "articles",
+		  "url"        : "http://blog.josephkahn.io/articles/vagrant-plugin/",
+		  "date"       : "2015-01-25 00:00:00 -0500",
+		  "shortdate"  : "January 25, 2015"
+		} ,
+	
+		{
 		  "title"      : "For a Few Ansible Modules More",
 		  "category"   : "articles",
 		  "url"        : "http://blog.josephkahn.io/articles/ansible-modules/",

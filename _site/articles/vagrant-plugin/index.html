@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It &#8211; A Byte Of The Apple</title>
+<title>Vagrant Plugin: Back 2 Tha Hood &#8211; A Byte Of The Apple</title>
 <meta name="description" content="Introduction
 
 ">
@@ -14,7 +14,7 @@
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It">
+<meta name="twitter:title" content="Vagrant Plugin: Back 2 Tha Hood">
 <meta name="twitter:description" content="Introduction
 
 ">
@@ -27,18 +27,18 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It">
+<meta property="og:title" content="Vagrant Plugin: Back 2 Tha Hood">
 <meta property="og:description" content="Introduction
 
 ">
-<meta property="og:url" content="http://blog.josephkahn.io/articles/ansible/">
+<meta property="og:url" content="http://blog.josephkahn.io/articles/vagrant-plugin/">
 <meta property="og:site_name" content="A Byte Of The Apple">
 
 
 
 
 
-<link rel="canonical" href="http://blog.josephkahn.io/articles/ansible/">
+<link rel="canonical" href="http://blog.josephkahn.io/articles/vagrant-plugin/">
 <link href="http://blog.josephkahn.io/feed.xml" type="application/atom+xml" rel="alternate" title="A Byte Of The Apple Feed">
 
 
@@ -136,7 +136,7 @@
       <header class="entry-header">
         <span class="entry-tags"><a href="http://blog.josephkahn.io/tags/#post" title="Pages tagged post">post</a></span>
         
-          <h1 class="entry-title">Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It</h1>
+          <h1 class="entry-title">Vagrant Plugin: Back 2 Tha Hood</h1>
         
       </header>
       <footer class="entry-meta">
@@ -146,18 +146,18 @@
           <img src="http://blog.josephkahn.io/images/bio-photo.jpg" class="bio-photo" alt="Joseph Kahn bio photo"></a>
         
         <span class="author vcard">By <span class="fn">Joseph Kahn</span></span>
-        <span class="entry-date date published"><time datetime="2014-07-27T00:00:00-04:00"><i class="fa fa-calendar-o"></i> July 27, 2014</time></span>
-        <span class="entry-date date modified"><time datetime="2014-07-27"><i class="fa fa-pencil"></i> July 27, 2014</time></span>
+        <span class="entry-date date published"><time datetime="2015-01-25T00:00:00-05:00"><i class="fa fa-calendar-o"></i> January 25, 2015</time></span>
+        <span class="entry-date date modified"><time datetime="2015-01-25"><i class="fa fa-pencil"></i> January 25, 2015</time></span>
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         
         <span class="social-share-twitter">
-          <a href="https://twitter.com/intent/tweet?hashtags=post&text=Ansible%20or:%20How%20I%20Learned%20to%20Stop%20Wasting%20Time%20Setting%20Up%20My%20Computer%20and%20Script%20It&url=http://blog.josephkahn.io/articles/ansible/&via=JosephBKahn" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+          <a href="https://twitter.com/intent/tweet?hashtags=post&text=Vagrant%20Plugin:%20Back%202%20Tha%20Hood&url=http://blog.josephkahn.io/articles/vagrant-plugin/&via=JosephBKahn" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
         </span>
         <span class="social-share-facebook">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.josephkahn.io/articles/ansible/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.josephkahn.io/articles/vagrant-plugin/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
         </span>
         <span class="social-share-googleplus">
-          <a href="https://plus.google.com/share?url=http://blog.josephkahn.io/articles/ansible/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+          <a href="https://plus.google.com/share?url=http://blog.josephkahn.io/articles/vagrant-plugin/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
         </span>
         <!-- /.social-share -->
         
@@ -176,129 +176,70 @@
       <div class="entry-content">
         <h1 id="introduction">Introduction</h1>
 
-<p>I know it has been a while since I put up my last post, but school was kept me busy. I wrote this one in a hurry and ask that you excuse any spelling and grammar mistakes. In particular, I’ve been taking <a href="http://www.cs.utoronto.ca/~lalla/csc373/index.html">CSC 373 - Algorithm Design, Analysis, and Complexity</a> and have had several assignments to work on. In my free time, I’ve been working on my own Ansible script. <a href="http://www.ansible.com/home">Ansible</a> is a tool used to deploy and update applications in an easy to use language, using SSH, with no agents to install on remote systems. The specifications for Ansible are all written in YAML, making them well structured and generally easy to follow. Back at Wave, Nathan wrote <a href="http://engineering.waveapps.io/post/80595462671/an-ansible-primer">An Ansible primer</a> blog post on the <a href="http://engineering.waveapps.io/">Wave Engineering blog</a>. Here, I’ll be taking you through my Ansible script as a practical example of what you could use Ansible for, outside of setting up remote servers.</p>
+<p>Once again, writing a post after a long break from updating my blog. I found my free time began to disappear when I started taking class at night after work and didn’t have much time for blogging. When my co-op finished in September, I then worked part time between my classes and finished up the last of my requirements. This has been my first month back to work and getting used to having some free time again.</p>
 
-<p>Unfortunately, having recently had a hard drive failure on my laptop. I had to manually setup my machine just the way I like it. When setting up, I realized the colossal waste of time it was to lookup the ppa’s I needed, the Sager specific driver I’d installed for my keyboard backlight and trying to recall what I used most. This time I’d done the smart thing and simply documented all my steps. There were a few missing things there involving using dconf, gconftool-2 and gsettings and a couple of steps I’d not yet written down. We’d been using Ansible at Wave and my last attempt to learn it met with confusion, ten VMs running in the background and an episode of The Sopranos. I had tried to follow Nathan’s example (simplifying it along the way) as well as a bunch of other tutorials relating to Django. They all met with failure to get a successfully provisioned VM. I’d been making small contributions at work to our Ansible scripts in hopes to get the practice I needed for when I decided to try again. That’s when <a href="https://twitter.com/_AlexTucker">Alex Tucker</a> suggested I take my setup instructions and give it another go at Ansible. Now that you know how I got started, I’ll get into the project.</p>
+<p>In school I covered a variety of topics from databases and PHP to the SOLID principles. I might try to make a post about something I covered in school over the next few weeks. I’ve also gotten back into reading and just finished <a href="http://www.amazon.ca/Geek-Sublime-The-Beauty-Code/dp/1555976859">Geek Sublime: The Beauty of Code, the Code of Beauty</a> s it was a gift from a friend. The book was pretty interesting buy, yet it did seem a bit dry at times and certain passages seemed to go on forever. Anyway, on to the good stuff.</p>
 
-<h1 id="the-file-structure--content">The File Structure &amp; Content</h1>
+<p>One thing I was attempting to do this week at work was to write a custom Vagrant command. For those of you unfamiliar with Vagrant, it’s a wrapper around tools like VirtualBox. It makes configuring, creating, and managing virtual machines for development a lot easier. It also provides some useful commands to make starting and using VMs easier.</p>
 
-<p>This is mostly self explanatory, I’ll go into more detail about each section.</p>
+<p>When I first started researching how to make custom commands, it seemed rather daunting. The work to gain ratio seemed to be a lot higher than I’d imagined. I had thought it would be a few lines of configuration to map command X with function Y, but that was just not the case.</p>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-text" data-lang="text"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</code></pre></div></td><td class="code"><div class="highlight"><pre>setup.yml                 # master playbook
-HOSTS                     # HOSTS file which defines where the script will run. This points to localhost.
-requirements.txt          # the requierments for running this playbook, including ansible
-run.sh                    # one command script for install requirements, cloning the repo and provisioning.
+<h1 id="woes-with-creating-the-plugin">Woes With Creating The Plugin</h1>
 
-roles/
-    common/               # this hierarchy represents a &quot;role&quot;
-        tasks/            #
-            *.yml         #  &lt;-- tasks files i&#39;ll talk about later
-        files/            #
-            *.*           #  &lt;-- files for use with the copy resource
-        vars/             #
-            main.yml      #  &lt;-- variables associated with this role
-</pre></div>
-</td></tr></table>
+<p>As far as I can tell, in the current version of Vagrant, there is only one way to build these and that is through their plugin system. Once again I was hopeful as I dashed into the <a href="https://docs.vagrantup.com/v2/plugins/index.html">documentation</a> and found this:</p>
 
-<h1 id="the-hosts-file">The HOSTS file</h1>
+<blockquote>
+  <p>Warning: Advanced Topic! Developing plugins is an advanced topic that only experienced Vagrant users who are reasonably comfortable with Ruby should approach.</p>
+</blockquote>
 
-<p>This file lets Ansible know where the machines are located, in this case all we’ll need is localhost.</p>
+<p>As far as I was aware, I was neither an experienced Vagrant user or reasonably comfortable with Ruby…so I was preparing for the worst. Apparently, all plugins are to defined as gems, regardless of complexity. My only experience with gems was to run <code>bundle install</code> to be able to work on this blog. I figured it couldn’t be too hard to do and they must have examples of how to build them. I was sadly mistaken and confused as began researching. I found confusing documentation and half-examples with decent explanation or full examples with none. I was flummoxed.</p>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-text" data-lang="text">1
-2</code></pre></div></td><td class="code"><div class="highlight"><pre>[local]
-127.0.0.1
-</pre></div>
-</td></tr></table>
+<p>I thought, how can there not be a complete (and easy to follow) Hello World type example for those who know little of Ruby? The documentation was the closest I could find but instead of giving you the full story, they leave that warning. I hope this will serve as an example to the next person who just wants a simple custom vagrant command.</p>
 
-<h1 id="the-requirements-file">The Requirements File</h1>
+<h1 id="it-begins">It Begins</h1>
 
-<p>Some on the Ansible modules have requirements, the Ansible docs provide them on each modules page.</p>
+<p>The first thing you need for a gem file is the structure. Apparently you can auto-generate the skeleton, I opted to take a simple gem and make my changes. Here’s the file structure of my gem:</p>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-text" data-lang="text">1
-2</code></pre></div></td><td class="code"><div class="highlight"><pre>python-apt==0.9.3.5
-ansible==1.7.1
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Gemfile                         # The is where I put my dependancies.
+Rakefile                        # The is somehow tied to building the gem.
+vagrant-custom-command.gemspec  # The information/build data, like a `setup.py` file.
+lib/
+--- vagrant-custom-command.rb   # This is the top level file of the command.
+--- custom-command/
+--- --- command.rb              # The logic of the command and the argument parsing.
+--- --- plugin.rb               # Defining the command and point it at `command.rb`.</code></pre></div>
 
-<h1 id="the-master-playbook">The Master Playbook</h1>
+<p>There aren’t too many files here , it was reasonably easy to make a custom gem. I’m not making use of any other ruby gems or doing anything complex.</p>
 
-<p>This is also pretty simple. Here we can define what we run where, here I’m just telling it to run the scripts, in my common role, on the local machine.</p>
+<h1 id="the-files">The Files</h1>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-yaml" data-lang="yaml">1
+<h1 id="gemfile">Gemfile</h1>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby">1
 2
 3
 4
-5</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">a playbook to setup my local machine with my basic customizations</span>
-  <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">local</span>
-  <span class="l-Scalar-Plain">connection</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">local</span>
-  <span class="l-Scalar-Plain">roles</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">common</span>
+5</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">gemspec</span>
+
+<span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">&#39;vagrant&#39;</span><span class="p">,</span>         <span class="ss">github</span><span class="p">:</span> <span class="s1">&#39;mitchellh/vagrant&#39;</span>
+<span class="k">end</span>
 </pre></div>
 </td></tr></table>
 
-<h1 id="common-roles-variables-mainyml">Common Roles: Variables main.yml</h1>
+<p>As you can see, I’ve just defined vagrant as a requirement for development, that’s all. Simple file.</p>
 
-<p>Here we can define variables which we can use with {{ variable name ]} syntax. I use some of them to conditionally run tasks, to do them for a particular user and for downloading applications which are not available via ppa.</p>
+<h2 id="rakefile">Rakefile</h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-yaml" data-lang="yaml">1
-2
-3
-4
-5
-6
-7
-8</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nn">---</span>
-<span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">joseph</span>
-<span class="l-Scalar-Plain">sager_laptop</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-<span class="l-Scalar-Plain">vagrant_url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3_x86_64.deb</span>
-<span class="l-Scalar-Plain">virtualbox_url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http://download.virtualbox.org/virtualbox/4.3.14/virtualbox-4.3_4.3.14-95030~Ubuntu~raring_amd64.deb</span>
-<span class="l-Scalar-Plain">github_username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">JBKahn</span>
-<span class="l-Scalar-Plain">bumblebee</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-<span class="l-Scalar-Plain">uname_r</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3.13.0-32-generic</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby">1</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;bundler/gem_tasks&quot;</span>
 </pre></div>
 </td></tr></table>
 
-<h1 id="common-roles-files">Common Roles: Files</h1>
+<p>I don’t know why this is here, at some point I’d like to delve more into Ruby. For the moment I just accept that this works.</p>
 
-<p>For example, I place the autostart files in there so that I can copy them into the correct directory so applications will launch on boot. I also have configuration files for applications and my terminal.</p>
+<h2 id="vagrant-custom-commandgemspec">vagrant-custom-command.gemspec</h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-text" data-lang="text">1
-2
-3
-4
-5
-6
-7
-8</code></pre></div></td><td class="code"><div class="highlight"><pre>[Desktop Entry]
-Name=Variety
-Comment=Variety Wallpaper Changer
-Icon=/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg
-Exec=/opt/extras.ubuntu.com/variety/bin/variety
-Terminal=false
-Type=Application
-X-GNOME-Autostart-Delay=20
-</pre></div>
-</td></tr></table>
-
-<h1 id="common-tasks">Common Tasks</h1>
-
-<p>Here’s where most of the coding is and I’ll provide five examples, the rest you can checkout in the repository.</p>
-
-<p>1) main.yml</p>
-
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-yaml" data-lang="yaml"> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby"> 1
  2
  3
  4
@@ -317,34 +258,42 @@ X-GNOME-Autostart-Delay=20
 17
 18
 19
-20</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nn">---</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pre.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sublime.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">chrome.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">numix.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">plank.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keepass2.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">laptop.yml</span>
-    <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager_laptop == true</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">variety.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">font.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base16.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">work.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scm_breeze.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">vim.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">other_requirements.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dropbox.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bash_customizations.yml</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bumblebee.yml</span>
-    <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bumblebee == true</span>
+20</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># coding: utf-8</span>
+<span class="n">lib</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s1">&#39;../lib&#39;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">)</span>
+<span class="vg">$LOAD_PATH</span><span class="o">.</span><span class="n">unshift</span><span class="p">(</span><span class="n">lib</span><span class="p">)</span> <span class="k">unless</span> <span class="vg">$LOAD_PATH</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">lib</span><span class="p">)</span>
+
+<span class="no">Gem</span><span class="o">::</span><span class="no">Specification</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">spec</span><span class="o">|</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">name</span>          <span class="o">=</span> <span class="s2">&quot;vagrant-custom-command&quot;</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">version</span>       <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">authors</span>       <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Joseph Kahn&quot;</span><span class="o">]</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">email</span>         <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;JosephBKahn@gmail.com&quot;</span><span class="o">]</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">description</span>   <span class="o">=</span> <span class="sx">%q{Awesome custom command to do something}</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">summary</span>       <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">description</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">homepage</span>      <span class="o">=</span> <span class="s2">&quot;&lt;repo url&gt;&quot;</span>
+
+  <span class="n">spec</span><span class="o">.</span><span class="n">files</span>         <span class="o">=</span> <span class="sb">`git ls-files`</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="vg">$/</span><span class="p">)</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">executables</span>   <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">%r{^bin/}</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">require_paths</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;lib&quot;</span><span class="o">]</span>
+
+  <span class="n">spec</span><span class="o">.</span><span class="n">add_development_dependency</span> <span class="s2">&quot;bundler&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; 1.3&quot;</span>
+  <span class="n">spec</span><span class="o">.</span><span class="n">add_development_dependency</span> <span class="s2">&quot;rake&quot;</span>
+<span class="k">end</span>
 </pre></div>
 </td></tr></table>
 
-<p>‘main.yml’ is the file that the setup.yml common role calls, I just use it to conditionally call the other task files I use.</p>
+<p>That’s pretty straight forward. I think I used bundler to install rake and rake to build the module so that’s what this gem required for development.</p>
 
-<p>2) base16.yml</p>
+<h2 id="vagrant-project-setuprb">vagrant-project-setup.rb</h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-yaml" data-lang="yaml"> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby">1</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">require_relative</span> <span class="s1">&#39;custom-command/plugin&#39;</span>
+</pre></div>
+</td></tr></table>
+
+<p>This file as just going to use the following <code>plugin.rb</code> file and exists in here to make the directory structure clean.</p>
+
+<h2 id="pluginrb">plugin.rb</h2>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby"> 1
  2
  3
  4
@@ -357,68 +306,64 @@ X-GNOME-Autostart-Delay=20
 11
 12
 13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nn">---</span>
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base16 - checkout repo</span>
-  <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">repo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://github.com/chriskempson/base16-gnome-terminal.git</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup/base16-gnome&quot;</span>
+14</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="k">module</span> <span class="nn">VagrantPlugins</span>
+  <span class="k">module</span> <span class="nn">CustomCommand</span>
+    <span class="k">class</span> <span class="nc">Plugin</span> <span class="o">&lt;</span> <span class="no">Vagrant</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+      <span class="nb">name</span> <span class="s1">&#39;test&#39;</span>
+      <span class="n">description</span> <span class="s1">&#39;testing&#39;</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base16 - copy monokai-dark</span>
-  <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">src</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup/base16-gnome/base16-monokai.dark.sh&quot;</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//base16-monokai.dark.sh&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
+      <span class="n">command</span> <span class="s2">&quot;hello&quot;</span> <span class="k">do</span>
+        <span class="n">require_relative</span> <span class="s2">&quot;command&quot;</span>
+        <span class="no">Command</span>
+      <span class="k">end</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base16 - install monokai dark</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//base16-monokai.dark.sh&quot;</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base16 - set system font to source code pro</span>
-  <span class="l-Scalar-Plain">gconftool-2</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">key</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/apps/gnome-terminal/profiles/base-16-monokai-dark/font</span>
-    <span class="l-Scalar-Plain">string</span><span class="p-Indicator">:</span> <span class="s">&quot;Source</span><span class="nv"> </span><span class="s">Code</span><span class="nv"> </span><span class="s">Pro</span><span class="nv"> </span><span class="s">Semi-Bold</span><span class="nv"> </span><span class="s">12&quot;</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base16 - dont use default system font in terminal</span>
-  <span class="l-Scalar-Plain">gconftool-2</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">key</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/apps/gnome-terminal/profiles/base-16-monokai-dark/use_system_font</span>
-    <span class="l-Scalar-Plain">bool</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base16 - set default terminal profile</span>
-  <span class="l-Scalar-Plain">gconftool-2</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">key</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/apps/gnome-terminal/global/default_profile</span>
-    <span class="l-Scalar-Plain">string</span><span class="p-Indicator">:</span> <span class="s">&quot;base-16-monokai-dark&quot;</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base-16 - get base16-shell so that colors show up correctly in vim</span>
-  <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">repo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://github.com/chriskempson/base16-shell.git</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.config/base16-shell&quot;</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 </td></tr></table>
 
-<p>Here I make use of the git, file and command modules to checkout the amazing <a href="https://github.com/chriskempson/base16">base-16</a> color scheme for my terminal, set it as the default and set the font (which I already setup in another task).</p>
+<p>All this file does it to register a command which can be called using <code>vagrant hello</code> and then will execute the logic in the <code>command.rb</code> file.</p>
 
-<p>3) vim.yml</p>
+<h2 id="commandrb">command.rb</h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-yaml" data-lang="yaml"> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="k">module</span> <span class="nn">VagrantPlugins</span>
+  <span class="k">module</span> <span class="nn">CustomCommand</span>
+    <span class="k">class</span> <span class="nc">Command</span> <span class="o">&lt;</span> <span class="no">Vagrant</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="ss">:command</span><span class="p">)</span>
+      <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">synopsis</span>
+        <span class="s2">&quot;Prints Hello World&quot;</span>
+      <span class="k">end</span>
+
+      <span class="k">def</span> <span class="nf">execute</span>
+        <span class="nb">puts</span> <span class="s2">&quot;Hello World!&quot;</span>
+        <span class="k">return</span> <span class="mi">0</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</td></tr></table>
+
+<p>The execute function is the code that is executed when it’s called and the synopsis is how the command is described under <code>vagrant list-commands</code>.</p>
+
+<p>The above snippet prints <code>Hello World!</code> to the screen and exits with a 0 status.</p>
+
+<h2 id="more-complex-commandrb">More Complex <code>command.rb</code></h2>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby"> 1
  2
  3
  4
@@ -467,705 +412,77 @@ X-GNOME-Autostart-Delay=20
 47
 48
 49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nn">---</span>
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - download vim</span>
-  <span class="l-Scalar-Plain">apt</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">vim</span>
-    <span class="l-Scalar-Plain">update_cache</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+50</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="k">module</span> <span class="nn">VagrantPlugins</span>
+  <span class="k">module</span> <span class="nn">CustomCommand</span>
+    <span class="k">class</span> <span class="nc">Command</span> <span class="o">&lt;</span> <span class="no">Vagrant</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="ss">:command</span><span class="p">)</span>
+      <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">synopsis</span>
+        <span class="s2">&quot;Calls an Ansible script to do something.&quot;</span>
+      <span class="k">end</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - make sure bundle directory exists</span>
-  <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.vim/bundle&quot;</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">directory</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0777</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+      <span class="k">def</span> <span class="nf">execute</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">options</span><span class="o">[</span><span class="ss">:optionA</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
+        <span class="n">options</span><span class="o">[</span><span class="ss">:optionB</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - checkout vundle repo</span>
-  <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">repo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://github.com/gmarik/vundle.vim.git</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.vim/bundle/vundle&quot;</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="no">OptionParser</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">o</span><span class="o">|</span>
+          <span class="n">o</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Usage: vagrant blah [item]&quot;</span>
+          <span class="n">o</span><span class="o">.</span><span class="n">separator</span> <span class="s2">&quot;&quot;</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - checkout repo</span>
-  <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">repo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://github.com/JBKahn/horse.vim.git</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//horse.vim&quot;</span>
+          <span class="n">o</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;-a&quot;</span><span class="p">,</span> <span class="s2">&quot;--optionA&quot;</span><span class="p">,</span> <span class="s2">&quot;do something conditional.&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span>
+            <span class="n">options</span><span class="o">[</span><span class="ss">:optionA</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span>
+          <span class="k">end</span>
+          <span class="n">o</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;-b&quot;</span><span class="p">,</span> <span class="s2">&quot;--optionB&quot;</span><span class="p">,</span> <span class="s2">&quot;do something conditional.&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+            <span class="n">options</span><span class="o">[</span><span class="ss">:optionB</span><span class="o">]</span> <span class="o">=</span> <span class="n">b</span>
+          <span class="k">end</span>
+        <span class="k">end</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - copy .vimrc file</span>
-  <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">src</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//horse.vim/.vimrc&quot;</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.vimrc&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">link</span>
+        <span class="n">argv</span> <span class="o">=</span> <span class="n">parse_options</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - copy .vimrc.bundles file</span>
-  <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">src</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//horse.vim/.vimrc.bundles&quot;</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.vimrc.bundles&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">link</span>
+        <span class="k">if</span> <span class="n">argv</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span>
+          <span class="nb">puts</span> <span class="s2">&quot;You must specify at least one item.&quot;</span>
+          <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">end</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="n">argv</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - make sure vim colors directory exists</span>
-  <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.vim/colors&quot;</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">directory</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0777</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
+        <span class="n">host_arg</span> <span class="o">=</span> <span class="s2">&quot;-i ./provisioning/hosts_file&quot;</span>
+        <span class="n">private_key_arg</span> <span class="o">=</span> <span class="s2">&quot;--private-key=./.vagrant/machines/default/virtualbox/private_key&quot;</span>
+        <span class="n">user_arg</span> <span class="o">=</span> <span class="s2">&quot;-u vagrant&quot;</span>
+        <span class="n">playbook_path</span> <span class="o">=</span> <span class="s2">&quot;./provisioning/some_playbook.yml&quot;</span>
+        <span class="n">extra_vars</span> <span class="o">=</span> <span class="s2">&quot;--extra-vars </span><span class="se">\&quot;</span><span class="s2">items=</span><span class="si">#{</span><span class="n">items</span><span class="si">}</span><span class="s2"> option_a=</span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:optionA</span><span class="o">]</span><span class="si">}</span><span class="s2"> option_b=</span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:optionB</span><span class="o">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - copy color to config to avoid error</span>
-  <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">src</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">base16-monokai.vim</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.vim/colors/base16-monokai.vim&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;ansible-playbook </span><span class="si">#{</span><span class="n">host_arg</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">private_key_arg</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">user_arg</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">playbook_path</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">exatra_vars</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - run bundle install</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">vim +BundleInstall +qall</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - add NeoVim ppa</span>
-  <span class="l-Scalar-Plain">apt_repository</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">repo</span><span class="p-Indicator">:</span> <span class="s">&#39;ppa:rudenko/neovim&#39;</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">present</span>
-    <span class="l-Scalar-Plain">update_cache</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - install neovim</span>
-  <span class="l-Scalar-Plain">apt</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">neovim</span>
-    <span class="l-Scalar-Plain">update_cache</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - symlink nvimrc</span>
-  <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">src</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//horse.vim/.vimrc&quot;</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.nvimrc&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">link</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">horse vim - symlink nvim</span>
-  <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">src</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.vim&quot;</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.nvim&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">link</span>
+        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">nil?</span>
+          <span class="nb">puts</span> <span class="s2">&quot;Error was </span><span class="si">#{</span><span class="vg">$?</span><span class="si">}</span><span class="s2">&quot;</span>
+          <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">end</span>
+        <span class="nb">puts</span> <span class="s2">&quot;Success!!&quot;</span>
+        <span class="k">return</span> <span class="mi">0</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 </td></tr></table>
 
-<p>Another part of my setup is to put Vim and all of the important packages on my machine. Unfortunately, when I had tried to install the packages it seemed that missing my color scheme file prevented me from downloading it through Vundle. Using Ansible’s copy module I’m taking the current version (rather than doing a git pull for a more up to date one) to temporarily place the file there and have it replaced by running the setup.</p>
+<p>In this example, I’m using the built-in option parsing to pass a list of items and two conditionals to an ansible playbook. That snippet is pretty straight forward under we get to the system call. I had to specify the vagrant user and give vagrant’s private key to have sufficient privileges to run this playbook. This makes it easier for the other developers to run these commands. They don’t need to remember the full command or where the <code>private_key</code> file is.</p>
 
-<p>4) work.yml</p>
+<h1 id="building-testing--usage">Building, Testing &amp; Usage</h1>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-yaml" data-lang="yaml">  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nn">---</span>
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">download vagrant .deb package</span>
-  <span class="l-Scalar-Plain">get_url</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup/vagrant.deb&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
+<p>In order to build the file, I downloaded ruby (I use rvm) and bundler following their documentation. After installing rvm, I ran <code>rvm all do gem install bundler</code> (I only have one version of Ruby installed, otherwise I would have specified which). Once I had both of those, I ran <code>rake build</code> to build my plugin. That created a <code>.gem</code> file in a <code>pkg</code> directory it created at the root of the gem.</p>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">get currently installed vagrant version</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="s">&quot;vagrant</span><span class="nv"> </span><span class="s">--version&quot;</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">register</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">result</span>
-  <span class="l-Scalar-Plain">ignore_errors</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">True</span>
+<p>Once I had the gem file, I went to my vagrant folder for the project and ran <code>vagrant plugin install &lt;path to gem file&gt;</code>. Once it’s installed, a simple <code>vagrant hello</code> will test whether the plgin works and will return an error if there was an issue. During development I would continuously run <code>vagrant plugin uninstall vagrant-custom-command &amp;&amp; vagran plugin install &lt;path to gem&gt;</code>.</p>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install vagrant</span>
-  <span class="l-Scalar-Plain">apt</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">deb</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup/vagrant.deb&quot;</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">result.rc !=0 or result.stderr.find(&#39;A later version is already installed&#39;) != -1</span>
+<h1 id="conclusion">Conclusion</h1>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">download virtualbox .deb package</span>
-  <span class="l-Scalar-Plain">get_url</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup/virtualbox.deb&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
+<p>I feel that plugin creation is a bit more complicated than it should have been for a <code>Hello World</code> case. Hiding behind a warning makes the initial plunge into vagrant plugins that much scarier and harder. While I had a few hiccups during development, it was more confusing because I thought it was more difficult than it turned out to be. Writing a gem for a simple command seems a bit like overkill. I didn’t see a way to define something like <code>Hello World</code> in the <code>Vagrantfile</code> or something equally simple. I hope this post helps the next confused person overcome those hurdles and make a great plugin.</p>
 
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install virtualbox</span>
-  <span class="l-Scalar-Plain">apt</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">deb</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup/virtualbox.deb&quot;</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install wave dependencies</span>
-  <span class="l-Scalar-Plain">apt</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">installed</span>
-    <span class="l-Scalar-Plain">update_cache</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">with_items</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">python-pip</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">curl</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">nodejs</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">nfs-kernel-server</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">nfs-common</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">rpcbind</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">tmux</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">npm</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">libjpeg-dev</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">libfreetype6-dev</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">zlib1g-dev</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">libpng12-dev</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">python-dev</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">libpq-dev</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">python-dev</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">get currently installed node version</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="s">&quot;node</span><span class="nv"> </span><span class="s">--version&quot;</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">register</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">result</span>
-  <span class="l-Scalar-Plain">ignore_errors</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">True</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nodejs</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">checkout node</span>
-  <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">repo</span><span class="p-Indicator">:</span> <span class="s">&quot;git://github.com/ry/node.git&quot;</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/setup/node&quot;</span>
-    <span class="l-Scalar-Plain">force</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">no</span>
-    <span class="l-Scalar-Plain">accept_hostkey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">result.rc !=0</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nodejs</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">configure</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="s">&quot;./configure&quot;</span>
-  <span class="l-Scalar-Plain">args</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">chdir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/setup/node</span>
-  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">result.rc !=0</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nodejs</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">make</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="s">&quot;make&quot;</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">args</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">chdir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/setup/node</span>
-  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">result.rc !=0</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nodejs</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">make install</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="s">&quot;make</span><span class="nv"> </span><span class="s">install&quot;</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">args</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">chdir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/setup/node</span>
-  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">result.rc !=0</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nodejs</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install global nodejs packages</span>
-  <span class="l-Scalar-Plain">npm</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">present</span>
-    <span class="l-Scalar-Plain">global</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-    <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
-  <span class="l-Scalar-Plain">with_items</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="p-Indicator">{</span><span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;bower&#39;</span><span class="p-Indicator">}</span>
-    <span class="p-Indicator">-</span> <span class="p-Indicator">{</span><span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;coffee-script&#39;</span><span class="p-Indicator">,</span> <span class="nv">version</span><span class="p-Indicator">:</span> <span class="s">&#39;1.7.1&#39;</span><span class="p-Indicator">}</span>
-    <span class="p-Indicator">-</span> <span class="p-Indicator">{</span><span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;grunt-cli&#39;</span><span class="p-Indicator">}</span>
-    <span class="p-Indicator">-</span> <span class="p-Indicator">{</span><span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;less&#39;</span><span class="p-Indicator">}</span>
-    <span class="p-Indicator">-</span> <span class="p-Indicator">{</span><span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;jshint&#39;</span><span class="p-Indicator">}</span>
-    <span class="p-Indicator">-</span> <span class="p-Indicator">{</span><span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;coffee-jshint&#39;</span><span class="p-Indicator">}</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install tmuxp</span>
-  <span class="l-Scalar-Plain">pip</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tmuxp</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">copy tmuxp config</span>
-  <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">src</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">.tmux.conf</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//.tmux.conf&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">install ipython</span>
-  <span class="l-Scalar-Plain">pip</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ipython</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-</pre></div>
-</td></tr></table>
-
-<p>There’s a fair amount of overlap between things I use for my personal projects and those which I need for work. In here I’ve put the more development focused requirements making use of some of its wide variety of modules for installing packages through pip, .deb files and apt.</p>
-
-<p>5) laptop.yml</p>
-
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-yaml" data-lang="yaml"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nn">---</span>
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">screen dimming - alter grub file</span>
-  <span class="l-Scalar-Plain">lineinfile</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/etc/default/grub</span>
-    <span class="l-Scalar-Plain">regexp</span><span class="p-Indicator">:</span> <span class="s">&quot;^GRUB_CMDLINE_LINUX_DEFAULT=&quot;</span>
-    <span class="l-Scalar-Plain">line</span><span class="p-Indicator">:</span> <span class="s">&#39;GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet</span><span class="nv"> </span><span class="s">splash</span><span class="nv"> </span><span class="s">video.use_native_backlight=1&quot;&#39;</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">register</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">grubfile</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">screen dimming - update grub</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo update-grub</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">when</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">grubfile|changed</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - requirements</span>
-  <span class="l-Scalar-Plain">apt</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">pkg</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">installed</span>
-  <span class="l-Scalar-Plain">with_items</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">build-essential</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">linux-source</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - Make sure setup directory exists</span>
-  <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup&quot;</span>
-    <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">directory</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - checkout clevo-wmi-code</span>
-  <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">repo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">git://git.code.sf.net/p/clevo-wmi/code</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup/clevo-wmi-code&quot;</span>
-    <span class="l-Scalar-Plain">accept_hostkey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - build clevo-wmi</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">make</span>
-  <span class="l-Scalar-Plain">args</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">chdir</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup/clevo-wmi-code&quot;</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - link clevo-wmi to kernel check</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">cat /etc/modules</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">register</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">running_modules</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - link clevo-wmi to kernel</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="s">&quot;sudo</span><span class="nv"> </span><span class="s">insmod</span><span class="nv"> </span><span class="s">/home//setup/clevo-wmi-code/clevo_wmi.ko&quot;</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="c1"># when: running_modules.stdout.find(&#39;clevo_wmi&#39;) == -1</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-  <span class="l-Scalar-Plain">ignore_errors</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">True</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - copy to kernel drivers</span>
-  <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">src</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//setup/clevo-wmi-code/clevo_wmi.ko&quot;</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/lib/modules//kernel/drivers/platform/x86/&quot;</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - handle dependencies</span>
-  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sudo depmod -a</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors- add to etc/modules</span>
-  <span class="l-Scalar-Plain">lineinfile</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/etc/modules</span>
-    <span class="l-Scalar-Plain">line</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">clevo_wmi</span>
-  <span class="l-Scalar-Plain">sudo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard colors - copy kbbl script</span>
-  <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">src</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keyboard-color.sh</span>
-    <span class="l-Scalar-Plain">dest</span><span class="p-Indicator">:</span> <span class="s">&quot;/home//keyboard-color.sh&quot;</span>
-    <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0755</span>
-  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sager</span>
-</pre></div>
-</td></tr></table>
-
-<p>One of the disadvantages of using linux can be that some things are hard to make work, although Ubuntu helps with a lot of it. For a long time I was unable to dim my backlight and my keyboard backlight was always on and always blue. Through the use of a small settings tweak, a custom driver and a custom script I wrote for changing the keyboard backlight, I’m not able to do all of these things. The task will only run contingent on the sager_laptop variable being true. One of the truly great modules in called ‘lineinfile’ and it does is ensure that a line exists in a file. That sounds pretty simple but it offers the ability to use a regular expression to identify the line (so that if it does not exist but it is meant to replace another line, it will) and the ability to create the file if it does not exist (configurable).</p>
-
-<h1 id="the-script">The script</h1>
-
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-bash" data-lang="bash"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35</code></pre></div></td><td class="code"><div class="highlight"><pre>sudo apt-get install python-setuptools
-
-sudo easy_install pip
-
-sudo apt-get install aptitude
-sudo apt-get install git
-sudo apt-get install python-dev libxml2-dev libxslt-dev
-
-<span class="nb">cd</span> ~
-mkdir -p setup
-<span class="nb">cd </span>setup
-git clone https://github.com/JBKahn/provisioning-local.git
-<span class="nb">cd </span>provisioning-local
-
-sudo pip install -r requirements.txt
-
-<span class="nb">echo</span> -e <span class="s2">&quot;please enter your username, followed by [ENTER]&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">read </span>PROVISIONING_USER
-sudo sed -i <span class="s2">&quot;s/^username: .*/username: $PROVISIONING_USER/&quot;</span> roles/common/vars/main.yml
-
-<span class="nb">echo</span> -e <span class="s2">&quot;please enter your github username, followed by [ENTER]&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">read </span>PROVISIONING_GITHUB_USERNAME
-sudo sed -i <span class="s2">&quot;s/^github_username: .*/github_username: $PROVISIONING_GITHUB_USERNAME/&quot;</span> roles/common/vars/main.yml
-
-sudo sed -i <span class="s2">&quot;s/^uname_r: .*/uname_r: `uname -r`/&quot;</span> roles/common/vars/main.yml
-
-ansible-playbook setup.yml -i HOSTS --ask-sudo-pass  --module-path ./ansible_modules
-
-<span class="c"># currently unable to use ansible due to EULA that I can&#39;t seem to stub using debconf</span>
-sudo apt-get install steam
-
-dropbox start -i <span class="p">&amp;</span>
-/opt/extras.ubuntu.com/variety/bin/variety <span class="err">$</span>
-plank <span class="p">&amp;</span>
-
-<span class="nb">source</span> ~/.bashrc
-<span class="nb">exit </span>0
-</pre></div>
-</td></tr></table>
-
-<p>By using: <code>bash wget -qO- https://github.com/JBKahn/provisioning-local/raw/master/run.sh | sudo bash</code>
-you can have this script download and run and have the machine setup in no time. It handles the requirements, and starts up three of the applications after the provisioning is completed.</p>
-
-<h1 id="the-output">The Output</h1>
-
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-text" data-lang="text"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30</code></pre></div></td><td class="code"><div class="highlight"><pre>joseph@Batcave-Ubuntu:~/dev/provisioning-local$ sudo rm -fr ../../setup/base16-gnome/
-[sudo] password for joseph:
-joseph@Batcave-Ubuntu:~/dev/provisioning-local$ ansible-playbook setup.yml -i HOSTS --ask-sudo-pass
-sudo password:
-
-PLAY [a playbook to setup my local machine with my basic customizations] ******
-
-GATHERING FACTS ***************************************************************
-ok: [127.0.0.1]
-
-TASK: [common | base16 - checkout repo] ***************************************
-changed: [127.0.0.1]
-
-TASK: [common | set file permissions] *****************************************
-changed: [127.0.0.1]
-
-TASK: [common | base16 - install monokai dark] ********************************
-changed: [127.0.0.1]
-
-TASK: [common | base16 - set system font to source code pro] ******************
-changed: [127.0.0.1]
-
-TASK: [common | base16 - dont use default system font in terminal] ************
-changed: [127.0.0.1]
-
-TASK: [common | base16 - set default terminal profile] ************************
-changed: [127.0.0.1]
-
-PLAY RECAP ********************************************************************
-127.0.0.1                  : ok=7    changed=6    unreachable=0    failed=0
-</pre></div>
-</td></tr></table>
-
-<p>Here after I run it, it will tell me how many of them at ran (changed) or did not require any more work (ok). There are some tasks (i.e. commands) which will always be ‘changed’ unless they are conditionally executed or a module is written to explain to Ansible how to check and see if something has changed.</p>
-
-<h1 id="thats-it">That’s It</h1>
-
-<p>That’s all you need to get this up and running and provisioning your own machine. I hope to be able to write a blog post about using it with Vagrant and what the differences are. For now, I’ll leave you with a few relevant links:</p>
-
-<ul>
-  <li><a href="https://github.com/JBKahn/provisioning-local">The Repository</a>.</li>
-  <li><a href="http://docs.ansible.com/list_of_all_modules.html">Ansible Modules</a>.</li>
-</ul>
+<p>If you have any suggestions on an easier way to do this, information on the gem that I missed, or any part of this than please leave a comment below.</p>
 
         <nav class="pagination" role="navigation">
           
-            <a href="http://blog.josephkahn.io/articles/pre-commit-hooks/" class="btn" title="Pre-commit Hooks: The Good, The Bad &amp; The Ugly">Previous</a>
+            <a href="http://blog.josephkahn.io/articles/ansible-modules/" class="btn" title="For a Few Ansible Modules More">Previous</a>
           
-          
-            <a href="http://blog.josephkahn.io/articles/ansible-modules/" class="btn" title="For a Few Ansible Modules More">Next</a>
           
         </nav><!-- /.pagination -->
         <div id="disqus_thread"></div><!-- /#disqus_thread -->

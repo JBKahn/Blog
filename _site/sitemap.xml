@@ -26,11 +26,11 @@
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/blog/index.html</loc>
+        <loc>http://blog.josephkahn.io/tags/index.html</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/tags/index.html</loc>
+        <loc>http://blog.josephkahn.io/blog/index.html</loc>
     </url>
     
     <url>
@@ -50,6 +50,10 @@
     </url>
     
 
+    
+    <url>
+        <loc>http://blog.josephkahn.io/articles/vagrant-plugin/</loc>
+    </url>
     
     <url>
         <loc>http://blog.josephkahn.io/articles/ansible-modules/</loc>
