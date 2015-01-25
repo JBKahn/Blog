@@ -13,7 +13,7 @@ share: true
 
 Once again, writing a post after a long break from updating my blog. I found my free time began to disappear when I started taking class at night after work and didn't have much time for blogging. When my co-op finished in September, I then worked part time between my classes and finished up the last of my requirements. This has been my first month back to work and getting used to having some free time again.
 
-In school I covered a variety of topics from databases and PHP to the SOLID principles. I might try to make a post about something I covered in school over the next few weeks. I’ve also gotten back into reading and just finished [Geek Sublime: The Beauty of Code, the Code of Beauty](http://www.amazon.ca/Geek-Sublime-The-Beauty-Code/dp/1555976859) as it was a gift from a friend. The book was pretty interesting but, yet it did seem a bit dry at times and certain passages seemed to go on forever. Anyway, on to the good stuff.
+In school I covered a variety of topics from databases and PHP to the SOLID principles. I might try to make a post about something I covered in school over the next few weeks. I’ve also gotten back into reading and just finished [Geek Sublime: The Beauty of Code, the Code of Beauty](http://www.amazon.ca/Geek-Sublime-The-Beauty-Code/dp/1555976859) as it was a gift from a friend. The book was pretty interesting and yet it did seem a bit dry at times and certain passages seemed to go on forever. Anyway, on to the good stuff.
 
 One thing I was attempting to do this week at work was to write a custom Vagrant command. For those of you unfamiliar with Vagrant, it’s a wrapper around tools like VirtualBox. It makes configuring, creating, and managing virtual machines for development a lot easier. It also provides some useful commands to make starting and using VMs easier.
 
@@ -67,7 +67,7 @@ Rakefile
 require "bundler/gem_tasks"
 {% endhighlight %}
 
-I don't know why this is here, at some point I'd like to delve more into Ruby. For the moment I just accept that this works.
+I don't know why this is here, at some point I'd like to delve more into Ruby. For the moment I just accept that this works and that that line is suffient to use `rake build`.
 
 vagrant-custom-command.gemspec
 ------------------------------
@@ -104,7 +104,7 @@ vagrant-project-setup.rb
 require_relative 'custom-command/plugin'
 {% endhighlight %}
 
-This file as just going to use the following `plugin.rb` file and exists in here to make the directory structure clean.
+This file is just going to use the following `plugin.rb` file and exists in here to make the directory structure clean.
 
 plugin.rb
 ---------
@@ -208,7 +208,7 @@ module VagrantPlugins
 end
 {% endhighlight %}
 
-In this example, I'm using the built-in option parsing to pass a list of items and two conditionals to an ansible playbook. That snippet is pretty straight forward under we get to the system call. I had to specify the vagrant user and give vagrant’s private key to have sufficient privileges to run this playbook. This makes it easier for the other developers to run these commands. They don’t need to remember the full command or where the `private_key` file is.
+In this example, I'm using the built-in option parsing to pass a list of items and two conditionals to an ansible playbook. That snippet is pretty straight forward until we get to the system call. I had to specify the vagrant user and give vagrant’s private key to have sufficient privileges to run this playbook. This makes it easier for the other developers to run these commands. They don’t need to remember the full command or where the `private_key` file is.
 
 # Building, Testing & Usage
 
@@ -218,6 +218,6 @@ Once I had the gem file, I went to my vagrant folder for the project and ran `va
 
 # Conclusion
 
-I feel that plugin creation is a bit more complicated than it should have been for a `Hello World` case. Hiding behind a warning makes the initial plunge into vagrant plugins that much scarier and harder. While I had a few hiccups during development, it was more confusing because I thought it was more difficult than it turned out to be. Writing a gem for a simple command seems a bit like overkill. I didn't see a way to define something like `Hello World` in the `Vagrantfile` or something equally simple. I hope this post helps the next confused person overcome those hurdles and make a great plugin.
+I feel that plugin creation is a bit more complicated than it should have been for a `Hello World` case. It seems a bit like overkill for printing something to the screen. Hiding behind a warning makes the initial plunge into vagrant plugins that much scarier and harder. While I had a few hiccups during development, it was more confusing because I thought it was more difficult than it turned out to be. I didn't see an easier way to define something simple inside the `Vagrantfile` or anything like that. I hope this post helps the next confused person overcome those hurdles be on their way to make a great plugin.
 
 If you have any suggestions on an easier way to do this, information on the gem that I missed, or any part of this than please leave a comment below.
