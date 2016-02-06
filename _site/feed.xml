@@ -2,27 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">A Byte Of The Apple</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2016-02-06T16:09:42-05:00</updated>
-<id>http://localhost:4000/</id>
+<link rel="self" type="application/atom+xml" href="http://blog.josephkahn.io/feed.xml" />
+<link rel="alternate" type="text/html" href="http://blog.josephkahn.io" />
+<updated>2016-02-06T16:13:19-05:00</updated>
+<id>http://blog.josephkahn.io/</id>
 <author>
   <name>Joseph Kahn</name>
-  <uri>http://localhost:4000/</uri>
+  <uri>http://blog.josephkahn.io/</uri>
   <email>josephbkahn@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Vagrant Plugin: Back 2 Tha Hood]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/vagrant-plugin/" />
-  <id>http://localhost:4000/articles/vagrant-plugin</id>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/vagrant-plugin/" />
+  <id>http://blog.josephkahn.io/articles/vagrant-plugin</id>
   <updated>2015-01-25T00:00:00-00:00</updated>
   <published>2015-01-25T00:00:00-05:00</published>
   
   <author>
     <name>Joseph Kahn</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://blog.josephkahn.io</uri>
     <email>josephbkahn@gmail.com</email>
   </author>
   <content type="html">
@@ -324,21 +324,21 @@ lib/
 
 &lt;p&gt;If you have any suggestions on an easier way to do this, information on the gem that I missed, or any part of this than please leave a comment below.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/vagrant-plugin/&quot;&gt;Vagrant Plugin: Back 2 Tha Hood&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://localhost:4000&quot;&gt;A Byte Of The Apple&lt;/a&gt; on January 25, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://blog.josephkahn.io/articles/vagrant-plugin/&quot;&gt;Vagrant Plugin: Back 2 Tha Hood&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://blog.josephkahn.io&quot;&gt;A Byte Of The Apple&lt;/a&gt; on January 25, 2015.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[For a Few Ansible Modules More]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/ansible-modules/" />
-  <id>http://localhost:4000/articles/ansible-modules</id>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/ansible-modules/" />
+  <id>http://blog.josephkahn.io/articles/ansible-modules</id>
   <updated>2014-08-17T00:00:00-00:00</updated>
   <published>2014-08-17T00:00:00-04:00</published>
   
   <author>
     <name>Joseph Kahn</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://blog.josephkahn.io</uri>
     <email>josephbkahn@gmail.com</email>
   </author>
   <content type="html">
@@ -751,21 +751,21 @@ options:
   &lt;li&gt;&lt;a href=&quot;http://docs.ansible.com/list_of_all_modules.html&quot;&gt;Ansible Modules&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/ansible-modules/&quot;&gt;For a Few Ansible Modules More&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://localhost:4000&quot;&gt;A Byte Of The Apple&lt;/a&gt; on August 17, 2014.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://blog.josephkahn.io/articles/ansible-modules/&quot;&gt;For a Few Ansible Modules More&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://blog.josephkahn.io&quot;&gt;A Byte Of The Apple&lt;/a&gt; on August 17, 2014.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/ansible/" />
-  <id>http://localhost:4000/articles/ansible</id>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/ansible/" />
+  <id>http://blog.josephkahn.io/articles/ansible</id>
   <updated>2014-07-27T00:00:00-00:00</updated>
   <published>2014-07-27T00:00:00-04:00</published>
   
   <author>
     <name>Joseph Kahn</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://blog.josephkahn.io</uri>
     <email>josephbkahn@gmail.com</email>
   </author>
   <content type="html">
@@ -1742,21 +1742,21 @@ PLAY RECAP ********************************************************************
   &lt;li&gt;&lt;a href=&quot;http://docs.ansible.com/list_of_all_modules.html&quot;&gt;Ansible Modules&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/ansible/&quot;&gt;Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://localhost:4000&quot;&gt;A Byte Of The Apple&lt;/a&gt; on July 27, 2014.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://blog.josephkahn.io/articles/ansible/&quot;&gt;Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://blog.josephkahn.io&quot;&gt;A Byte Of The Apple&lt;/a&gt; on July 27, 2014.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Pre-commit Hooks: The Good, The Bad &amp; The Ugly]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/pre-commit-hooks/" />
-  <id>http://localhost:4000/articles/pre-commit-hooks</id>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/pre-commit-hooks/" />
+  <id>http://blog.josephkahn.io/articles/pre-commit-hooks</id>
   <updated>2014-06-29T00:00:00-00:00</updated>
   <published>2014-06-29T00:00:00-04:00</published>
   
   <author>
     <name>Joseph Kahn</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://blog.josephkahn.io</uri>
     <email>josephbkahn@gmail.com</email>
   </author>
   <content type="html">
@@ -1799,21 +1799,21 @@ PLAY RECAP ********************************************************************
   &lt;li&gt;The URLs and the direct links in the html files of Django projects.&lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/pre-commit-hooks/&quot;&gt;Pre-commit Hooks: The Good, The Bad &amp;amp; The Ugly&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://localhost:4000&quot;&gt;A Byte Of The Apple&lt;/a&gt; on June 29, 2014.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://blog.josephkahn.io/articles/pre-commit-hooks/&quot;&gt;Pre-commit Hooks: The Good, The Bad &amp;amp; The Ugly&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://blog.josephkahn.io&quot;&gt;A Byte Of The Apple&lt;/a&gt; on June 29, 2014.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[My First Post]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/starting-the-blog/" />
-  <id>http://localhost:4000/articles/starting-the-blog</id>
+  <link rel="alternate" type="text/html" href="http://blog.josephkahn.io/articles/starting-the-blog/" />
+  <id>http://blog.josephkahn.io/articles/starting-the-blog</id>
   <updated>2014-05-03T00:00:00-00:00</updated>
   <published>2014-05-03T00:00:00-04:00</published>
   
   <author>
     <name>Joseph Kahn</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://blog.josephkahn.io</uri>
     <email>josephbkahn@gmail.com</email>
   </author>
   <content type="html">
@@ -1821,7 +1821,7 @@ PLAY RECAP ********************************************************************
 
 &lt;p&gt;As much as I’d like to put out my first post today, It has been a long day and I’m currently working on my new website to go with this blog. More content to follow.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/starting-the-blog/&quot;&gt;My First Post&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://localhost:4000&quot;&gt;A Byte Of The Apple&lt;/a&gt; on May 03, 2014.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://blog.josephkahn.io/articles/starting-the-blog/&quot;&gt;My First Post&lt;/a&gt; was originally published by Joseph Kahn at &lt;a href=&quot;http://blog.josephkahn.io&quot;&gt;A Byte Of The Apple&lt;/a&gt; on May 03, 2014.&lt;/p&gt;
   </content>
 </entry>
 
