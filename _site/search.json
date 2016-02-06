@@ -1,43 +1,105 @@
 [
-	
-		{
-		  "title"      : "Vagrant Plugin: Back 2 Tha Hood",
-		  "category"   : "articles",
-		  "url"        : "http://blog.josephkahn.io/articles/vagrant-plugin/",
-		  "date"       : "2015-01-25 00:00:00 -0500",
-		  "shortdate"  : "January 25, 2015"
-		} ,
-	
-		{
-		  "title"      : "For a Few Ansible Modules More",
-		  "category"   : "articles",
-		  "url"        : "http://blog.josephkahn.io/articles/ansible-modules/",
-		  "date"       : "2014-08-17 00:00:00 -0400",
-		  "shortdate"  : "August 17, 2014"
-		} ,
-	
-		{
-		  "title"      : "Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It",
-		  "category"   : "articles",
-		  "url"        : "http://blog.josephkahn.io/articles/ansible/",
-		  "date"       : "2014-07-27 00:00:00 -0400",
-		  "shortdate"  : "July 27, 2014"
-		} ,
-	
-		{
-		  "title"      : "Pre-commit Hooks: The Good, The Bad &amp;amp; The Ugly",
-		  "category"   : "articles",
-		  "url"        : "http://blog.josephkahn.io/articles/pre-commit-hooks/",
-		  "date"       : "2014-06-29 00:00:00 -0400",
-		  "shortdate"  : "June 29, 2014"
-		} ,
-	
-		{
-		  "title"      : "My First Post",
-		  "category"   : "articles",
-		  "url"        : "http://blog.josephkahn.io/articles/starting-the-blog/",
-		  "date"       : "2014-05-03 00:00:00 -0400",
-		  "shortdate"  : "May 03, 2014"
-		} 
-	
+
+  
+    {
+      "title"			: "Vagrant Plugin: Back 2 Tha Hood",
+      "link"			: "http://localhost:4000/articles/vagrant-plugin/",
+      "excerpt"		: "My journey to create a useful vagrant plugin for work"
+    }
+  
+
+  
+    ,{
+      "title"			: "For a Few Ansible Modules More",
+      "link"			: "http://localhost:4000/articles/ansible-modules/",
+      "excerpt"		: "Creating custom modules in Ansible"
+    }
+  
+
+  
+    ,{
+      "title"			: "Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It",
+      "link"			: "http://localhost:4000/articles/ansible/",
+      "excerpt"		: "Setting up my machine using Ansible to make reformatting simple"
+    }
+  
+
+  
+    ,{
+      "title"			: "Pre-commit Hooks: The Good, The Bad &amp; The Ugly",
+      "link"			: "http://localhost:4000/articles/pre-commit-hooks/",
+      "excerpt"		: "How to create a good pre-commit hook"
+    }
+  
+
+  
+    ,{
+      "title"			: "My First Post",
+      "link"			: "http://localhost:4000/articles/starting-the-blog/",
+      "excerpt"		: "More content to follow"
+    }
+  
+
+
+
+  
+
+  
+    ,{
+      "title"			: "About Me",
+      "link"			: "http://localhost:4000/about/",
+      "excerpt"		: ""
+    }
+  
+
+  
+    ,{
+      "title"			: "Articles",
+      "link"			: "http://localhost:4000/articles/",
+      "excerpt"		: ""
+    }
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    ,{
+      "title"			: "About Me",
+      "link"			: "http://localhost:4000/about/",
+      "excerpt"		: ""
+    }
+  
+
+  
+
+  
+
+  
+    ,{
+      "title"			: "Theme Setup",
+      "link"			: "http://localhost:4000/theme-setup/",
+      "excerpt"		: "Instructions on how to install and customize the Jekyll theme So Simple."
+    }
+  
+
+  
+
+  
+
+  
+
+  
+    ,{
+      "title"			: "Tag Index",
+      "link"			: "http://localhost:4000/tags/",
+      "excerpt"		: ""
+    }
+  
+
 ]

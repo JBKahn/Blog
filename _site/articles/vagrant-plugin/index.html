@@ -6,76 +6,73 @@
 <head>
 <meta charset="utf-8">
 <title>Vagrant Plugin: Back 2 Tha Hood &#8211; A Byte Of The Apple</title>
-<meta name="description" content="Introduction
-
-">
+<meta name="description" content="My journey to create a useful vagrant plugin for work">
 <meta name="keywords" content="post">
-
 
 
 <!-- Twitter Cards -->
 <meta name="twitter:title" content="Vagrant Plugin: Back 2 Tha Hood">
-<meta name="twitter:description" content="Introduction
-
-">
+<meta name="twitter:description" content="My journey to create a useful vagrant plugin for work">
 <meta name="twitter:site" content="@JosephBKahn">
 <meta name="twitter:creator" content="@JosephBKahn">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.josephkahn.io/images/">
+<meta name="twitter:image" content="http://localhost:4000/images/">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vagrant Plugin: Back 2 Tha Hood">
-<meta property="og:description" content="Introduction
-
-">
-<meta property="og:url" content="http://blog.josephkahn.io/articles/vagrant-plugin/">
+<meta property="og:description" content="My journey to create a useful vagrant plugin for work">
+<meta property="og:url" content="http://localhost:4000/articles/vagrant-plugin/">
 <meta property="og:site_name" content="A Byte Of The Apple">
 
 
 
 
 
-<link rel="canonical" href="http://blog.josephkahn.io/articles/vagrant-plugin/">
-<link href="http://blog.josephkahn.io/feed.xml" type="application/atom+xml" rel="alternate" title="A Byte Of The Apple Feed">
+<link rel="canonical" href="http://localhost:4000/articles/vagrant-plugin/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="A Byte Of The Apple Feed">
 
-
-<!-- http://t.co/dKP3o1e -->
+<!-- https://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://blog.josephkahn.io/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 <!-- Webfonts -->
-<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
-  <script src="http://blog.josephkahn.io/assets/js/vendor/html5shiv.min.js"></script>
-  <script src="http://blog.josephkahn.io/assets/js/vendor/respond.min.js"></script>
+  <script src="http://localhost:4000/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="http://localhost:4000/assets/js/vendor/respond.min.js"></script>
 <![endif]-->
 
 <!-- Modernizr -->
-<script src="http://blog.josephkahn.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="http://blog.josephkahn.io/favicon.ico">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="http://blog.josephkahn.io/favicon.png">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="http://blog.josephkahn.io/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://blog.josephkahn.io/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://blog.josephkahn.io/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://blog.josephkahn.io/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
 
 </head>
 
@@ -86,47 +83,35 @@
 	    <ul>
       
 		    
-		        
-		    
-		    <li><a href="http://blog.josephkahn.io/about/" >About</a></li>
+		    <li><a href="http://localhost:4000/about/" >About</a></li>
 		  
 		    
-		        
-		    
-		    <li><a href="http://blog.josephkahn.io/articles/" >Articles</a></li>
+		    <li><a href="http://localhost:4000/articles/" >Articles</a></li>
 		  
 		    
-		        
-		        
 		    <li><a href="http://josephkahn.io" target="_blank">My Website</a></li>
 		  
 		    
-		        
-		    
-		    <li><a href="http://blog.josephkahn.io/feed.xml" >Feed</a></li>
+		    <li><a href="http://localhost:4000/feed.xml" >Feed</a></li>
 		  
-        <li class="dosearch"><i class="fa fa-search"></i> Search</li>
+		    
+		    <li><a href="http://localhost:4000/search/" >Search</a></li>
+		  
 	    </ul>
 	</nav>
 </div><!-- /.navigation-wrapper -->
 
 <!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
 
-<div class="search-wrapper">
-  <div class="search-form">
-    <input type="text" class="search-field" placeholder="Search...">
-    <button class="close-btn"><i class="fa fa-times-circle fa-2x"></i></button>
-    <ul class="search-results post-list"></ul><!-- /.search-results -->
-  </div><!-- /.search-form -->
-</div><!-- ./search-wrapper -->
-
 <header class="masthead">
 	<div class="wrap">
-        
-        <h1 class="site-title animated fadeIn"><a href="http://blog.josephkahn.io/">A Byte Of The Apple</a></h1>
+      
+      <h1 class="site-title animated fadeIn"><a href="http://localhost:4000/">A Byte Of The Apple</a></h1>
 		<h2 class="site-description animated fadeIn" itemprop="description">Becoming A Better Developer One Mistake At A Time</h2>
 	</div>
 </header><!-- /.masthead -->
+
+<div class="js-menu-screen menu-screen"></div>
 
 
 <div id="main" role="main">
@@ -134,7 +119,9 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags"><a href="http://blog.josephkahn.io/tags/#post" title="Pages tagged post">post</a></span>
+        <ul class="entry-tags">
+          <li><a href="http://localhost:4000/tags/#post" title="Pages tagged post">post</a></li>
+        </ul>
         
           <h1 class="entry-title">Vagrant Plugin: Back 2 Tha Hood</h1>
         
@@ -142,36 +129,23 @@
       <footer class="entry-meta">
         
         
-        
-          <img src="http://blog.josephkahn.io/images/bio-photo.jpg" class="bio-photo" alt="Joseph Kahn bio photo"></a>
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Joseph Kahn bio photo"></a>
         
         <span class="author vcard">By <span class="fn">Joseph Kahn</span></span>
         <span class="entry-date date published"><time datetime="2015-01-25T00:00:00-05:00"><i class="fa fa-calendar-o"></i> January 25, 2015</time></span>
         <span class="entry-date date modified"><time datetime="2015-01-25"><i class="fa fa-pencil"></i> January 25, 2015</time></span>
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
-        
         <span class="social-share-twitter">
-          <a href="https://twitter.com/intent/tweet?hashtags=post&text=Vagrant%20Plugin:%20Back%202%20Tha%20Hood&url=http://blog.josephkahn.io/articles/vagrant-plugin/&via=JosephBKahn" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
-        </span>
-        <span class="social-share-facebook">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.josephkahn.io/articles/vagrant-plugin/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
-        </span>
-        <span class="social-share-googleplus">
-          <a href="https://plus.google.com/share?url=http://blog.josephkahn.io/articles/vagrant-plugin/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
-        </span>
-        <!-- /.social-share -->
+  <a href="https://twitter.com/intent/tweet?hashtags=post&amp;text=Vagrant%20Plugin:%20Back%202%20Tha%20Hood&amp;url=http://localhost:4000/articles/vagrant-plugin/&amp;via=JosephBKahn" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+</span>
+<span class="social-share-facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/vagrant-plugin/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+</span>
+<span class="social-share-googleplus">
+  <a href="https://plus.google.com/share?url=http://localhost:4000/articles/vagrant-plugin/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+</span>
+<!-- /.social-share -->
         
-        <div class="google-ads" style="margin-top:40px; text-align:center;">
-  <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <!-- 160x600 ad -->
-  <ins class="adsbygoogle"
-       style="display:inline-block;width:160px;height:600px"
-       data-ad-client=""
-       data-ad-slot=""></ins>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div><!-- /.google-ads --><!-- /.google-ads -->
       </footer>
       <div class="entry-content">
         <h1 id="introduction">Introduction</h1>
@@ -192,7 +166,7 @@
   <p>Warning: Advanced Topic! Developing plugins is an advanced topic that only experienced Vagrant users who are reasonably comfortable with Ruby should approach.</p>
 </blockquote>
 
-<p>As far as I was aware, I was neither an experienced Vagrant user or reasonably comfortable with Ruby…so I was preparing for the worst. Apparently, all plugins are to defined as gems, regardless of complexity. My only experience with gems was to run <code>bundle install</code> to be able to work on this blog. I figured it couldn’t be too hard to do and they must have examples of how to build them. I was sadly mistaken and confused as began researching. I found confusing documentation and half-examples with decent explanation or full examples with none. I was flummoxed.</p>
+<p>As far as I was aware, I was neither an experienced Vagrant user or reasonably comfortable with Ruby…so I was preparing for the worst. Apparently, all plugins are to defined as gems, regardless of complexity. My only experience with gems was to run <code class="highlighter-rouge">bundle install</code> to be able to work on this blog. I figured it couldn’t be too hard to do and they must have examples of how to build them. I was sadly mistaken and confused as began researching. I found confusing documentation and half-examples with decent explanation or full examples with none. I was flummoxed.</p>
 
 <p>I thought, how can there not be a complete (and easy to follow) Hello World type example for those who know little of Ruby? The documentation was the closest I could find but instead of giving you the full story, they leave that warning. I hope this will serve as an example to the next person who just wants a simple custom vagrant command.</p>
 
@@ -200,14 +174,14 @@
 
 <p>The first thing you need for a gem file is the structure. Apparently you can auto-generate the skeleton, I opted to take a simple gem and make my changes. Here’s the file structure of my gem:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">Gemfile                         # The is where I put my dependancies.
+<figure class="highlight"><pre><code class="language-text" data-lang="text">Gemfile                         # The is where I put my dependancies.
 Rakefile                        # The is somehow tied to building the gem.
 vagrant-custom-command.gemspec  # The information/build data, like a `setup.py` file.
 lib/
 --- vagrant-custom-command.rb   # This is the top level file of the command.
 --- custom-command/
 --- --- command.rb              # The logic of the command and the argument parsing.
---- --- plugin.rb               # Defining the command and point it at `command.rb`.</code></pre></div>
+--- --- plugin.rb               # Defining the command and point it at `command.rb`.</code></pre></figure>
 
 <p>There aren’t too many files here , it was reasonably easy to make a custom gem. I’m not making use of any other ruby gems or doing anything complex.</p>
 
@@ -215,39 +189,37 @@ lib/
 
 <h1 id="gemfile">Gemfile</h1>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby">1
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
-5</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">gemspec</span>
+5</pre></td><td class="code"><pre><span class="n">gemspec</span>
 
 <span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
-  <span class="n">gem</span> <span class="s1">&#39;vagrant&#39;</span><span class="p">,</span>         <span class="ss">github</span><span class="p">:</span> <span class="s1">&#39;mitchellh/vagrant&#39;</span>
-<span class="k">end</span>
-</pre></div>
-</td></tr></table>
+  <span class="n">gem</span> <span class="s1">'vagrant'</span><span class="p">,</span>         <span class="ss">github: </span><span class="s1">'mitchellh/vagrant'</span>
+<span class="k">end</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>As you can see, I’ve just defined vagrant as a requirement for development, that’s all. Simple file.</p>
 
 <h2 id="rakefile">Rakefile</h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby">1</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;bundler/gem_tasks&quot;</span>
-</pre></div>
-</td></tr></table>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="nb">require</span> <span class="s2">"bundler/gem_tasks"</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>I don’t know why this is here, at some point I’d like to delve more into Ruby. For the moment I just accept that this works and that that line is suffient to use <code>rake build</code>.</p>
+<p>I don’t know why this is here, at some point I’d like to delve more into Ruby. For the moment I just accept that this works and that that line is suffient to use <code class="highlighter-rouge">rake build</code>.</p>
 
 <h2 id="vagrant-custom-commandgemspec">vagrant-custom-command.gemspec</h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
 10
 11
 12
@@ -258,120 +230,116 @@ lib/
 17
 18
 19
-20</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># coding: utf-8</span>
-<span class="n">lib</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s1">&#39;../lib&#39;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">)</span>
-<span class="vg">$LOAD_PATH</span><span class="o">.</span><span class="n">unshift</span><span class="p">(</span><span class="n">lib</span><span class="p">)</span> <span class="k">unless</span> <span class="vg">$LOAD_PATH</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">lib</span><span class="p">)</span>
+20</pre></td><td class="code"><pre><span class="c1"># coding: utf-8</span>
+<span class="n">lib</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'../lib'</span><span class="p">,</span> <span class="kp">__FILE__</span><span class="p">)</span>
+<span class="vg">$LOAD_PATH</span><span class="p">.</span><span class="nf">unshift</span><span class="p">(</span><span class="n">lib</span><span class="p">)</span> <span class="k">unless</span> <span class="vg">$LOAD_PATH</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">lib</span><span class="p">)</span>
 
-<span class="no">Gem</span><span class="o">::</span><span class="no">Specification</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">spec</span><span class="o">|</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">name</span>          <span class="o">=</span> <span class="s2">&quot;vagrant-custom-command&quot;</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">version</span>       <span class="o">=</span> <span class="mi">1</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">authors</span>       <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Joseph Kahn&quot;</span><span class="o">]</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">email</span>         <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;JosephBKahn@gmail.com&quot;</span><span class="o">]</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">description</span>   <span class="o">=</span> <span class="sx">%q{Awesome custom command to do something}</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">summary</span>       <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">description</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">homepage</span>      <span class="o">=</span> <span class="s2">&quot;&lt;repo url&gt;&quot;</span>
+<span class="no">Gem</span><span class="o">::</span><span class="no">Specification</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">spec</span><span class="o">|</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">name</span>          <span class="o">=</span> <span class="s2">"vagrant-custom-command"</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">version</span>       <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">authors</span>       <span class="o">=</span> <span class="p">[</span><span class="s2">"Joseph Kahn"</span><span class="p">]</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">email</span>         <span class="o">=</span> <span class="p">[</span><span class="s2">"JosephBKahn@gmail.com"</span><span class="p">]</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">description</span>   <span class="o">=</span> <span class="sx">%q{Awesome custom command to do something}</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">summary</span>       <span class="o">=</span> <span class="n">spec</span><span class="p">.</span><span class="nf">description</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">homepage</span>      <span class="o">=</span> <span class="s2">"&lt;repo url&gt;"</span>
 
-  <span class="n">spec</span><span class="o">.</span><span class="n">files</span>         <span class="o">=</span> <span class="sb">`git ls-files`</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="vg">$/</span><span class="p">)</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">executables</span>   <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">%r{^bin/}</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">}</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">require_paths</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;lib&quot;</span><span class="o">]</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">files</span>         <span class="o">=</span> <span class="sb">`git ls-files`</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="vg">$/</span><span class="p">)</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">executables</span>   <span class="o">=</span> <span class="n">spec</span><span class="p">.</span><span class="nf">files</span><span class="p">.</span><span class="nf">grep</span><span class="p">(</span><span class="sr">%r{^bin/}</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="no">File</span><span class="p">.</span><span class="nf">basename</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">require_paths</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"lib"</span><span class="p">]</span>
 
-  <span class="n">spec</span><span class="o">.</span><span class="n">add_development_dependency</span> <span class="s2">&quot;bundler&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; 1.3&quot;</span>
-  <span class="n">spec</span><span class="o">.</span><span class="n">add_development_dependency</span> <span class="s2">&quot;rake&quot;</span>
-<span class="k">end</span>
-</pre></div>
-</td></tr></table>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">add_development_dependency</span> <span class="s2">"bundler"</span><span class="p">,</span> <span class="s2">"~&gt; 1.3"</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">add_development_dependency</span> <span class="s2">"rake"</span>
+<span class="k">end</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>That’s pretty straight forward. I think I used bundler to install rake and rake to build the module so that’s what this gem required for development.</p>
 
 <h2 id="vagrant-project-setuprb">vagrant-project-setup.rb</h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby">1</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">require_relative</span> <span class="s1">&#39;custom-command/plugin&#39;</span>
-</pre></div>
-</td></tr></table>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="nb">require_relative</span> <span class="s1">'custom-command/plugin'</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>This file is just going to use the following <code>plugin.rb</code> file and exists in here to make the directory structure clean.</p>
+<p>This file is just going to use the following <code class="highlighter-rouge">plugin.rb</code> file and exists in here to make the directory structure clean.</p>
 
 <h2 id="pluginrb">plugin.rb</h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
 10
 11
 12
 13
-14</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="k">module</span> <span class="nn">VagrantPlugins</span>
+14</pre></td><td class="code"><pre><span class="k">module</span> <span class="nn">VagrantPlugins</span>
   <span class="k">module</span> <span class="nn">CustomCommand</span>
-    <span class="k">class</span> <span class="nc">Plugin</span> <span class="o">&lt;</span> <span class="no">Vagrant</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-      <span class="nb">name</span> <span class="s1">&#39;test&#39;</span>
-      <span class="n">description</span> <span class="s1">&#39;testing&#39;</span>
+    <span class="k">class</span> <span class="nc">Plugin</span> <span class="o">&lt;</span> <span class="no">Vagrant</span><span class="p">.</span><span class="nf">plugin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+      <span class="nb">name</span> <span class="s1">'test'</span>
+      <span class="n">description</span> <span class="s1">'testing'</span>
 
-      <span class="n">command</span> <span class="s2">&quot;hello&quot;</span> <span class="k">do</span>
-        <span class="n">require_relative</span> <span class="s2">&quot;command&quot;</span>
+      <span class="n">command</span> <span class="s2">"hello"</span> <span class="k">do</span>
+        <span class="nb">require_relative</span> <span class="s2">"command"</span>
         <span class="no">Command</span>
       <span class="k">end</span>
 
     <span class="k">end</span>
   <span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
-</td></tr></table>
+<span class="k">end</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>All this file does it to register a command which can be called using <code>vagrant hello</code> and then will execute the logic in the <code>command.rb</code> file.</p>
+<p>All this file does it to register a command which can be called using <code class="highlighter-rouge">vagrant hello</code> and then will execute the logic in the <code class="highlighter-rouge">command.rb</code> file.</p>
 
 <h2 id="commandrb">command.rb</h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
 10
 11
 12
 13
-14</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="k">module</span> <span class="nn">VagrantPlugins</span>
+14</pre></td><td class="code"><pre><span class="k">module</span> <span class="nn">VagrantPlugins</span>
   <span class="k">module</span> <span class="nn">CustomCommand</span>
-    <span class="k">class</span> <span class="nc">Command</span> <span class="o">&lt;</span> <span class="no">Vagrant</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="ss">:command</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">Command</span> <span class="o">&lt;</span> <span class="no">Vagrant</span><span class="p">.</span><span class="nf">plugin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="ss">:command</span><span class="p">)</span>
       <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">synopsis</span>
-        <span class="s2">&quot;Prints Hello World&quot;</span>
+        <span class="s2">"Prints Hello World"</span>
       <span class="k">end</span>
 
       <span class="k">def</span> <span class="nf">execute</span>
-        <span class="nb">puts</span> <span class="s2">&quot;Hello World!&quot;</span>
+        <span class="nb">puts</span> <span class="s2">"Hello World!"</span>
         <span class="k">return</span> <span class="mi">0</span>
       <span class="k">end</span>
     <span class="k">end</span>
   <span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
-</td></tr></table>
+<span class="k">end</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>The execute function is the code that is executed when it’s called and the synopsis is how the command is described under <code>vagrant list-commands</code>.</p>
+<p>The execute function is the code that is executed when it’s called and the synopsis is how the command is described under <code class="highlighter-rouge">vagrant list-commands</code>.</p>
 
-<p>The above snippet prints <code>Hello World!</code> to the screen and exits with a 0 status.</p>
+<p>The above snippet prints <code class="highlighter-rouge">Hello World!</code> to the screen and exits with a 0 status.</p>
 
-<h2 id="more-complex-commandrb">More Complex <code>command.rb</code></h2>
+<h2 id="more-complex-commandrb">More Complex <code class="highlighter-rouge">command.rb</code></h2>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-ruby" data-lang="ruby"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
 10
 11
 12
@@ -412,160 +380,75 @@ lib/
 47
 48
 49
-50</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="k">module</span> <span class="nn">VagrantPlugins</span>
+50</pre></td><td class="code"><pre><span class="k">module</span> <span class="nn">VagrantPlugins</span>
   <span class="k">module</span> <span class="nn">CustomCommand</span>
-    <span class="k">class</span> <span class="nc">Command</span> <span class="o">&lt;</span> <span class="no">Vagrant</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="ss">:command</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">Command</span> <span class="o">&lt;</span> <span class="no">Vagrant</span><span class="p">.</span><span class="nf">plugin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="ss">:command</span><span class="p">)</span>
       <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">synopsis</span>
-        <span class="s2">&quot;Calls an Ansible script to do something.&quot;</span>
+        <span class="s2">"Calls an Ansible script to do something."</span>
       <span class="k">end</span>
 
       <span class="k">def</span> <span class="nf">execute</span>
         <span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">options</span><span class="o">[</span><span class="ss">:optionA</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
-        <span class="n">options</span><span class="o">[</span><span class="ss">:optionB</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
+        <span class="n">options</span><span class="p">[</span><span class="ss">:optionA</span><span class="p">]</span> <span class="o">=</span> <span class="kp">false</span>
+        <span class="n">options</span><span class="p">[</span><span class="ss">:optionB</span><span class="p">]</span> <span class="o">=</span> <span class="kp">false</span>
 
-        <span class="n">opts</span> <span class="o">=</span> <span class="no">OptionParser</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">o</span><span class="o">|</span>
-          <span class="n">o</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Usage: vagrant blah [item]&quot;</span>
-          <span class="n">o</span><span class="o">.</span><span class="n">separator</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="no">OptionParser</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">o</span><span class="o">|</span>
+          <span class="n">o</span><span class="p">.</span><span class="nf">banner</span> <span class="o">=</span> <span class="s2">"Usage: vagrant blah [item]"</span>
+          <span class="n">o</span><span class="p">.</span><span class="nf">separator</span> <span class="s2">""</span>
 
-          <span class="n">o</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;-a&quot;</span><span class="p">,</span> <span class="s2">&quot;--optionA&quot;</span><span class="p">,</span> <span class="s2">&quot;do something conditional.&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span>
-            <span class="n">options</span><span class="o">[</span><span class="ss">:optionA</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span>
+          <span class="n">o</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s2">"-a"</span><span class="p">,</span> <span class="s2">"--optionA"</span><span class="p">,</span> <span class="s2">"do something conditional."</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span>
+            <span class="n">options</span><span class="p">[</span><span class="ss">:optionA</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
           <span class="k">end</span>
-          <span class="n">o</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;-b&quot;</span><span class="p">,</span> <span class="s2">&quot;--optionB&quot;</span><span class="p">,</span> <span class="s2">&quot;do something conditional.&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
-            <span class="n">options</span><span class="o">[</span><span class="ss">:optionB</span><span class="o">]</span> <span class="o">=</span> <span class="n">b</span>
+          <span class="n">o</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s2">"-b"</span><span class="p">,</span> <span class="s2">"--optionB"</span><span class="p">,</span> <span class="s2">"do something conditional."</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+            <span class="n">options</span><span class="p">[</span><span class="ss">:optionB</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
           <span class="k">end</span>
         <span class="k">end</span>
 
         <span class="n">argv</span> <span class="o">=</span> <span class="n">parse_options</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">argv</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span>
-          <span class="nb">puts</span> <span class="s2">&quot;You must specify at least one item.&quot;</span>
+        <span class="k">if</span> <span class="n">argv</span><span class="p">.</span><span class="nf">length</span> <span class="o">==</span> <span class="mi">0</span>
+          <span class="nb">puts</span> <span class="s2">"You must specify at least one item."</span>
           <span class="k">return</span> <span class="mi">1</span>
         <span class="k">end</span>
-        <span class="n">items</span> <span class="o">=</span> <span class="n">argv</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="n">argv</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
 
-        <span class="n">host_arg</span> <span class="o">=</span> <span class="s2">&quot;-i ./provisioning/hosts_file&quot;</span>
-        <span class="n">private_key_arg</span> <span class="o">=</span> <span class="s2">&quot;--private-key=./.vagrant/machines/default/virtualbox/private_key&quot;</span>
-        <span class="n">user_arg</span> <span class="o">=</span> <span class="s2">&quot;-u vagrant&quot;</span>
-        <span class="n">playbook_path</span> <span class="o">=</span> <span class="s2">&quot;./provisioning/some_playbook.yml&quot;</span>
-        <span class="n">extra_vars</span> <span class="o">=</span> <span class="s2">&quot;--extra-vars </span><span class="se">\&quot;</span><span class="s2">items=</span><span class="si">#{</span><span class="n">items</span><span class="si">}</span><span class="s2"> option_a=</span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:optionA</span><span class="o">]</span><span class="si">}</span><span class="s2"> option_b=</span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:optionB</span><span class="o">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+        <span class="n">host_arg</span> <span class="o">=</span> <span class="s2">"-i ./provisioning/hosts_file"</span>
+        <span class="n">private_key_arg</span> <span class="o">=</span> <span class="s2">"--private-key=./.vagrant/machines/default/virtualbox/private_key"</span>
+        <span class="n">user_arg</span> <span class="o">=</span> <span class="s2">"-u vagrant"</span>
+        <span class="n">playbook_path</span> <span class="o">=</span> <span class="s2">"./provisioning/some_playbook.yml"</span>
+        <span class="n">extra_vars</span> <span class="o">=</span> <span class="s2">"--extra-vars </span><span class="se">\"</span><span class="s2">items=</span><span class="si">#{</span><span class="n">items</span><span class="si">}</span><span class="s2"> option_a=</span><span class="si">#{</span><span class="n">options</span><span class="p">[</span><span class="ss">:optionA</span><span class="p">]</span><span class="si">}</span><span class="s2"> option_b=</span><span class="si">#{</span><span class="n">options</span><span class="p">[</span><span class="ss">:optionB</span><span class="p">]</span><span class="si">}</span><span class="se">\"</span><span class="s2">"</span>
 
-        <span class="n">result</span> <span class="o">=</span> <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;ansible-playbook </span><span class="si">#{</span><span class="n">host_arg</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">private_key_arg</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">user_arg</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">playbook_path</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">exatra_vars</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">system</span><span class="p">(</span><span class="s2">"ansible-playbook </span><span class="si">#{</span><span class="n">host_arg</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">private_key_arg</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">user_arg</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">playbook_path</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">exatra_vars</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">nil?</span>
-          <span class="nb">puts</span> <span class="s2">&quot;Error was </span><span class="si">#{</span><span class="vg">$?</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">.</span><span class="nf">nil?</span>
+          <span class="nb">puts</span> <span class="s2">"Error was </span><span class="si">#{</span><span class="vg">$?</span><span class="si">}</span><span class="s2">"</span>
           <span class="k">return</span> <span class="mi">1</span>
         <span class="k">end</span>
-        <span class="nb">puts</span> <span class="s2">&quot;Success!!&quot;</span>
+        <span class="nb">puts</span> <span class="s2">"Success!!"</span>
         <span class="k">return</span> <span class="mi">0</span>
       <span class="k">end</span>
     <span class="k">end</span>
   <span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
-</td></tr></table>
+<span class="k">end</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>In this example, I’m using the built-in option parsing to pass a list of items and two conditionals to an ansible playbook. That snippet is pretty straight forward until we get to the system call. I had to specify the vagrant user and give vagrant’s private key to have sufficient privileges to run this playbook. This makes it easier for the other developers to run these commands. They don’t need to remember the full command or where the <code>private_key</code> file is.</p>
+<p>In this example, I’m using the built-in option parsing to pass a list of items and two conditionals to an ansible playbook. That snippet is pretty straight forward until we get to the system call. I had to specify the vagrant user and give vagrant’s private key to have sufficient privileges to run this playbook. This makes it easier for the other developers to run these commands. They don’t need to remember the full command or where the <code class="highlighter-rouge">private_key</code> file is.</p>
 
 <h1 id="building-testing--usage">Building, Testing &amp; Usage</h1>
 
-<p>In order to build the file, I downloaded ruby (I use rvm) and bundler following their documentation. After installing rvm, I ran <code>rvm all do gem install bundler</code> (I only have one version of Ruby installed, otherwise I would have specified which). Once I had both of those, I ran <code>rake build</code> to build my plugin. That created a <code>.gem</code> file in a <code>pkg</code> directory it created at the root of the gem.</p>
+<p>In order to build the file, I downloaded ruby (I use rvm) and bundler following their documentation. After installing rvm, I ran <code class="highlighter-rouge">rvm all do gem install bundler</code> (I only have one version of Ruby installed, otherwise I would have specified which). Once I had both of those, I ran <code class="highlighter-rouge">rake build</code> to build my plugin. That created a <code class="highlighter-rouge">.gem</code> file in a <code class="highlighter-rouge">pkg</code> directory it created at the root of the gem.</p>
 
-<p>Once I had the gem file, I went to my vagrant folder for the project and ran <code>vagrant plugin install &lt;path to gem file&gt;</code>. Once it’s installed, a simple <code>vagrant hello</code> will test whether the plgin works and will return an error if there was an issue. During development I would continuously run <code>vagrant plugin uninstall vagrant-custom-command &amp;&amp; vagran plugin install &lt;path to gem&gt;</code>.</p>
+<p>Once I had the gem file, I went to my vagrant folder for the project and ran <code class="highlighter-rouge">vagrant plugin install &lt;path to gem file&gt;</code>. Once it’s installed, a simple <code class="highlighter-rouge">vagrant hello</code> will test whether the plgin works and will return an error if there was an issue. During development I would continuously run <code class="highlighter-rouge">vagrant plugin uninstall vagrant-custom-command &amp;&amp; vagran plugin install &lt;path to gem&gt;</code>.</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>I feel that plugin creation is a bit more complicated than it should have been for a <code>Hello World</code> case. It seems a bit like overkill for printing something to the screen. Hiding behind a warning makes the initial plunge into vagrant plugins that much scarier and harder. While I had a few hiccups during development, it was more confusing because I thought it was more difficult than it turned out to be. I didn’t see an easier way to define something simple inside the <code>Vagrantfile</code> or anything like that. I hope this post helps the next confused person overcome those hurdles be on their way to make a great plugin.</p>
+<p>I feel that plugin creation is a bit more complicated than it should have been for a <code class="highlighter-rouge">Hello World</code> case. It seems a bit like overkill for printing something to the screen. Hiding behind a warning makes the initial plunge into vagrant plugins that much scarier and harder. While I had a few hiccups during development, it was more confusing because I thought it was more difficult than it turned out to be. I didn’t see an easier way to define something simple inside the <code class="highlighter-rouge">Vagrantfile</code> or anything like that. I hope this post helps the next confused person overcome those hurdles be on their way to make a great plugin.</p>
 
 <p>If you have any suggestions on an easier way to do this, information on the gem that I missed, or any part of this than please leave a comment below.</p>
 
-        <nav class="pagination" role="navigation">
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
           
-            <a href="http://blog.josephkahn.io/articles/ansible-modules/" class="btn" title="For a Few Ansible Modules More">Previous</a>
-          
-          
-        </nav><!-- /.pagination -->
-        <div id="disqus_thread"></div><!-- /#disqus_thread -->
-      </div><!-- /.entry-content -->
-    </div><!-- /.entry-wrapper -->
-  </article>
-</div><!-- /#main -->
-
-<div class="footer-wrapper">
-  <footer role="contentinfo">
-    
-
-<span>&copy; 2015 Joseph Kahn. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
-<div class="social-icons">
-	<a href="http://twitter.com/JosephBKahn" title="Joseph Kahn on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
-	<a href="http://facebook.com/josephkahn" title="Joseph Kahn on Facebook" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
-	
-	<a href="http://linkedin.com/in/jbkahn" title="Joseph Kahn on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
-	
-	
-	
-	<a href="http://github.com/JBKahn" title="Joseph Kahn on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
-	
-  <a href="http://blog.josephkahn.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
-</div><!-- /.social-icons -->
-  </footer>
-</div><!-- /.footer-wrapper -->
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="http://blog.josephkahn.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="http://blog.josephkahn.io/assets/js/scripts.min.js"></script>
-
-<!-- Jekyll Simple Search option -->
-<script>
-  $(document).ready(function() {
-      $('.search-field').simpleJekyllSearch({
-          jsonFile : 'http://blog.josephkahn.io/search.json',
-          searchResults : '.search-results',
-          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
-          noResults: '<p>Nothing found.</p>'
-        });
-  });
-
-  (function( $, window, undefined ) {
-    
-     var bs = {
-          close: $(".close-btn"),
-          searchform: $(".search-form"),
-          canvas: $("body"),
-          dothis: $('.dosearch')
-      };
-    
-    bs.dothis.on('click', function() {
-      $('.search-wrapper').css({ display: "block" });
-      bs.searchform.toggleClass('active');
-      bs.searchform.find('input').focus();
-      bs.canvas.toggleClass('search-overlay');
-    });
-    
-      bs.close.on('click', function() {
-        $('.search-wrapper').removeAttr( 'style' );
-        bs.searchform.toggleClass('active');
-        bs.canvas.removeClass('search-overlay');
-    });
-  })( jQuery, window );
-</script>
-
-
-<!-- Asynchronous Google Analytics snippet -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-49300323-1', 'auto');
-ga('require', 'displayfeatures');
-ga('send', 'pageview');
-</script>
-
-
-
-  
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'abyteoftheapplejbkahn'; // required: replace example with your forum shortname
@@ -573,7 +456,7 @@ ga('send', 'pageview');
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 
@@ -581,381 +464,74 @@ ga('send', 'pageview');
     (function () {
         var s = document.createElement('script'); s.async = true;
         s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/articles/ansible-modules/" class="btn" title="For a Few Ansible Modules More">Previous</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2016 Joseph Kahn. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="https://twitter.com/JosephBKahn" title="Joseph Kahn on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	<a href="https://facebook.com/josephkahn" title="Joseph Kahn on Facebook" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+	
+	<a href="https://linkedin.com/in/jbkahn" title="Joseph Kahn on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+	
+	
+	
+	<a href="https://github.com/JBKahn" title="Joseph Kahn on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'http://localhost:4000';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
 
 
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl =
+ 'https://www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-49300323-1']);
+  _gaq.push(['_trackPageview']);
 
-<html><!--<![endif]--><head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta http-equiv="x-dns-prefetch-control" content="off">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="icon" href="http://assets.tumblr.com/images/favicons/favicon.ico?1" type="image/gif">
-        <style type="text/css">
-            @font-face{font-family:"Blank";src:url("data:font/opentype;base64,T1RUTwAKAIAAAwAgQ0ZGIM6ZbkwAAEPoAAAZM0RTSUcAAAABAABtJAAAAAhPUy8yAR6vMwAAARAAAABgY21hcDqI98oAACjoAAAa4GhlYWQAVAYrAAAArAAAADZoaGVhCCID7wAAAOQAAAAkaG10eAPoAHwAAF0cAAAQBm1heHAIAVAAAAABCAAAAAZuYW1lEb5dKwAAAXAAACd4cG9zdP+4ADIAAEPIAAAAIAABAAAAAQj1QlgfWV8PPPUAAwPoAAAAAM6qXK8AAAAAzqpcrwB8/4gDbANwAAAAAwACAAAAAAAAAAEAAANw/4gAyAPoAHwAfANsAAEAAAAAAAAAAAAAAAAAAAACAABQAAgBAAAABAAAAZAABQAAAooCWAAAAEsCigJYAAABXgAyANwAAAAAAAAAAAAAAAD3/67/+9///w/gAD8AAAAAQURCRQHAAAD//wNw/4gAyANwAHhgLwH/AAAAAAAAAAAAAAAgAAAAAAARANIAAQAAAAAAAQALAAAAAQAAAAAAAgAHAAsAAQAAAAAAAwAbABIAAQAAAAAABAALAAAAAQAAAAAABQA5AC0AAQAAAAAABgAKAGYAAwABBAkAAABuAHAAAwABBAkAAQAWAN4AAwABBAkAAgAOAPQAAwABBAkAAwA2AQIAAwABBAkABAAmATgAAwABBAkABQByAV4AAwABBAkABgAUAdAAAwABBAkACAA0AeQAAwABBAkACwA0AhgAAwABBAkADSQSAkwAAwABBAkADgBIJl5BZG9iZSBCbGFua1JlZ3VsYXIxLjAzNTtBREJFO0Fkb2JlQmxhbms7QURPQkVWZXJzaW9uIDEuMDM1O1BTIDEuMDAzO2hvdGNvbnYgMS4wLjcyO21ha2VvdGYubGliMi41LjU5MDBBZG9iZUJsYW5rAKkAIAAyADAAMQAzACAAQQBkAG8AYgBlACAAUwB5AHMAdABlAG0AcwAgAEkAbgBjAG8AcgBwAG8AcgBhAHQAZQBkAC4AIABBAGwAbAAgAFIAaQBnAGgAdABzACAAUgBlAHMAZQByAHYAZQBkAC4AQQBkAG8AYgBlACAAQgBsAGEAbgBrAFIAZQBnAHUAbABhAHIAMQAuADAAMwA1ADsAQQBEAEIARQA7AEEAZABvAGIAZQBCAGwAYQBuAGsAOwBBAEQATwBCAEUAQQBkAG8AYgBlACAAQgBsAGEAbgBrACAAUgBlAGcAdQBsAGEAcgBWAGUAcgBzAGkAbwBuACAAMQAuADAAMwA1ADsAUABTACAAMQAuADAAMAAzADsAaABvAHQAYwBvAG4AdgAgADEALgAwAC4ANwAyADsAbQBhAGsAZQBvAHQAZgAuAGwAaQBiADIALgA1AC4ANQA5ADAAMABBAGQAbwBiAGUAQgBsAGEAbgBrAEEAZABvAGIAZQAgAFMAeQBzAHQAZQBtAHMAIABJAG4AYwBvAHIAcABvAHIAYQB0AGUAZABoAHQAdABwADoALwAvAHcAdwB3AC4AYQBkAG8AYgBlAC4AYwBvAG0ALwB0AHkAcABlAC8AQQBkAG8AYgBlACAAQgBsAGEAbgBrACAAaQBzACAAcgBlAGwAZQBhAHMAZQBkACAAdQBuAGQAZQByACAAdABoAGUAIABTAEkATAAgAE8AcABlAG4AIABGAG8AbgB0ACAATABpAGMAZQBuAHMAZQAgAC0AIABwAGwAZQBhAHMAZQAgAHIAZQBhAGQAIABpAHQAIABjAGEAcgBlAGYAdQBsAGwAeQAgAGEAbgBkACAAZABvACAAbgBvAHQAIABkAG8AdwBuAGwAbwBhAGQAIAB0AGgAZQAgAGYAbwBuAHQAcwAgAHUAbgBsAGUAcwBzACAAeQBvAHUAIABhAGcAcgBlAGUAIAB0AG8AIAB0AGgAZQAgAHQAaABlACAAdABlAHIAbQBzACAAbwBmACAAdABoAGUAIABsAGkAYwBlAG4AcwBlADoADQAKAA0ACgBDAG8AcAB5AHIAaQBnAGgAdAAgAKkAIAAyADAAMQAzACAAQQBkAG8AYgBlACAAUwB5AHMAdABlAG0AcwAgAEkAbgBjAG8AcgBwAG8AcgBhAHQAZQBkACAAKABoAHQAdABwADoALwAvAHcAdwB3AC4AYQBkAG8AYgBlAC4AYwBvAG0ALwApACwAIAB3AGkAdABoACAAUgBlAHMAZQByAHYAZQBkACAARgBvAG4AdAAgAE4AYQBtAGUAIABBAGQAbwBiAGUAIABCAGwAYQBuAGsADQAKAA0ACgBUAGgAaQBzACAARgBvAG4AdAAgAFMAbwBmAHQAdwBhAHIAZQAgAGkAcwAgAGwAaQBjAGUAbgBzAGUAZAAgAHUAbgBkAGUAcgAgAHQAaABlACAAUwBJAEwAIABPAHAAZQBuACAARgBvAG4AdAAgAEwAaQBjAGUAbgBzAGUALAAgAFYAZQByAHMAaQBvAG4AIAAxAC4AMQAuAA0ACgANAAoAVABoAGkAcwAgAGwAaQBjAGUAbgBzAGUAIABpAHMAIABjAG8AcABpAGUAZAAgAGIAZQBsAG8AdwAsACAAYQBuAGQAIABpAHMAIABhAGwAcwBvACAAYQB2AGEAaQBsAGEAYgBsAGUAIAB3AGkAdABoACAAYQAgAEYAQQBRACAAYQB0ADoAIABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwADQAKAA0ACgAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ADQAKAFMASQBMACAATwBQAEUATgAgAEYATwBOAFQAIABMAEkAQwBFAE4AUwBFACAAVgBlAHIAcwBpAG8AbgAgADEALgAxACAALQAgADIANgAgAEYAZQBiAHIAdQBhAHIAeQAgADIAMAAwADcADQAKAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQAtAC0ALQANAAoADQAKAFAAUgBFAEEATQBCAEwARQANAAoAVABoAGUAIABnAG8AYQBsAHMAIABvAGYAIAB0AGgAZQAgAE8AcABlAG4AIABGAG8AbgB0ACAATABpAGMAZQBuAHMAZQAgACgATwBGAEwAKQAgAGEAcgBlACAAdABvACAAcwB0AGkAbQB1AGwAYQB0AGUAIAB3AG8AcgBsAGQAdwBpAGQAZQAgAGQAZQB2AGUAbABvAHAAbQBlAG4AdAAgAG8AZgAgAGMAbwBsAGwAYQBiAG8AcgBhAHQAaQB2AGUAIABmAG8AbgB0ACAAcAByAG8AagBlAGMAdABzACwAIAB0AG8AIABzAHUAcABwAG8AcgB0ACAAdABoAGUAIABmAG8AbgB0ACAAYwByAGUAYQB0AGkAbwBuACAAZQBmAGYAbwByAHQAcwAgAG8AZgAgAGEAYwBhAGQAZQBtAGkAYwAgAGEAbgBkACAAbABpAG4AZwB1AGkAcwB0AGkAYwAgAGMAbwBtAG0AdQBuAGkAdABpAGUAcwAsACAAYQBuAGQAIAB0AG8AIABwAHIAbwB2AGkAZABlACAAYQAgAGYAcgBlAGUAIABhAG4AZAAgAG8AcABlAG4AIABmAHIAYQBtAGUAdwBvAHIAawAgAGkAbgAgAHcAaABpAGMAaAAgAGYAbwBuAHQAcwAgAG0AYQB5ACAAYgBlACAAcwBoAGEAcgBlAGQAIABhAG4AZAAgAGkAbQBwAHIAbwB2AGUAZAAgAGkAbgAgAHAAYQByAHQAbgBlAHIAcwBoAGkAcAAgAHcAaQB0AGgAIABvAHQAaABlAHIAcwAuAA0ACgANAAoAVABoAGUAIABPAEYATAAgAGEAbABsAG8AdwBzACAAdABoAGUAIABsAGkAYwBlAG4AcwBlAGQAIABmAG8AbgB0AHMAIAB0AG8AIABiAGUAIAB1AHMAZQBkACwAIABzAHQAdQBkAGkAZQBkACwAIABtAG8AZABpAGYAaQBlAGQAIABhAG4AZAAgAHIAZQBkAGkAcwB0AHIAaQBiAHUAdABlAGQAIABmAHIAZQBlAGwAeQAgAGEAcwAgAGwAbwBuAGcAIABhAHMAIAB0AGgAZQB5ACAAYQByAGUAIABuAG8AdAAgAHMAbwBsAGQAIABiAHkAIAB0AGgAZQBtAHMAZQBsAHYAZQBzAC4AIABUAGgAZQAgAGYAbwBuAHQAcwAsACAAaQBuAGMAbAB1AGQAaQBuAGcAIABhAG4AeQAgAGQAZQByAGkAdgBhAHQAaQB2AGUAIAB3AG8AcgBrAHMALAAgAGMAYQBuACAAYgBlACAAYgB1AG4AZABsAGUAZAAsACAAZQBtAGIAZQBkAGQAZQBkACwAIAByAGUAZABpAHMAdAByAGkAYgB1AHQAZQBkACAAYQBuAGQALwBvAHIAIABzAG8AbABkACAAdwBpAHQAaAAgAGEAbgB5ACAAcwBvAGYAdAB3AGEAcgBlACAAcAByAG8AdgBpAGQAZQBkACAAdABoAGEAdAAgAGEAbgB5ACAAcgBlAHMAZQByAHYAZQBkACAAbgBhAG0AZQBzACAAYQByAGUAIABuAG8AdAAgAHUAcwBlAGQAIABiAHkAIABkAGUAcgBpAHYAYQB0AGkAdgBlACAAdwBvAHIAawBzAC4AIABUAGgAZQAgAGYAbwBuAHQAcwAgAGEAbgBkACAAZABlAHIAaQB2AGEAdABpAHYAZQBzACwAIABoAG8AdwBlAHYAZQByACwAIABjAGEAbgBuAG8AdAAgAGIAZQAgAHIAZQBsAGUAYQBzAGUAZAAgAHUAbgBkAGUAcgAgAGEAbgB5ACAAbwB0AGgAZQByACAAdAB5AHAAZQAgAG8AZgAgAGwAaQBjAGUAbgBzAGUALgAgAFQAaABlACAAcgBlAHEAdQBpAHIAZQBtAGUAbgB0ACAAZgBvAHIAIABmAG8AbgB0AHMAIAB0AG8AIAByAGUAbQBhAGkAbgAgAHUAbgBkAGUAcgAgAHQAaABpAHMAIABsAGkAYwBlAG4AcwBlACAAZABvAGUAcwAgAG4AbwB0ACAAYQBwAHAAbAB5ACAAdABvACAAYQBuAHkAIABkAG8AYwB1AG0AZQBuAHQAIABjAHIAZQBhAHQAZQBkACAAdQBzAGkAbgBnACAAdABoAGUAIABmAG8AbgB0AHMAIABvAHIAIAB0AGgAZQBpAHIAIABkAGUAcgBpAHYAYQB0AGkAdgBlAHMALgANAAoADQAKAEQARQBGAEkATgBJAFQASQBPAE4AUwANAAoAIgBGAG8AbgB0ACAAUwBvAGYAdAB3AGEAcgBlACIAIAByAGUAZgBlAHIAcwAgAHQAbwAgAHQAaABlACAAcwBlAHQAIABvAGYAIABmAGkAbABlAHMAIAByAGUAbABlAGEAcwBlAGQAIABiAHkAIAB0AGgAZQAgAEMAbwBwAHkAcgBpAGcAaAB0ACAASABvAGwAZABlAHIAKABzACkAIAB1AG4AZABlAHIAIAB0AGgAaQBzACAAbABpAGMAZQBuAHMAZQAgAGEAbgBkACAAYwBsAGUAYQByAGwAeQAgAG0AYQByAGsAZQBkACAAYQBzACAAcwB1AGMAaAAuACAAVABoAGkAcwAgAG0AYQB5ACAAaQBuAGMAbAB1AGQAZQAgAHMAbwB1AHIAYwBlACAAZgBpAGwAZQBzACwAIABiAHUAaQBsAGQAIABzAGMAcgBpAHAAdABzACAAYQBuAGQAIABkAG8AYwB1AG0AZQBuAHQAYQB0AGkAbwBuAC4ADQAKAA0ACgAiAFIAZQBzAGUAcgB2AGUAZAAgAEYAbwBuAHQAIABOAGEAbQBlACIAIAByAGUAZgBlAHIAcwAgAHQAbwAgAGEAbgB5ACAAbgBhAG0AZQBzACAAcwBwAGUAYwBpAGYAaQBlAGQAIABhAHMAIABzAHUAYwBoACAAYQBmAHQAZQByACAAdABoAGUAIABjAG8AcAB5AHIAaQBnAGgAdAAgAHMAdABhAHQAZQBtAGUAbgB0ACgAcwApAC4ADQAKAA0ACgAiAE8AcgBpAGcAaQBuAGEAbAAgAFYAZQByAHMAaQBvAG4AIgAgAHIAZQBmAGUAcgBzACAAdABvACAAdABoAGUAIABjAG8AbABsAGUAYwB0AGkAbwBuACAAbwBmACAARgBvAG4AdAAgAFMAbwBmAHQAdwBhAHIAZQAgAGMAbwBtAHAAbwBuAGUAbgB0AHMAIABhAHMAIABkAGkAcwB0AHIAaQBiAHUAdABlAGQAIABiAHkAIAB0AGgAZQAgAEMAbwBwAHkAcgBpAGcAaAB0ACAASABvAGwAZABlAHIAKABzACkALgANAAoADQAKACIATQBvAGQAaQBmAGkAZQBkACAAVgBlAHIAcwBpAG8AbgAiACAAcgBlAGYAZQByAHMAIAB0AG8AIABhAG4AeQAgAGQAZQByAGkAdgBhAHQAaQB2AGUAIABtAGEAZABlACAAYgB5ACAAYQBkAGQAaQBuAGcAIAB0AG8ALAAgAGQAZQBsAGUAdABpAG4AZwAsACAAbwByACAAcwB1AGIAcwB0AGkAdAB1AHQAaQBuAGcAIAAtAC0AIABpAG4AIABwAGEAcgB0ACAAbwByACAAaQBuACAAdwBoAG8AbABlACAALQAtACAAYQBuAHkAIABvAGYAIAB0AGgAZQAgAGMAbwBtAHAAbwBuAGUAbgB0AHMAIABvAGYAIAB0AGgAZQAgAE8AcgBpAGcAaQBuAGEAbAAgAFYAZQByAHMAaQBvAG4ALAAgAGIAeQAgAGMAaABhAG4AZwBpAG4AZwAgAGYAbwByAG0AYQB0AHMAIABvAHIAIABiAHkAIABwAG8AcgB0AGkAbgBnACAAdABoAGUAIABGAG8AbgB0ACAAUwBvAGYAdAB3AGEAcgBlACAAdABvACAAYQAgAG4AZQB3ACAAZQBuAHYAaQByAG8AbgBtAGUAbgB0AC4ADQAKAA0ACgAiAEEAdQB0AGgAbwByACIAIAByAGUAZgBlAHIAcwAgAHQAbwAgAGEAbgB5ACAAZABlAHMAaQBnAG4AZQByACwAIABlAG4AZwBpAG4AZQBlAHIALAAgAHAAcgBvAGcAcgBhAG0AbQBlAHIALAAgAHQAZQBjAGgAbgBpAGMAYQBsACAAdwByAGkAdABlAHIAIABvAHIAIABvAHQAaABlAHIAIABwAGUAcgBzAG8AbgAgAHcAaABvACAAYwBvAG4AdAByAGkAYgB1AHQAZQBkACAAdABvACAAdABoAGUAIABGAG8AbgB0ACAAUwBvAGYAdAB3AGEAcgBlAC4ADQAKAA0ACgBQAEUAUgBNAEkAUwBTAEkATwBOACAAJgAgAEMATwBOAEQASQBUAEkATwBOAFMADQAKAFAAZQByAG0AaQBzAHMAaQBvAG4AIABpAHMAIABoAGUAcgBlAGIAeQAgAGcAcgBhAG4AdABlAGQALAAgAGYAcgBlAGUAIABvAGYAIABjAGgAYQByAGcAZQAsACAAdABvACAAYQBuAHkAIABwAGUAcgBzAG8AbgAgAG8AYgB0AGEAaQBuAGkAbgBnACAAYQAgAGMAbwBwAHkAIABvAGYAIAB0AGgAZQAgAEYAbwBuAHQAIABTAG8AZgB0AHcAYQByAGUALAAgAHQAbwAgAHUAcwBlACwAIABzAHQAdQBkAHkALAAgAGMAbwBwAHkALAAgAG0AZQByAGcAZQAsACAAZQBtAGIAZQBkACwAIABtAG8AZABpAGYAeQAsACAAcgBlAGQAaQBzAHQAcgBpAGIAdQB0AGUALAAgAGEAbgBkACAAcwBlAGwAbAAgAG0AbwBkAGkAZgBpAGUAZAAgAGEAbgBkACAAdQBuAG0AbwBkAGkAZgBpAGUAZAAgAGMAbwBwAGkAZQBzACAAbwBmACAAdABoAGUAIABGAG8AbgB0ACAAUwBvAGYAdAB3AGEAcgBlACwAIABzAHUAYgBqAGUAYwB0ACAAdABvACAAdABoAGUAIABmAG8AbABsAG8AdwBpAG4AZwAgAGMAbwBuAGQAaQB0AGkAbwBuAHMAOgANAAoADQAKADEAKQAgAE4AZQBpAHQAaABlAHIAIAB0AGgAZQAgAEYAbwBuAHQAIABTAG8AZgB0AHcAYQByAGUAIABuAG8AcgAgAGEAbgB5ACAAbwBmACAAaQB0AHMAIABpAG4AZABpAHYAaQBkAHUAYQBsACAAYwBvAG0AcABvAG4AZQBuAHQAcwAsACAAaQBuACAATwByAGkAZwBpAG4AYQBsACAAbwByACAATQBvAGQAaQBmAGkAZQBkACAAVgBlAHIAcwBpAG8AbgBzACwAIABtAGEAeQAgAGIAZQAgAHMAbwBsAGQAIABiAHkAIABpAHQAcwBlAGwAZgAuAA0ACgANAAoAMgApACAATwByAGkAZwBpAG4AYQBsACAAbwByACAATQBvAGQAaQBmAGkAZQBkACAAVgBlAHIAcwBpAG8AbgBzACAAbwBmACAAdABoAGUAIABGAG8AbgB0ACAAUwBvAGYAdAB3AGEAcgBlACAAbQBhAHkAIABiAGUAIABiAHUAbgBkAGwAZQBkACwAIAByAGUAZABpAHMAdAByAGkAYgB1AHQAZQBkACAAYQBuAGQALwBvAHIAIABzAG8AbABkACAAdwBpAHQAaAAgAGEAbgB5ACAAcwBvAGYAdAB3AGEAcgBlACwAIABwAHIAbwB2AGkAZABlAGQAIAB0AGgAYQB0ACAAZQBhAGMAaAAgAGMAbwBwAHkAIABjAG8AbgB0AGEAaQBuAHMAIAB0AGgAZQAgAGEAYgBvAHYAZQAgAGMAbwBwAHkAcgBpAGcAaAB0ACAAbgBvAHQAaQBjAGUAIABhAG4AZAAgAHQAaABpAHMAIABsAGkAYwBlAG4AcwBlAC4AIABUAGgAZQBzAGUAIABjAGEAbgAgAGIAZQAgAGkAbgBjAGwAdQBkAGUAZAAgAGUAaQB0AGgAZQByACAAYQBzACAAcwB0AGEAbgBkAC0AYQBsAG8AbgBlACAAdABlAHgAdAAgAGYAaQBsAGUAcwAsACAAaAB1AG0AYQBuAC0AcgBlAGEAZABhAGIAbABlACAAaABlAGEAZABlAHIAcwAgAG8AcgAgAGkAbgAgAHQAaABlACAAYQBwAHAAcgBvAHAAcgBpAGEAdABlACAAbQBhAGMAaABpAG4AZQAtAHIAZQBhAGQAYQBiAGwAZQAgAG0AZQB0AGEAZABhAHQAYQAgAGYAaQBlAGwAZABzACAAdwBpAHQAaABpAG4AIAB0AGUAeAB0ACAAbwByACAAYgBpAG4AYQByAHkAIABmAGkAbABlAHMAIABhAHMAIABsAG8AbgBnACAAYQBzACAAdABoAG8AcwBlACAAZgBpAGUAbABkAHMAIABjAGEAbgAgAGIAZQAgAGUAYQBzAGkAbAB5ACAAdgBpAGUAdwBlAGQAIABiAHkAIAB0AGgAZQAgAHUAcwBlAHIALgANAAoADQAKADMAKQAgAE4AbwAgAE0AbwBkAGkAZgBpAGUAZAAgAFYAZQByAHMAaQBvAG4AIABvAGYAIAB0AGgAZQAgAEYAbwBuAHQAIABTAG8AZgB0AHcAYQByAGUAIABtAGEAeQAgAHUAcwBlACAAdABoAGUAIABSAGUAcwBlAHIAdgBlAGQAIABGAG8AbgB0ACAATgBhAG0AZQAoAHMAKQAgAHUAbgBsAGUAcwBzACAAZQB4AHAAbABpAGMAaQB0ACAAdwByAGkAdAB0AGUAbgAgAHAAZQByAG0AaQBzAHMAaQBvAG4AIABpAHMAIABnAHIAYQBuAHQAZQBkACAAYgB5ACAAdABoAGUAIABjAG8AcgByAGUAcwBwAG8AbgBkAGkAbgBnACAAQwBvAHAAeQByAGkAZwBoAHQAIABIAG8AbABkAGUAcgAuACAAVABoAGkAcwAgAHIAZQBzAHQAcgBpAGMAdABpAG8AbgAgAG8AbgBsAHkAIABhAHAAcABsAGkAZQBzACAAdABvACAAdABoAGUAIABwAHIAaQBtAGEAcgB5ACAAZgBvAG4AdAAgAG4AYQBtAGUAIABhAHMAIABwAHIAZQBzAGUAbgB0AGUAZAAgAHQAbwAgAHQAaABlACAAdQBzAGUAcgBzAC4ADQAKAA0ACgA0ACkAIABUAGgAZQAgAG4AYQBtAGUAKABzACkAIABvAGYAIAB0AGgAZQAgAEMAbwBwAHkAcgBpAGcAaAB0ACAASABvAGwAZABlAHIAKABzACkAIABvAHIAIAB0AGgAZQAgAEEAdQB0AGgAbwByACgAcwApACAAbwBmACAAdABoAGUAIABGAG8AbgB0ACAAUwBvAGYAdAB3AGEAcgBlACAAcwBoAGEAbABsACAAbgBvAHQAIABiAGUAIAB1AHMAZQBkACAAdABvACAAcAByAG8AbQBvAHQAZQAsACAAZQBuAGQAbwByAHMAZQAgAG8AcgAgAGEAZAB2AGUAcgB0AGkAcwBlACAAYQBuAHkAIABNAG8AZABpAGYAaQBlAGQAIABWAGUAcgBzAGkAbwBuACwAIABlAHgAYwBlAHAAdAAgAHQAbwAgAGEAYwBrAG4AbwB3AGwAZQBkAGcAZQAgAHQAaABlACAAYwBvAG4AdAByAGkAYgB1AHQAaQBvAG4AKABzACkAIABvAGYAIAB0AGgAZQAgAEMAbwBwAHkAcgBpAGcAaAB0ACAASABvAGwAZABlAHIAKABzACkAIABhAG4AZAAgAHQAaABlACAAQQB1AHQAaABvAHIAKABzACkAIABvAHIAIAB3AGkAdABoACAAdABoAGUAaQByACAAZQB4AHAAbABpAGMAaQB0ACAAdwByAGkAdAB0AGUAbgAgAHAAZQByAG0AaQBzAHMAaQBvAG4ALgANAAoADQAKADUAKQAgAFQAaABlACAARgBvAG4AdAAgAFMAbwBmAHQAdwBhAHIAZQAsACAAbQBvAGQAaQBmAGkAZQBkACAAbwByACAAdQBuAG0AbwBkAGkAZgBpAGUAZAAsACAAaQBuACAAcABhAHIAdAAgAG8AcgAgAGkAbgAgAHcAaABvAGwAZQAsACAAbQB1AHMAdAAgAGIAZQAgAGQAaQBzAHQAcgBpAGIAdQB0AGUAZAAgAGUAbgB0AGkAcgBlAGwAeQAgAHUAbgBkAGUAcgAgAHQAaABpAHMAIABsAGkAYwBlAG4AcwBlACwAIABhAG4AZAAgAG0AdQBzAHQAIABuAG8AdAAgAGIAZQAgAGQAaQBzAHQAcgBpAGIAdQB0AGUAZAAgAHUAbgBkAGUAcgAgAGEAbgB5ACAAbwB0AGgAZQByACAAbABpAGMAZQBuAHMAZQAuACAAVABoAGUAIAByAGUAcQB1AGkAcgBlAG0AZQBuAHQAIABmAG8AcgAgAGYAbwBuAHQAcwAgAHQAbwAgAHIAZQBtAGEAaQBuACAAdQBuAGQAZQByACAAdABoAGkAcwAgAGwAaQBjAGUAbgBzAGUAIABkAG8AZQBzACAAbgBvAHQAIABhAHAAcABsAHkAIAB0AG8AIABhAG4AeQAgAGQAbwBjAHUAbQBlAG4AdAAgAGMAcgBlAGEAdABlAGQAIAB1AHMAaQBuAGcAIAB0AGgAZQAgAEYAbwBuAHQAIABTAG8AZgB0AHcAYQByAGUALgANAAoADQAKAFQARQBSAE0ASQBOAEEAVABJAE8ATgANAAoAVABoAGkAcwAgAGwAaQBjAGUAbgBzAGUAIABiAGUAYwBvAG0AZQBzACAAbgB1AGwAbAAgAGEAbgBkACAAdgBvAGkAZAAgAGkAZgAgAGEAbgB5ACAAbwBmACAAdABoAGUAIABhAGIAbwB2AGUAIABjAG8AbgBkAGkAdABpAG8AbgBzACAAYQByAGUAIABuAG8AdAAgAG0AZQB0AC4ADQAKAA0ACgBEAEkAUwBDAEwAQQBJAE0ARQBSAA0ACgBUAEgARQAgAEYATwBOAFQAIABTAE8ARgBUAFcAQQBSAEUAIABJAFMAIABQAFIATwBWAEkARABFAEQAIAAiAEEAUwAgAEkAUwAiACwAIABXAEkAVABIAE8AVQBUACAAVwBBAFIAUgBBAE4AVABZACAATwBGACAAQQBOAFkAIABLAEkATgBEACwAIABFAFgAUABSAEUAUwBTACAATwBSACAASQBNAFAATABJAEUARAAsACAASQBOAEMATABVAEQASQBOAEcAIABCAFUAVAAgAE4ATwBUACAATABJAE0ASQBUAEUARAAgAFQATwAgAEEATgBZACAAVwBBAFIAUgBBAE4AVABJAEUAUwAgAE8ARgAgAE0ARQBSAEMASABBAE4AVABBAEIASQBMAEkAVABZACwAIABGAEkAVABOAEUAUwBTACAARgBPAFIAIABBACAAUABBAFIAVABJAEMAVQBMAEEAUgAgAFAAVQBSAFAATwBTAEUAIABBAE4ARAAgAE4ATwBOAEkATgBGAFIASQBOAEcARQBNAEUATgBUACAATwBGACAAQwBPAFAAWQBSAEkARwBIAFQALAAgAFAAQQBUAEUATgBUACwAIABUAFIAQQBEAEUATQBBAFIASwAsACAATwBSACAATwBUAEgARQBSACAAUgBJAEcASABUAC4AIABJAE4AIABOAE8AIABFAFYARQBOAFQAIABTAEgAQQBMAEwAIABUAEgARQAgAEMATwBQAFkAUgBJAEcASABUACAASABPAEwARABFAFIAIABCAEUAIABMAEkAQQBCAEwARQAgAEYATwBSACAAQQBOAFkAIABDAEwAQQBJAE0ALAAgAEQAQQBNAEEARwBFAFMAIABPAFIAIABPAFQASABFAFIAIABMAEkAQQBCAEkATABJAFQAWQAsACAASQBOAEMATABVAEQASQBOAEcAIABBAE4AWQAgAEcARQBOAEUAUgBBAEwALAAgAFMAUABFAEMASQBBAEwALAAgAEkATgBEAEkAUgBFAEMAVAAsACAASQBOAEMASQBEAEUATgBUAEEATAAsACAATwBSACAAQwBPAE4AUwBFAFEAVQBFAE4AVABJAEEATAAgAEQAQQBNAEEARwBFAFMALAAgAFcASABFAFQASABFAFIAIABJAE4AIABBAE4AIABBAEMAVABJAE8ATgAgAE8ARgAgAEMATwBOAFQAUgBBAEMAVAAsACAAVABPAFIAVAAgAE8AUgAgAE8AVABIAEUAUgBXAEkAUwBFACwAIABBAFIASQBTAEkATgBHACAARgBSAE8ATQAsACAATwBVAFQAIABPAEYAIABUAEgARQAgAFUAUwBFACAATwBSACAASQBOAEEAQgBJAEwASQBUAFkAIABUAE8AIABVAFMARQAgAFQASABFACAARgBPAE4AVAAgAFMATwBGAFQAVwBBAFIARQAgAE8AUgAgAEYAUgBPAE0AIABPAFQASABFAFIAIABEAEUAQQBMAEkATgBHAFMAIABJAE4AIABUAEgARQAgAEYATwBOAFQAIABTAE8ARgBUAFcAQQBSAEUALgANAAoAaAB0AHQAcAA6AC8ALwB3AHcAdwAuAGEAZABvAGIAZQAuAGMAbwBtAC8AdAB5AHAAZQAvAGwAZQBnAGEAbAAuAGgAdABtAGwAAAAFAAAAAwAAADgAAAAEAAABUAABAAAAAAAsAAMAAQAAADgAAwAKAAABUAAGAAwAAAAAAAEAAAAEARgAAABCAEAABQACB/8P/xf/H/8n/y//N/8//0f/T/9X/1//Z/9v/3f/f/+H/4//l/+f/6f/r/+3/7//x//P/9f/5//v//f//c///f//AAAAAAgAEAAYACAAKAAwADgAQABIAFAAWABgAGgAcAB4AIAAiACQAJgAoACoALAAuADAAMgA0ADgAOgA8AD4AP3w//8AAfgB8AHoAeAB2AHQAcgBwAG4AbABqAGgAZgBkAGIAYABeAFwAWgBYAFYAVABSAFAATgBMAEgARgBEAEIAQgBAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAZkAAAAAAAAAIgAAAAAAAAB/8AAAABAAAIAAAAD/8AAAABAAAQAAAAF/8AAAABAAAYAAAAH/8AAAABAAAgAAAAJ/8AAAABAAAoAAAAL/8AAAABAAAwAAAAN/8AAAABAAA4AAAAP/8AAAABAABAAAAAR/8AAAABAABIAAAAT/8AAAABAABQAAAAV/8AAAABAABYAAAAX/8AAAABAABgAAAAZ/8AAAABAABoAAAAb/8AAAABAABwAAAAd/8AAAABAAB4AAAAf/8AAAABAACAAAAAh/8AAAABAACIAAAAj/8AAAABAACQAAAAl/8AAAABAACYAAAAn/8AAAABAACgAAAAp/8AAAABAACoAAAAr/8AAAABAACwAAAAt/8AAAABAAC4AAAAv/8AAAABAADAAAAAx/8AAAABAADIAAAAz/8AAAABAADQAAAA1/8AAAABAADgAAAA5/8AAAABAADoAAAA7/8AAAABAADwAAAA9/8AAAABAAD4AAAA/c8AAAABAAD98AAA//0AAAXxAAEAAAABB/8AAAABAAEIAAABD/8AAAABAAEQAAABF/8AAAABAAEYAAABH/8AAAABAAEgAAABJ/8AAAABAAEoAAABL/8AAAABAAEwAAABN/8AAAABAAE4AAABP/8AAAABAAFAAAABR/8AAAABAAFIAAABT/8AAAABAAFQAAABV/8AAAABAAFYAAABX/8AAAABAAFgAAABZ/8AAAABAAFoAAABb/8AAAABAAFwAAABd/8AAAABAAF4AAABf/8AAAABAAGAAAABh/8AAAABAAGIAAABj/8AAAABAAGQAAABl/8AAAABAAGYAAABn/8AAAABAAGgAAABp/8AAAABAAGoAAABr/8AAAABAAGwAAABt/8AAAABAAG4AAABv/8AAAABAAHAAAABx/8AAAABAAHIAAABz/8AAAABAAHQAAAB1/8AAAABAAHYAAAB3/8AAAABAAHgAAAB5/8AAAABAAHoAAAB7/8AAAABAAHwAAAB9/8AAAABAAH4AAAB//0AAAABAAIAAAACB/8AAAABAAIIAAACD/8AAAABAAIQAAACF/8AAAABAAIYAAACH/8AAAABAAIgAAACJ/8AAAABAAIoAAACL/8AAAABAAIwAAACN/8AAAABAAI4AAACP/8AAAABAAJAAAACR/8AAAABAAJIAAACT/8AAAABAAJQAAACV/8AAAABAAJYAAACX/8AAAABAAJgAAACZ/8AAAABAAJoAAACb/8AAAABAAJwAAACd/8AAAABAAJ4AAACf/8AAAABAAKAAAACh/8AAAABAAKIAAACj/8AAAABAAKQAAACl/8AAAABAAKYAAACn/8AAAABAAKgAAACp/8AAAABAAKoAAACr/8AAAABAAKwAAACt/8AAAABAAK4AAACv/8AAAABAALAAAACx/8AAAABAALIAAACz/8AAAABAALQAAAC1/8AAAABAALYAAAC3/8AAAABAALgAAAC5/8AAAABAALoAAAC7/8AAAABAALwAAAC9/8AAAABAAL4AAAC//0AAAABAAMAAAADB/8AAAABAAMIAAADD/8AAAABAAMQAAADF/8AAAABAAMYAAADH/8AAAABAAMgAAADJ/8AAAABAAMoAAADL/8AAAABAAMwAAADN/8AAAABAAM4AAADP/8AAAABAANAAAADR/8AAAABAANIAAADT/8AAAABAANQAAADV/8AAAABAANYAAADX/8AAAABAANgAAADZ/8AAAABAANoAAADb/8AAAABAANwAAADd/8AAAABAAN4AAADf/8AAAABAAOAAAADh/8AAAABAAOIAAADj/8AAAABAAOQAAADl/8AAAABAAOYAAADn/8AAAABAAOgAAADp/8AAAABAAOoAAADr/8AAAABAAOwAAADt/8AAAABAAO4AAADv/8AAAABAAPAAAADx/8AAAABAAPIAAADz/8AAAABAAPQAAAD1/8AAAABAAPYAAAD3/8AAAABAAPgAAAD5/8AAAABAAPoAAAD7/8AAAABAAPwAAAD9/8AAAABAAP4AAAD//0AAAABAAQAAAAEB/8AAAABAAQIAAAED/8AAAABAAQQAAAEF/8AAAABAAQYAAAEH/8AAAABAAQgAAAEJ/8AAAABAAQoAAAEL/8AAAABAAQwAAAEN/8AAAABAAQ4AAAEP/8AAAABAARAAAAER/8AAAABAARIAAAET/8AAAABAARQAAAEV/8AAAABAARYAAAEX/8AAAABAARgAAAEZ/8AAAABAARoAAAEb/8AAAABAARwAAAEd/8AAAABAAR4AAAEf/8AAAABAASAAAAEh/8AAAABAASIAAAEj/8AAAABAASQAAAEl/8AAAABAASYAAAEn/8AAAAB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AAuoAAALr/8AAAABAAuwAAALt/8AAAABAAu4AAALv/8AAAABAAvAAAALx/8AAAABAAvIAAALz/8AAAABAAvQAAAL1/8AAAABAAvYAAAL3/8AAAABAAvgAAAL5/8AAAABAAvoAAAL7/8AAAABAAvwAAAL9/8AAAABAAv4AAAL//0AAAABAAwAAAAMB/8AAAABAAwIAAAMD/8AAAABAAwQAAAMF/8AAAABAAwYAAAMH/8AAAABAAwgAAAMJ/8AAAABAAwoAAAML/8AAAABAAwwAAAMN/8AAAABAAw4AAAMP/8AAAABAAxAAAAMR/8AAAABAAxIAAAMT/8AAAABAAxQAAAMV/8AAAABAAxYAAAMX/8AAAABAAxgAAAMZ/8AAAABAAxoAAAMb/8AAAABAAxwAAAMd/8AAAABAAx4AAAMf/8AAAABAAyAAAAMh/8AAAABAAyIAAAMj/8AAAABAAyQAAAMl/8AAAABAAyYAAAMn/8AAAABAAygAAAMp/8AAAABAAyoAAAMr/8AAAABAAywAAAMt/8AAAABAAy4AAAMv/8AAAABAAzAAAAMx/8AAAABAAzIAAAMz/8AAAABAAzQAAAM1/8AAAABAAzYAAAM3/8AAAABAAzgAAAM5/8AAAABAAzoAAAM7/8AAAABAAzwAAAM9/8AAAABAAz4AAAM//0AAAABAA0AAAANB/8AAAABAA0IAAAND/8AAAABAA0QAAANF/8AAAABAA0YAAANH/8AAAABAA0gAAANJ/8AAAABAA0oAAANL/8AAAABAA0wAAANN/8AAAABAA04AAANP/8AAAABAA1AAAANR/8AAAABAA1IAAANT/8AAAABAA1QAAANV/8AAAABAA1YAAANX/8AAAABAA1gAAANZ/8AAAABAA1oAAANb/8AAAABAA1wAAANd/8AAAABAA14AAANf/8AAAABAA2AAAANh/8AAAABAA2IAAANj/8AAAABAA2QAAANl/8AAAABAA2YAAANn/8AAAABAA2gAAANp/8AAAABAA2oAAANr/8AAAABAA2wAAANt/8AAAABAA24AAANv/8AAAABAA3AAAANx/8AAAABAA3IAAANz/8AAAABAA3QAAAN1/8AAAABAA3YAAAN3/8AAAABAA3gAAAN5/8AAAABAA3oAAAN7/8AAAABAA3wAAAN9/8AAAABAA34AAAN//0AAAAB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ARoBGwEcAR0BHgEfASABIQEiASMBJAElASYBJwEoASkBKgErASwBLQEuAS8BMAExATIBMwE0ATUBNgE3ATgBOQE6ATsBPAE9AT4BPwFAAUEBQgFDAUQBRQFGAUcBSAFJAUoBSwFMAU0BTgFPAVABUQFSAVMBVAFVAVYBVwFYAVkBWgFbAVwBXQFeAV8BYAFhAWIBYwFkAWUBZgFnAWgBaQFqAWsBbAFtAW4BbwFwAXEBcgFzAXQBdQF2AXcBeAF5AXoBewF8AX0BfgF/AYABgQGCAYMBhAGFAYYBhwGIAYkBigGLAYwBjQGOAY8BkAGRAZIBkwGUAZUBlgGXAZgBmQGaAZsBnAGdAZ4BnwGgAaEBogGjAaQBpQGmAacBqAGpAaoBqwGsAa0BrgGvAbABsQGyAbMBtAG1AbYBtwG4AbkBugG7AbwBvQG+Ab8BwAHBAcIBwwHEAcUBxgHHAcgByQHKAcsBzAHNAc4BzwHQAdEB0gHTAdQB1QHWAdcB2AHZAdoB2wHcAd0B3gHfAeAB4QHiAeMB5AHlAeYB5wHoAekB6gHrAewB7QHuAe8B8AHxAfIB8wH0AfUB9gH3AfgB+QH6AfsB/AH9Af4B/wIAAgECAgIDAgQCBQIGAgcCCAIJAgoCCwIMAg0CDgIPAhACEQISAhMCFAIVAhYCFwIYAhkCGgIbAhwCHQIeAh8CIAIhAiICIwIkAiUCJgInAigCKQIqAisCLAItAi4CLwIwAjECMgIzAjQCNQI2AjcCOAI5AjoCOwI8Aj0CPgI/AkACQQJCAkMCRAJFAkYCRwJIAkkCSgJLAkwCTQJOAk8CUAJRAlICUwJUAlUCVgJXAlgCWQJaAlsCXAJdAl4CXwJgAmECYgJjAmQCZQJmAmcCaAJpAmoCawJsAm0CbgJvAnACcQJyAnMCdAJ1AnYCdwJ4AnkCegJ7AnwCfQJ+An8CgAKBAoICgwKEAoUChgKHAogCiQKKAosCjAKNAo4CjwKQApECkgKTApQClQKWApcCmAKZApoCmwKcAp0CngKfAqACoQKiAqMCpAKlAqYCpwKoAqkCqgKrAqwCrQKuAq8CsAKxArICswK0ArUCtgK3ArgCuQK6ArsCvAK9Ar4CvwLAAsECwgLDAsQCxQLGAscCyALJAsoCywLMAs0CzgLPAtAC0QLSAtMC1ALVAtYC1wLYAtkC2gLbAtwC3QLeAt8C4ALhAuIC4wLkAuUC5gLnAugC6QLqAusC7ALtAu4C7wLwAvEC8gLzAvQC9QL2AvcC+AL5AvoC+wL8Av0C/gL/AwADAQMCAwMDBAMFAwYDBwMIAwkDCgMLAwwDDQMOAw8DEAMRAxIDEwMUAxUDFgMXAxgDGQMaAxsDHAMdAx4DHwMgAyEDIgMjAyQDJQMmAycDKAMpAyoDKwMsAy0DLgMvAzADMQMyAzMDNAM1AzYDNwM4AzkDOgM7AzwDPQM+Az8DQANBA0IDQwNEA0UDRgNHA0gDSQNKA0sDTANNA04DTwNQA1EDUgNTA1QDVQNWA1cDWANZA1oDWwNcA10DXgNfA2ADYQNiA2MDZANlA2YDZwNoA2kDagNrA2wDbQNuA28DcANxA3IDcwN0A3UDdgN3A3gDeQN6A3sDfAN9A34DfwOAA4EDggODA4QDhQOGA4cDiAOJA4oDiwOMA40DjgOPA5ADkQOSA5MDlAOVA5YDlwOYA5kDmgObA5wDnQOeA58DoAOhA6IDowOkA6UDpgOnA6gDqQOqA6sDrAOtA64DrwOwA7EDsgOzA7QDtQO2A7cDuAO5A7oDuwO8A70DvgO/A8ADwQPCA8MDxAPFA8YDxwPIA8kDygPLA8wDzQPOA88D0APRA9ID0wPUA9UD1gPXA9gD2QPaA9sD3APdA94D3wPgA+ED4gPjA+QD5QPmA+cD6APpA+oD6wPsA+0D7gPvA/AD8QPyA/MD9AP1A/YD9wP4A/kD+gP7A/wD/QP+A/8EAAQBBAIEAwQEBAUEBgQHBAgECQQKBAsEDAQNBA4EDwQQBBEEEgQTBBQEFQQWBBcEGAQZBBoEGwQcBB0EHgQfBCAEIQQiBCMEJAQlBCYEJwQoBCkEKgQrBCwELQQuBC8EMAQxBDIEMwQ0BDUENgQ3BDgEOQQ6BDsEPAQ9BD4EPwRABEEEQgRDBEQERQRGBEcESARJBEoESwRMBE0ETgRPBFAEUQRSBFMEVARVBFYEVwRYBFkEWgRbBFwEXQReBF8EYARhBGIEYwRkBGUEZgRnBGgEaQRqBGsEbARtBG4EbwRwBHEEcgRzBHQEdQR2BHcEeAR5BHoEewR8BH0EfgR/BIAEgQSCBIMEhASFBIYEhwSIBIkEigSLBIwEjQSOBI8EkASRBJIEkwSUBJUElgSXBJgEmQSaBJsEnASdBJ4EnwSgBKEEogSjBKQEpQSmBKcEqASpBKoEqwSsBK0ErgSvBLAEsQSyBLMEtAS1BLYEtwS4BLkEugS7BLwEvQS+BL8EwATBBMIEwwTEBMUExgTHBMgEyQTKBMsEzATNBM4EzwTQBNEE0gTTBNQE1QTWBNcE2ATZBNoE2wTcBN0E3gTfBOAE4QTiBOME5ATlBOYE5wToBOkE6gTrBOwE7QTuBO8E8ATxBPIE8wT0BPUE9gT3BPgE+QT6BPsE/AT9BP4E/wUABQEFAgUDBQQFBQUGBQcFCAUJBQoFCwUMBQ0FDgUPBRAFEQUSBRMFFAUVBRYFFwUYBRkFGgUbBRwFHQUeBR8FIAUhBSIFIwUkBSUFJgUnBSgFKQUqBSsFLAUtBS4FLwUwBTEFMgUzBTQFNQU2BTcFOAU5BToFOwU8BT0FPgU/BUAFQQVCBUMFRAVFBUYFRwVIBUkFSgVLBUwFTQVOBU8FUAVRBVIFUwVUBVUFVgVXBVgFWQVaBVsFXAVdBV4FXwVgBWEFYgVjBWQFZQVmBWcFaAVpBWoFawVsBW0FbgVvBXAFcQVyBXMFdAV1BXYFdwV4BXkFegV7BXwFfQV+BX8FgAWBBYIFgwWEBYUFhgWHBYgFiQWKBYsFjAWNBY4FjwWQBZEFkgWTBZQFlQWWBZcFmAWZBZoFmwWcBZ0FngWfBaAFoQWiBaMFpAWlBaYFpwWoBakFqgWrBawFrQWuBa8FsAWxBbIFswW0BbUFtgW3BbgFuQW6BbsFvAW9Bb4FvwXABcEFwgXDBcQFxQXGBccFyAXJBcoFywXMBc0FzgXPBdAF0QXSBdMF1AXVBdYF1wXYBdkF2gXbBdwF3QXeBd8F4AXhBeIF4wXkBeUF5gXnBegF6QXqBesF7AXtBe4F7wXwBfEF8gXzBfQF9QX2BfcF+AX5BfoF+wX8Bf0F/gX/BgAGAQYCBgMGBAYFBgYGBwYIBgkGCgYLBgwGDQYOBg8GEAYRBhIGEwYUBhUGFgYXBhgGGQYaBhsGHAYdBh4GHwYgBiEGIgYjBiQGJQYmBicGKAYpBioGKwYsBi0GLgYvBjAGMQYyBjMGNAY1BjYGNwY4BjkGOgY7BjwGPQY+Bj8GQAZBBkIGQwZEBkUGRgZHBkgGSQZKBksGTAZNBk4GTwZQBlEGUgZTBlQGVQZWBlcGWAZZBloGWwZcBl0GXgZfBmAGYQZiBmMGZAZlBmYGZwZoBmkGagZrBmwGbQZuBm8GcAZxBnIGcwZ0BnUGdgZ3BngGeQZ6BnsGfAZ9Bn4GfwaABoEGggaDBoQGhQaGBocGiAaJBooGiwaMBo0GjgaPBpAGkQaSBpMGlAaVBpYGlwaYBpkGmgabBpwGnQaeBp8GoAahBqIGowakBqUGpganBqgGqQaqBqsGrAatBq4GrwawBrEGsgazBrQGtQa2BrcGuAa5BroGuwa8Br0Gvga/BsAGwQbCBsMGxAbFBsYGxwbIBskGygbLBswGzQbOBs8G0AbRBtIG0wbUBtUG1gbXBtgG2QbaBtsG3AbdBt4G3wbgBuEG4gbjBuQG5QbmBucG6AbpBuoG6wbsBu0G7gbvBvAG8QbyBvMG9Ab1BvYG9wb4BvkG+gb7BvwG/Qb+Bv8HAAcBBwIHAwcEBwUHBgcHBwgHCQcKBwsHDAcNBw4HDwcQBxEHEgcTBxQHFQcWBxcHGAcZBxoHGwccBx0HHgcfByAHIQciByMHJAclByYHJwcoBykHKgcrBywHLQcuBy8HMAcxBzIHMwc0BzUHNgc3BzgHOQc6BzsHPAc9Bz4HPwdAB0EHQgdDB0QHRQdGB0cHSAdJB0oHSwdMB00HTgdPB1AHUQdSB1MHVAdVB1YHVwdYB1kHWgdbB1wHXQdeB18HYAdhB2IHYwdkB2UHZgdnB2gHaQdqB2sHbAdtB24HbwdwB3EHcgdzB3QHdQd2B3cHeAd5B3oHewd8B30Hfgd/B4AHgQeCB4MHhAeFB4YHhweIB4kHigeLB4wHjQeOB48HkAeRB5IHkweUB5UHlgeXB5gHmQeaB5sHnAedB54HnwegB6EHogejB6QHpQemB6cHqAepB6oHqwesB60HrgevB7AHsQeyB7MHtAe1B7YHtwe4B7kHuge7B7wHvQe+B78HwAfBB8IHwwfEB8UHxgfHB8gHyQfKB8sHzAfNB84HzwfQB9EH0gfTB9QH1QfWB9cH2AfZB9oH2wfcB90H3gffB+AH4QfiB+MH5AflB+YH5wfoB+kH6gfrB+wH7QfuB+8H8AfxB/IH8wf0B/UH9gf3B/gH+Qf6B/sH/Af9B/4H/wgACAEIAggDCAQIBQgGCAcICAgJCAoICwgMCA0IDggPCBAIEQgSCBMIFAgVCBYIFwgYCBkIGggbCBwIHQgeCB8IIAghCCIIIwgkCCUIJggnCCgIKQgqCCsILAgtCC4ILwgwCDEIMggzCDQINQg2CDcIOAg5CDoIOwg8CD0IPgg/CEAIQQhCCEMIRAhFCEYIRwhICEkISghLIPsMt/oktwH3ELf5LLcD9xD6BBX+fPmE+nwH/Vj+JxX50gf3xfwzBaawFfvF+DcF+PYGpmIV/dIH+8X4MwVwZhX3xfw3Bfz2Bg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODgABAQEK+B8MJpocGSQS+46LHAVGiwa9Cr0L+ucVAAPoAHwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA")}
-            @font-face{font-family:'tumblr-icons';src:url('http://engineering.waveapps.com/fonts/tumblr-icons/tumblr-icons-v15.eot?61336031e66c516081cb24b57e03a991');src:url('http://engineering.waveapps.com/fonts/tumblr-icons/tumblr-icons-v15.eot?#iefix') format('embedded-opentype'),url('http://engineering.waveapps.com/fonts/tumblr-icons/tumblr-icons-v15.ttf?af27547dd8dc668061f64e47d004dc23') format('truetype'),url('http://engineering.waveapps.com/fonts/tumblr-icons/tumblr-icons-v15.woff?ca4a0d022ad841ccf9d3cbab321bc717') format('woff'),url('http://engineering.waveapps.com/fonts/tumblr-icons/tumblr-icons-v15.svg#tumblr-icons') format('svg');font-weight:normal;font-style:normal}
-            [class^="icon_"],[class*=" icon_"]{font-family:'tumblr-icons','Blank';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none}
-            .iframe_controls .icon_view_grid_settings:before{content:"\e64a"}
-            .iframe_controls .icon_reposition:before{content:"\e64b"}
-            .iframe_controls .icon_post_video_small:before{content:"\e622"}
-            .iframe_controls .icon_reply:before{content:"\e601"}
-            .iframe_controls .icon_post_text_small:before{content:"\e62d"}
-            .iframe_controls .icon_post_quote_small:before{content:"\e62e"}
-            .iframe_controls .icon_reblog:before{content:"\e602"}
-            .iframe_controls .icon_post_photo_small:before{content:"\e62f"}
-            .iframe_controls .icon_queue:before{content:"\e603"}
-            .iframe_controls .icon_post_link_small:before{content:"\e630"}
-            .iframe_controls .icon_processing:before{content:"\e604"}
-            .iframe_controls .icon_post_chat_small:before{content:"\e631"}
-            .iframe_controls .icon_posts:before{content:"\e605"}
-            .iframe_controls .icon_plus:before{content:"\e606"}
-            .iframe_controls .icon_post_audio_small:before{content:"\e632"}
-            .iframe_controls .icon_arrow_filled_down:before{content:"\e607"}
-            .iframe_controls .icon_arrow_carrot_up:before{content:"\e608"}
-            .iframe_controls .icon_arrow_carrot_right:before{content:"\e609"}
-            .iframe_controls .icon_arrow_carrot_left:before{content:"\e60a"}
-            .iframe_controls .icon_arrow_carrot_down:before{content:"\e60b"}
-            .iframe_controls .icon_analytics:before{content:"\e60c"}
-            .iframe_controls .icon_person:before{content:"\e60d"}
-            .iframe_controls .icon_person_plus:before{content:"\e60e"}
-            .iframe_controls .icon_followers:before{content:"\e60f"}
-            .iframe_controls .icon_mention:before{content:"\e610"}
-            .iframe_controls .icon_members:before{content:"\e611"}
-            .iframe_controls .icon_mail:before{content:"\e612"}
-            .iframe_controls .icon_lock:before{content:"\e613"}
-            .iframe_controls .icon_like:before{content:"\e614"}
-            .iframe_controls .icon_help:before{content:"\e615"}
-            .iframe_controls .icon_following:before{content:"\e616"}
-            .iframe_controls .icon_explore_tumblr:before{content:"\e618"}
-            .iframe_controls .icon_drafts:before{content:"\e619"}
-            .iframe_controls .icon_customize:before{content:"\e61a"}
-            .iframe_controls .icon_checkmark:before{content:"\e61b"}
-            .iframe_controls .icon_arrow_filled_up:before{content:"\e61c"}
-            .iframe_controls .icon_arrow_filled_right:before{content:"\e61d"}
-            .iframe_controls .icon_arrow_filled_left:before{content:"\e61e"}
-            .iframe_controls .icon_activity:before{content:"\e61f"}
-            .iframe_controls .icon_search:before{content:"\e617"}
-            .iframe_controls .icon_close:before{content:"\e627"}
-            .iframe_controls .icon_arrow_thin_left:before{content:"\e628"}
-            .iframe_controls .icon_grip_dots:before{content:"\e629"}
-            .iframe_controls .icon_arrow_thin_down:before{content:"\e62a"}
-            .iframe_controls .icon_arrow_thin_right:before{content:"\e62b"}
-            .iframe_controls .icon_arrow_thin_up:before{content:"\e62c"}
-            .iframe_controls .icon_diamond:before{content:"\e637"}
-            .iframe_controls .icon_globe:before{content:"\e638"}
-            .iframe_controls .icon_star:before{content:"\e636"}
-            .iframe_controls .icon_queue_small:before{content:"\e639"}
-            .iframe_controls .icon_user_settings:before{content:"\e63d"}
-            .iframe_controls .icon_grip_vertical:before{content:"\e63c"}
-            .iframe_controls .icon_edit_pencil:before{content:"\e63e"}
-            .iframe_controls .icon_arrow_carrot_thin_right:before{content:"\e63b"}
-            .iframe_controls .icon_arrow_carrot_thin_left:before{content:"\e63a"}
-            .iframe_controls .icon_apple:before{content:"\e640"}
-            .iframe_controls .icon_android:before{content:"\e641"}
-            .iframe_controls .icon_windows:before{content:"\e63f"}
-            .iframe_controls .icon_settings:before{content:"\e600"}
-            .iframe_controls .icon_remove:before{content:"\e646"}
-            .iframe_controls .icon_export:before{content:"\e647"}
-            .iframe_controls .icon_photo_plus:before{content:"\e645"}
-            .iframe_controls .icon_user_dropdown:before{content:"\e648"}
-            .iframe_controls .icon_post_quote:before{content:"\e633"}
-            .iframe_controls .icon_post_video:before{content:"\e620"}
-            .iframe_controls .icon_post_text:before{content:"\e621"}
-            .iframe_controls .icon_post_photo:before{content:"\e623"}
-            .iframe_controls .icon_post_link:before{content:"\e624"}
-            .iframe_controls .icon_post_chat:before{content:"\e625"}
-            .iframe_controls .icon_post_audio:before{content:"\e626"}
-            .iframe_controls .icon_view_grid:before{content:"\e634"}
-            .iframe_controls .icon_view_list:before{content:"\e635"}
-            .iframe_controls .icon_members_12:before{content:"\e642"}
-            .iframe_controls .icon_star_12:before{content:"\e643"}
-            .iframe_controls .icon_lock_12:before{content:"\e644"}
-            .iframe_controls .icon_flag:before{content:"\e649"}
-        </style>
-    </head>
-    <follow class="version_follow_nag follow" style="-webkit-background-clip: border-box;
--webkit-background-origin: padding-box;
--webkit-background-size: auto;
--webkit-font-smoothing: antialiased;
--webkit-transition-delay: 0.2s;
--webkit-transition-duration: 0.3s;
--webkit-transition-property: opacity;
--webkit-transition-timing-function: ease-in-out;
--webkit-user-select: none;
-background-attachment: scroll;
-background-clip: border-box;
-background-color: rgba(0, 0, 0, 0);
-background-image: none;
-background-origin: padding-box;
-background-size: auto;
-display: block;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 12px;
-font-style: normal;
-font-variant: normal;
-font-weight: 600;
-height: 106px;
-left: 0px;
-line-height: 20px;
-margin-bottom: 0px;
-margin-left: 0px;
-margin-right: 0px;
-margin-top: 0px;
-min-height: 100%;
-opacity: 1;
-padding-bottom: 0px;
-padding-left: 0px;
-padding-right: 0px;
-padding-top: 0px;
-position: fixed;
-top: 0px;
-transition-delay: 0.2s;
-transition-duration: 0.3s;
-transition-property: opacity;
-transition-timing-function: ease-in-out;
-visibility: visible;
-width: 310px;">
-
-        <div id="iframe_controls" class="iframe_controls clearfix" style="-webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px 0px;
--webkit-font-smoothing: antialiased;
--webkit-transition-delay: 0s;
--webkit-transition-duration: 0.3s;
--webkit-transition-property: left;
--webkit-transition-timing-function: ease-in-out;
-background-color: rgb(255, 255, 255);
-border-bottom-left-radius: 3px;
-border-bottom-right-radius: 3px;
-border-top-left-radius: 3px;
-border-top-right-radius: 3px;
-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px 0px;
-color: rgba(0, 0, 0, 0.729412);
-display: none;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 12px;
-font-style: normal;
-font-variant: normal;
-font-weight: 600;
-height: 96px;
-right: 0px;
-line-height: 20px;
-margin-bottom: 5px;
-margin-left: 5px;
-margin-right: 5px;
-margin-top: 5px;
-max-width: 500px;
-min-height: 96px;
-min-width: 300px;
-overflow-x: hidden;
-overflow-y: hidden;
-padding-bottom: 0px;
-padding-left: 0px;
-padding-right: 0px;
-padding-top: 0px;
-position: fixed;
-bottom: 0px;
-transition-delay: 0s;
-transition-duration: 0.3s;
-transition-property: left;
-transition-timing-function: ease-in-out;
-visibility: visible;
-white-space: nowrap;
-width: 300px;">
-
-            <div class="title_bar" style="-webkit-font-smoothing: antialiased;
-background-color: rgb(255, 255, 255);
-border-bottom-color: rgba(0, 0, 0, 0.0980392);
-border-bottom-style: solid;
-border-bottom-width: 1px;
-color: rgba(0, 0, 0, 0.729412);
-display: block;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 15px;
-font-style: normal;
-font-variant: normal;
-font-weight: 600;
-height: 28px;
-line-height: 28px;
-padding-bottom: 5px;
-padding-left: 10px;
-padding-right: 10px;
-padding-top: 5px;
-position: relative;
-visibility: visible;
-white-space: nowrap;
-width: 280px;">
-                <p class="" data-translation="never_miss" style="-webkit-font-smoothing: antialiased;
-color: rgba(0, 0, 0, 0.729412);
-display: block;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 15px;
-font-style: normal;
-font-variant: normal;
-font-weight: 600;
-height: 28px;
-line-height: 28px;
-margin-bottom: 0px;
-margin-left: 0px;
-margin-right: 0px;
-margin-top: 0px;
-visibility: visible;
-white-space: nowrap;
-width: 280px;">Never miss a post!</p>
-                <div id="x_button" class="x" style="-webkit-font-smoothing: antialiased;
-color: rgba(0, 0, 0, 0.258824);
-cursor: pointer;
-display: block;
-font-family: arial, sans-serif;
-font-size: 24px;
-font-style: normal;
-font-variant: normal;
-font-weight: 900;
-height: 14px;
-line-height: 14px;
-margin-right: 10px;
-margin-top: -7px;
-position: absolute;
-right: 0px;
-text-align: center;
-top: 14px;
-visibility: visible;
-white-space: nowrap;
-width: 14px;">×</div>
-            </div>
-
-            <div class="content" style="-webkit-font-smoothing: antialiased;
-color: rgba(0, 0, 0, 0.729412);
-display: block;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 12px;
-font-style: normal;
-font-variant: normal;
-font-weight: 600;
-height: 57px;
-line-height: 20px;
-position: relative;
-visibility: visible;
-white-space: nowrap;
-width: 300px;">
-                <!-- Your cute face -->
-                <a id="tumblelog_avatar" class="avatar" style="background-image: url(http://blog.josephkahn.io/images/bio-photo.jpg);
--webkit-background-size: cover;
--webkit-font-smoothing: antialiased;
-background-size: cover;
-border-bottom-left-radius: 2px;
-border-bottom-right-radius: 2px;
-border-top-left-radius: 2px;
-border-top-right-radius: 2px;
-color: rgb(68, 68, 68);
-cursor: auto;
-display: block;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 12px;
-font-style: normal;
-font-variant: normal;
-font-weight: 600;
-height: 38px;
-left: 0px;
-line-height: 20px;
-margin-bottom: 10px;
-margin-left: 10px;
-margin-right: 10px;
-margin-top: -19px;
-position: absolute;
-text-decoration: none solid rgb(68, 68, 68);
-top: 28.5px;
-visibility: visible;
-white-space: nowrap;
-width: 38px;" target="_blank" href="https://twitter.com/JosephBKahn">
-                    <img id="tumblelog_avatar_img" src="http://blog.josephkahn.io/images/bio-photo.jpg" width="38" height="38" alt="" style="-webkit-font-smoothing: antialiased;
-color: rgb(68, 68, 68);
-cursor: auto;
-display: none;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 12px;
-font-style: normal;
-font-variant: normal;
-font-weight: 600;
-height: 100%;
-line-height: 20px;
-visibility: visible;
-white-space: nowrap;
-width: 100%;">
-                </a>
-
-                <!-- Name/title -->
-                <a id="tumblelog_name_title" class="blog_name_title" target="_blank" href="https://twitter.com/JosephBKahn" style="-webkit-font-smoothing: antialiased;
-color: rgba(0, 0, 0, 0.729412);
-cursor: auto;
-display: block;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 12px;
-font-style: normal;
-font-variant: normal;
-font-weight: 600;
-height: 36px;
-line-height: 18px;
-padding-bottom: 10px;
-padding-left: 60px;
-padding-right: 100px;
-padding-top: 10px;
-text-decoration: none solid rgba(0, 0, 0, 0.729412);
-visibility: visible;
-white-space: nowrap;
-width: 140px;">
-                    <span id="tumblelog_name" class="blog_name" style="-webkit-font-smoothing: antialiased;
-color: rgba(0, 0, 0, 0.729412);
-cursor: auto;
-display: block;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 14px;
-font-style: normal;
-font-variant: normal;
-font-weight: bold;
-height: 18px;
-line-height: 18px;
-overflow-x: hidden;
-overflow-y: hidden;
-text-overflow: ellipsis;
-visibility: visible;
-white-space: nowrap;
-width: 140px;">A Byte Of The Apple</span>
-                    <span id="tumblelog_title" class="blog_title" style="-webkit-font-smoothing: antialiased;
-color: rgba(0, 0, 0, 0.470588);
-cursor: auto;
-display: block;
-font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-font-size: 14px;
-font-style: normal;
-font-variant: normal;
-font-weight: normal;
-height: 18px;
-line-height: 18px;
-overflow-x: hidden;
-overflow-y: hidden;
-text-overflow: ellipsis;
-visibility: visible;
-white-space: nowrap;
-width: 140px;">@JosephBKahn</span>
-                </a>
-
-                <!-- Follow button -->
-                <a id="btn_follow" class="button blue follow" style="color: white;-webkit-background-clip: padding-box; -webkit-font-smoothing: antialiased; -webkit-user-select: none; background-clip: padding-box; background-color: rgb(85, 159, 202); border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; border-top-left-radius: 2px; border-top-right-radius: 2px; color: rgb(255, 255, 255); cursor: pointer; display: block; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: bold; height: 29px; line-height: 29px; margin-bottom: 0px; margin-left: 0px; margin-right: 10px; margin-top: -15px; padding-bottom: 0px; padding-left: 8px; padding-right: 10px; padding-top: 0px; position: absolute; right: 0px; text-decoration: none solid rgb(255, 255, 255); top: 28.5px; visibility: visible; white-space: nowrap; width: 62px;" data-translation="follow" target="_new" href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fblog.josephkahn.io&screen_name=JosephBKahn&tw_p=followbutton&variant=2.0">+ Follow</a>
-            </div>
-
-        </div>
-        <script type="text/javascript">
-            setTimeout(function(){$('#iframe_controls').animate({height: "toggle"}, function () {});},9000);
-            $('#x_button').click(function() {
-                $('#iframe_controls').remove();
-            });
-        </script>
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = 'https://stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 
 
-</follow></html>
 
 </body>
 </html>
