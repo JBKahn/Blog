@@ -3,7 +3,7 @@
   
     {
       "title"			: "Vagrant Plugin: Back 2 Tha Hood",
-      "link"			: "http://blog.josephkahn.io/articles/vagrant-plugin/",
+      "link"			: "https://blog.josephkahn.io/articles/vagrant-plugin/",
       "excerpt"		: "My journey to create a useful vagrant plugin for work"
     }
   
@@ -11,7 +11,7 @@
   
     ,{
       "title"			: "For a Few Ansible Modules More",
-      "link"			: "http://blog.josephkahn.io/articles/ansible-modules/",
+      "link"			: "https://blog.josephkahn.io/articles/ansible-modules/",
       "excerpt"		: "Creating custom modules in Ansible"
     }
   
@@ -19,7 +19,7 @@
   
     ,{
       "title"			: "Ansible or: How I Learned to Stop Wasting Time Setting Up My Computer and Script It",
-      "link"			: "http://blog.josephkahn.io/articles/ansible/",
+      "link"			: "https://blog.josephkahn.io/articles/ansible/",
       "excerpt"		: "Setting up my machine using Ansible to make reformatting simple"
     }
   
@@ -27,7 +27,7 @@
   
     ,{
       "title"			: "Pre-commit Hooks: The Good, The Bad &amp; The Ugly",
-      "link"			: "http://blog.josephkahn.io/articles/pre-commit-hooks/",
+      "link"			: "https://blog.josephkahn.io/articles/pre-commit-hooks/",
       "excerpt"		: "How to create a good pre-commit hook"
     }
   
@@ -35,7 +35,7 @@
   
     ,{
       "title"			: "My First Post",
-      "link"			: "http://blog.josephkahn.io/articles/starting-the-blog/",
+      "link"			: "https://blog.josephkahn.io/articles/starting-the-blog/",
       "excerpt"		: "More content to follow"
     }
   
@@ -47,7 +47,7 @@
   
     ,{
       "title"			: "About Me",
-      "link"			: "http://blog.josephkahn.io/about/",
+      "link"			: "https://blog.josephkahn.io/about/",
       "excerpt"		: ""
     }
   
@@ -55,23 +55,7 @@
   
     ,{
       "title"			: "Articles",
-      "link"			: "http://blog.josephkahn.io/articles/",
-      "excerpt"		: ""
-    }
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    ,{
-      "title"			: "About Me",
-      "link"			: "http://blog.josephkahn.io/about/",
+      "link"			: "https://blog.josephkahn.io/articles/",
       "excerpt"		: ""
     }
   
@@ -83,9 +67,25 @@
   
     ,{
       "title"			: "Theme Setup",
-      "link"			: "http://blog.josephkahn.io/theme-setup/",
+      "link"			: "https://blog.josephkahn.io/theme-setup/",
       "excerpt"		: "Instructions on how to install and customize the Jekyll theme So Simple."
     }
+  
+
+  
+    ,{
+      "title"			: "About Me",
+      "link"			: "https://blog.josephkahn.io/about/",
+      "excerpt"		: ""
+    }
+  
+
+  
+
+  
+
+  
+
   
 
   
@@ -97,7 +97,7 @@
   
     ,{
       "title"			: "Tag Index",
-      "link"			: "http://blog.josephkahn.io/tags/",
+      "link"			: "https://blog.josephkahn.io/tags/",
       "excerpt"		: ""
     }
   

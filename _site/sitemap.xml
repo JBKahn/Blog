@@ -1,90 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://blog.josephkahn.io</loc>
+        <loc>https://blog.josephkahn.io</loc>
     </url>
     
     
     <url>
-        <loc>http://blog.josephkahn.io/404.html</loc>
+        <loc>https://blog.josephkahn.io/404.html</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/about/</loc>
+        <loc>https://blog.josephkahn.io/about/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/articles/</loc>
+        <loc>https://blog.josephkahn.io/articles/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/feed.xml</loc>
+        <loc>https://blog.josephkahn.io/feed.xml</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/</loc>
+        <loc>https://blog.josephkahn.io/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/tags/</loc>
+        <loc>https://blog.josephkahn.io/theme-setup/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/search/</loc>
+        <loc>https://blog.josephkahn.io/about/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/about/</loc>
+        <loc>https://blog.josephkahn.io/articles/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/blog/</loc>
+        <loc>https://blog.josephkahn.io/blog/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/articles/</loc>
+        <loc>https://blog.josephkahn.io/search/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/theme-setup/</loc>
+        <loc>https://blog.josephkahn.io/tags/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/assets/css/main.css</loc>
+        <loc>https://blog.josephkahn.io/assets/css/main.css</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/search.json</loc>
+        <loc>https://blog.josephkahn.io/search.json</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/sitemap.xml</loc>
+        <loc>https://blog.josephkahn.io/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/tags/</loc>
+        <loc>https://blog.josephkahn.io/tags/</loc>
     </url>
     
 
     
     <url>
-        <loc>http://blog.josephkahn.io/articles/vagrant-plugin/</loc>
+        <loc>https://blog.josephkahn.io/articles/vagrant-plugin/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/articles/ansible-modules/</loc>
+        <loc>https://blog.josephkahn.io/articles/ansible-modules/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/articles/ansible/</loc>
+        <loc>https://blog.josephkahn.io/articles/ansible/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/articles/pre-commit-hooks/</loc>
+        <loc>https://blog.josephkahn.io/articles/pre-commit-hooks/</loc>
     </url>
     
     <url>
-        <loc>http://blog.josephkahn.io/articles/starting-the-blog/</loc>
+        <loc>https://blog.josephkahn.io/articles/starting-the-blog/</loc>
     </url>
     
 </urlset>

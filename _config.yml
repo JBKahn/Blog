@@ -6,7 +6,7 @@ description: Becoming A Better Developer One Mistake At A Time
 # logo: site-logo.png
 search: true
 # url: http://localhost:4000
-url: http://blog.josephkahn.io
+url: https://blog.josephkahn.io
 
 # Jekyll configuration
 
@@ -80,5 +80,5 @@ links:
   - title: Articles
     url: /articles/
   - title: My Website
-    url: http://jbkahn.github.io
+    url: https://jbkahn.github.io
     external: true
